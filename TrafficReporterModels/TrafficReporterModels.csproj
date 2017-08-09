@@ -50,6 +50,10 @@
       <Project>{ff640cc9-4112-44d3-8c6c-cf885259647e}</Project>
       <Name>Enums</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TrafficReporterService.Common\TrafficReporterService.Common.csproj">
+      <Project>{2f764aac-7e47-4fd2-b4f1-d4da45cb4afe}</Project>
+      <Name>TrafficReporterService.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

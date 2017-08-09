@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Enums;
+using TrafficReporterService.Common;
 
 namespace TrafficReporterModels
 {
-    public class ReportPOCO
+    public class ReportPOCO: IReportService
     {
         public Guid Id { get; set; }
         CauseEnum Cause { get; set; }
@@ -18,6 +19,10 @@ namespace TrafficReporterModels
         DirectionEnum Direction { get; set; }
         BanEnum Ban { get; set; }
         public Guid UserId { get; set; }
-       
+
+        public bool AddReport()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

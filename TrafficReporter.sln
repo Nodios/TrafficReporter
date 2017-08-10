@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporterRepository.Common", "TrafficReporterRepository.Common\TrafficReporterRepository.Common.csproj", "{F3E72855-45B5-4399-B91C-AD054227C6F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporter.Repository.Common", "TrafficReporterRepository.Common\TrafficReporter.Repository.Common.csproj", "{F3E72855-45B5-4399-B91C-AD054227C6F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporterService.Common", "TrafficReporterService.Common\TrafficReporterService.Common.csproj", "{2F764AAC-7E47-4FD2-B4F1-D4DA45CB4AFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporter.Service.Common", "TrafficReporterService.Common\TrafficReporter.Service.Common.csproj", "{2F764AAC-7E47-4FD2-B4F1-D4DA45CB4AFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporterModel.Common", "TrafficReporterModel.Common\TrafficReporterModel.Common.csproj", "{4F754DA3-0299-4637-AE53-1092161C06AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporter.Model.Common", "TrafficReporterModel.Common\TrafficReporter.Model.Common.csproj", "{4F754DA3-0299-4637-AE53-1092161C06AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporterModels", "TrafficReporterModels\TrafficReporterModels.csproj", "{290A1C80-D35E-4348-BFBC-4D96B1BCF5DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporter.Model", "TrafficReporterModels\TrafficReporter.Model.csproj", "{290A1C80-D35E-4348-BFBC-4D96B1BCF5DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enums", "Enums\Enums.csproj", "{FF640CC9-4112-44D3-8C6C-CF885259647E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporter.Common", "Enums\TrafficReporter.Common.csproj", "{FF640CC9-4112-44D3-8C6C-CF885259647E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporter.Repository", "TrafficReporter.Repository\TrafficReporter.Repository.csproj", "{3F00AD21-C1A0-4787-9AC1-348B7C5CB38C}"
 EndProject

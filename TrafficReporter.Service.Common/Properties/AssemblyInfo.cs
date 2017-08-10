@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TrafficReporterService.Common")]
+[assembly: AssemblyTitle("TrafficReporter.Service.Common")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TrafficReporterService.Common")]
+[assembly: AssemblyProduct("TrafficReporter.Service.Common")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2f764aac-7e47-4fd2-b4f1-d4da45cb4afe")]
+[assembly: Guid("46427d7b-f072-472e-bed6-4a54f396425f")]
 
 // Version information for an assembly consists of the following four values:
 //

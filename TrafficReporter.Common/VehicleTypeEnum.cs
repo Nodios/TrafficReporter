@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrafficReporter.Service.Common
+namespace TrafficReporter.Common
 {
-    public interface IReportService
+    public class VehicleTypeEnum
     {
-        bool AddReport();
+        public enum VehicleType { car, bus, truck, taxi }
     }
 }

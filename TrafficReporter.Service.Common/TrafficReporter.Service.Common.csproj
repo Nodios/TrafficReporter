@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2F764AAC-7E47-4FD2-B4F1-D4DA45CB4AFE}</ProjectGuid>
+    <ProjectGuid>{46427D7B-F072-472E-BED6-4A54F396425F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TrafficReporterService.Common</RootNamespace>
-    <AssemblyName>TrafficReporterService.Common</AssemblyName>
+    <RootNamespace>TrafficReporter.Service.Common</RootNamespace>
+    <AssemblyName>TrafficReporter.Service.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,12 +42,6 @@
   <ItemGroup>
     <Compile Include="IReportService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TrafficReporterModels\TrafficReporter.Model.csproj">
-      <Project>{290a1c80-d35e-4348-bfbc-4d96b1bcf5dc}</Project>
-      <Name>TrafficReporter.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

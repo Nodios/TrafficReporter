@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrafficReporter.Service.Common
+namespace TrafficReporter.Common
 {
-    public interface IReportService
+    public class DirectionEnum
     {
-        bool AddReport();
+        public enum smjer { N = 6, E, W, S, NE, NW, SE, SW };
     }
 }

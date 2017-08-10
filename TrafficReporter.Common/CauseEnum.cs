@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrafficReporter.Service.Common
+namespace TrafficReporter.Common
 {
-    public interface IReportService
+    public class CauseEnum
     {
-        bool AddReport();
+        public enum Cause { crash, traffic, hole };
     }
 }

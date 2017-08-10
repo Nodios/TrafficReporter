@@ -1,26 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Enums;
+using TrafficReporter.Common;
 
-
-namespace TrafficReporterModel.Common
+namespace TrafficReporter.Model.Common
 {
     public interface IReportPOCO
     {
         Guid Id { get; set; }
         CauseEnum Cause { get; set; }
         DateTime DateCreated { get; set; }
-        Guid PictureId { get; set; }
-        int Rating { get; set; }
+        int RatingPlus { get; set; }
+        int RatingMinus { get; set; }
         DirectionEnum Direction { get; set; }
-        BanEnum Ban { get; set; }
         Guid UserId { get; set; }
+        float Latitude { get; set; }
+        float Longitude { get; set; }
+        VehicleTypeEnum VehicleType { get; set; }
 
-
-        List<IPicturePOCO> Picture { get; set; }
-        List<IUserPOCO> User { get; set; }
     }
 }

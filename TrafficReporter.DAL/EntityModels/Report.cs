@@ -4,15 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace TrafficReporter.Common.Enums
+namespace TrafficReporter.DAL.EntityModels
 {
-
-    public enum Cause
+    class Report
     {
-        crash, traffic, hole
     }
-
-        
-    
 }

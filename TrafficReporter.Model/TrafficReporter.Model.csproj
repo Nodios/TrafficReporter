@@ -7,8 +7,8 @@
     <ProjectGuid>{290A1C80-D35E-4348-BFBC-4D96B1BCF5DC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TrafficReporterModels</RootNamespace>
-    <AssemblyName>TrafficReporterModels</AssemblyName>
+    <RootNamespace>TrafficReporter.Model</RootNamespace>
+    <AssemblyName>TrafficReporter.Model</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,19 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PicturePOCO.cs" />
     <Compile Include="ReportPOCO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserPOCO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Enums\TrafficReporter.Common.csproj">
       <Project>{ff640cc9-4112-44d3-8c6c-cf885259647e}</Project>
       <Name>TrafficReporter.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TrafficReporter.Service.Common\TrafficReporter.Service.Common.csproj">
-      <Project>{2f764aac-7e47-4fd2-b4f1-d4da45cb4afe}</Project>
-      <Name>TrafficReporterService.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,8 +7,8 @@
     <ProjectGuid>{4F754DA3-0299-4637-AE53-1092161C06AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TrafficReporterModel.Common</RootNamespace>
-    <AssemblyName>TrafficReporterModel.Common</AssemblyName>
+    <RootNamespace>TrafficReporter.Model.Common</RootNamespace>
+    <AssemblyName>TrafficReporter.Model.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,9 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPicturePOCO.cs" />
     <Compile Include="IReportPOCO.cs" />
-    <Compile Include="IUserPOCO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

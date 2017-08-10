@@ -7,8 +7,8 @@
     <ProjectGuid>{2F764AAC-7E47-4FD2-B4F1-D4DA45CB4AFE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TrafficReporterService.Common</RootNamespace>
-    <AssemblyName>TrafficReporterService.Common</AssemblyName>
+    <RootNamespace>TrafficReporter.Service.Common</RootNamespace>
+    <AssemblyName>TrafficReporter.Service.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

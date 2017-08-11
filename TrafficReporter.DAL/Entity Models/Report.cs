@@ -9,7 +9,7 @@ using TrafficReporter.Common.Enums;
 
 namespace TrafficReporter.DAL.Entity_Models
 {
-    class Report
+    public class Report
     {
         /// <summary>
         /// Unique identifier

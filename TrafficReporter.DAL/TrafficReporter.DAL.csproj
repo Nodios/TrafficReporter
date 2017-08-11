@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>9647b476-f5d0-41b8-8f1b-0d84a4f8ca95</ProjectGuid>
+    <ProjectGuid>a0a7173b-00b2-48b5-9595-0f5f3cc11241</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TrafficReporter.DAL</RootNamespace>

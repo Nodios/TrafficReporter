@@ -44,7 +44,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TrafficReporterModels\TrafficReporter.Model.csproj">
+    <ProjectReference Include="..\TrafficReporter.Model\TrafficReporter.Model.csproj">
       <Project>{290a1c80-d35e-4348-bfbc-4d96b1bcf5dc}</Project>
       <Name>TrafficReporter.Model</Name>
     </ProjectReference>

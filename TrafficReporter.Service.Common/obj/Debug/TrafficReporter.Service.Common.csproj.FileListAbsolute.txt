@@ -1,0 +1,9 @@
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Service.Common\bin\Debug\TrafficReporter.Service.Common.dll
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Service.Common\bin\Debug\TrafficReporter.Service.Common.pdb
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Service.Common\bin\Debug\TrafficReporter.Model.dll
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Service.Common\bin\Debug\TrafficReporter.Common.dll
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Service.Common\bin\Debug\TrafficReporter.Model.pdb
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Service.Common\bin\Debug\TrafficReporter.Common.pdb
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Service.Common\obj\Debug\TrafficReporter.Service.Common.csprojResolveAssemblyReference.cache
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Service.Common\obj\Debug\TrafficReporter.Service.Common.dll
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Service.Common\obj\Debug\TrafficReporter.Service.Common.pdb

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Enums
+namespace TrafficReporter.Common.Enums
 {
 
     public enum Cause

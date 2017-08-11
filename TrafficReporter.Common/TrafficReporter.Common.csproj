@@ -7,8 +7,8 @@
     <ProjectGuid>{FF640CC9-4112-44D3-8C6C-CF885259647E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Enums</RootNamespace>
-    <AssemblyName>Enums</AssemblyName>
+    <RootNamespace>TrafficReporter.Common</RootNamespace>
+    <AssemblyName>TrafficReporter.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

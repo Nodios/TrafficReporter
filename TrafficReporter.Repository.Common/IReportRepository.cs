@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TrafficReporterModels;
+﻿using TrafficReporter.Model;
 
-namespace TrafficReporterRepository.Common
+namespace TrafficReporter.Repository.Common
 {
     public interface IReportRepository
     {
-        bool AddReport(UserPOCO Korisnik, ReportPOCO Uzrok);
+        bool AddReport(ReportPOCO report);
 }
 }

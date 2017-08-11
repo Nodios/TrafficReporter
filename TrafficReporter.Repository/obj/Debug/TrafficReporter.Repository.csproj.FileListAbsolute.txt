@@ -1,0 +1,5 @@
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Repository\bin\Debug\TrafficReporter.Repository.dll
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Repository\bin\Debug\TrafficReporter.Repository.pdb
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Repository\obj\Debug\TrafficReporter.Repository.csprojResolveAssemblyReference.cache
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Repository\obj\Debug\TrafficReporter.Repository.dll
+C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Repository\obj\Debug\TrafficReporter.Repository.pdb

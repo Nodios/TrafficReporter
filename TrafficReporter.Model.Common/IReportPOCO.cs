@@ -13,9 +13,10 @@ namespace TrafficReporter.Model.Common
         int RatingMinus { get; set; }
         DirectionEnum Direction { get; set; }
         Guid UserId { get; set; }
-        float Latitude { get; set; }
-        float Longitude { get; set; }
+        double Latitude { get; set; }
+        double Longitude { get; set; }
         VehicleTypeEnum VehicleType { get; set; }
+        bool Active { get; set; }
 
     }
 }

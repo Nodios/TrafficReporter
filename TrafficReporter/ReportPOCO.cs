@@ -5,18 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using TrafficReporter.Common;
 using TrafficReporter.Service.Common;
+using TrafficReporter.Model.Common;
 
 namespace TrafficReporter
 {
     public class ReportPOCO : IReportService
     {
-        private Service.ReportService reportService;
-
-        public ReportPOCO(Service.ReportService reportService)
-        {
-            this.reportService = reportService;
-        }
-
         public Guid Id { get; set; }
         CauseEnum Cause { get; set; }
         public DateTime DateCreated { get; set; }
@@ -24,17 +18,27 @@ namespace TrafficReporter
         public int RatingMinus { get; set; }
         DirectionEnum Direction { get; set; }
         public Guid UserId { get; set; }
+        public bool Active { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        VehicleTypeEnum VehicleType { get; set; }
 
         public static bool GetAllReport()
         {
             throw new NotImplementedException();
         }
 
-        float Latitude { get; set; }
-        float Longitude { get; set; }
-        VehicleTypeEnum VehicleType { get; set; }
+        public bool AddReport(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
 
-        public bool AddReport()
+        public List<IReportPOCO> GetAllAvailableReports()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RemoveReport(Guid Id)
         {
             throw new NotImplementedException();
         }

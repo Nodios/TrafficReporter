@@ -28,16 +28,38 @@ namespace TrafficReporter.Service
 
         #region Methods
 
-        public bool AddReport(ReportPOCO Uzrok)
+        /// <summary>
+        /// Add to report
+        /// </summary>
+        /// <param name="Id">Report identifier</param>
+        /// <returns></returns>
+        public bool AddReport(Guid Id)
         {
-            if (!ReportPOCO.GetAllReport().(p => p.Id.Equals(Uzrok)).Cause)
+            if (!Repository.GetAllReports().First(p => p.Id.Equals(Id)).Active)
             {
-                throw new NotImplementedException();
+                throw new ArgumentOutOfRangeException("Active");
             }
-            return Repository.AddReport(Uzrok);
+            return Repository.AddReport(Id);
         }
 
+        /// <summary>
+        /// Gets all available reports
+        /// </summary>
+        /// <returns></returns>
+        public List<IReportPOCO> GetAllAvailableReports()
+        {
+            return Repository.GetAllReports().Where(p => p.Active).ToList();
+        }
 
+        /// <summary>
+        /// Removes report
+        /// </summary>
+        /// <param name="Id">Report identifier</param>
+        /// <returns></returns>
+        public bool RemoveReport(Guid Id)
+        {
+            return Repository.RemoveReport(Id);
+        }
 
         #endregion Methods
     }

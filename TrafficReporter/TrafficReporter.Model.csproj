@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Geolocation.cs" />
     <Compile Include="ReportPOCO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -47,6 +48,10 @@
     <ProjectReference Include="..\TrafficReporter.Common\TrafficReporter.Common.csproj">
       <Project>{3ba654f3-8d9a-4fb8-8d0b-3215fe7cec18}</Project>
       <Name>TrafficReporter.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficReporter.Model.Common\TrafficReporter.Model.Common.csproj">
+      <Project>{49380890-7fcb-42db-86b5-b35d4e814904}</Project>
+      <Name>TrafficReporter.Model.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.Service.Common\TrafficReporter.Service.Common.csproj">
       <Project>{46427d7b-f072-472e-bed6-4a54f396425f}</Project>

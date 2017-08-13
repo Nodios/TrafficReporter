@@ -16,7 +16,7 @@ let PROB: Problem[]=[
  
   <agm-marker *ngFor="let problem of Problems" 
   [latitude]="problem.lat" [longitude]="problem.lng" 
-  [iconUrl]="'./assets/images/'problem.cause'.png'"
+  [iconUrl]="'https://cdn0.iconfinder.com/data/icons/fatcow/32x32/shuriken.png'"
   >
   </agm-marker>
 </agm-map>

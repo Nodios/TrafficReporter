@@ -9,7 +9,7 @@ namespace TrafficReporter.Repository.Common
     {
         bool AddReport(IReportPOCO report);
 
-        List<IReportPOCO> GetAllReports();
+        
 
         IReportPOCO GetReport(Guid Id);
 

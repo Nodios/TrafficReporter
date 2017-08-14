@@ -13,14 +13,10 @@ namespace TrafficReporter.Repository
     {
         public bool AddReport(IReportPOCO report)
         {
-            throw new NotImplementedException();
+            
         }
 
-        public List<IReportPOCO> GetAllReports()
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public IReportPOCO GetReport(Guid Id)
         {
             throw new NotImplementedException();
@@ -28,7 +24,7 @@ namespace TrafficReporter.Repository
 
         public bool RemoveReport(Guid Id)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

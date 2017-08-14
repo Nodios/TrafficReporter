@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporter.DAL", "Traf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication4", "WebApplication4\WebApplication4.csproj", "{45FDC24B-BD4F-4188-B454-46118D49CF10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporter.Service", "TrafficReporter.Service\TrafficReporter.Service.csproj", "{22B35DED-74E1-457A-8EDC-0DF05D74A3A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{45FDC24B-BD4F-4188-B454-46118D49CF10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45FDC24B-BD4F-4188-B454-46118D49CF10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45FDC24B-BD4F-4188-B454-46118D49CF10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22B35DED-74E1-457A-8EDC-0DF05D74A3A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22B35DED-74E1-457A-8EDC-0DF05D74A3A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22B35DED-74E1-457A-8EDC-0DF05D74A3A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22B35DED-74E1-457A-8EDC-0DF05D74A3A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

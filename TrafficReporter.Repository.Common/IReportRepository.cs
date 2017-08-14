@@ -7,11 +7,11 @@ namespace TrafficReporter.Repository.Common
 {
     public interface IReportRepository
     {
-        bool AddReport(IReportPOCO report);
+        bool AddReport(IReport report);
 
-        List<IReportPOCO> GetAllReports();
+        List<IReport> GetAllReports();
 
-        IReportPOCO GetReport(Guid Id);
+        IReport GetReport(Guid Id);
 
         bool RemoveReport(Guid Id);
 

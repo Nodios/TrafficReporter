@@ -1,7 +1,16 @@
-﻿@{
+﻿@model TrafficReporter.DAL.Entity_Models.ReportEntity
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="data">
-    
-</div>
+@using (Html.BeginForm("AddReport", "Home", FormMethod.Post))
+{
+    @Html.TextBoxFor(r => r.Lattitude)
+
+    @Html.TextBoxFor(r => r.Longitude)
+
+    @Html.TextBoxFor(r => r.Rating)
+
+    <input type="submit" value="Submit"/>
+}

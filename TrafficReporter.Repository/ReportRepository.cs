@@ -11,17 +11,17 @@ namespace TrafficReporter.Repository
 {
     public class ReportRepository : IReportRepository
     {
-        public bool AddReport(IReportPOCO report)
+        public bool AddReport(IReport report)
         {
             throw new NotImplementedException();
         }
 
-        public List<IReportPOCO> GetAllReports()
+        public List<IReport> GetAllReports()
         {
             throw new NotImplementedException();
         }
 
-        public IReportPOCO GetReport(Guid Id)
+        public IReport GetReport(Guid Id)
         {
             throw new NotImplementedException();
         }

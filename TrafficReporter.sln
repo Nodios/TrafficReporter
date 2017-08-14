@@ -19,6 +19,26 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporter.DAL", "Traf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication4", "WebApplication4\WebApplication4.csproj", "{45FDC24B-BD4F-4188-B454-46118D49CF10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficReporter.UnitTest", "TrafficReporter.UnitTest\TrafficReporter.UnitTest.csproj", "{5D6CAF14-9536-4F8C-B1FB-27D45A95C117}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_57712"
+		Debug.AspNetCompiler.PhysicalPath = "TrafficReporter.UnitTest\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57712\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_57712"
+		Release.AspNetCompiler.PhysicalPath = "TrafficReporter.UnitTest\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57712\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "57712"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +77,10 @@ Global
 		{45FDC24B-BD4F-4188-B454-46118D49CF10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45FDC24B-BD4F-4188-B454-46118D49CF10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45FDC24B-BD4F-4188-B454-46118D49CF10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D6CAF14-9536-4F8C-B1FB-27D45A95C117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D6CAF14-9536-4F8C-B1FB-27D45A95C117}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D6CAF14-9536-4F8C-B1FB-27D45A95C117}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D6CAF14-9536-4F8C-B1FB-27D45A95C117}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

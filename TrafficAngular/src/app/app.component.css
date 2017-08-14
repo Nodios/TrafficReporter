@@ -1,0 +1,13 @@
+map {
+    height: 720px; 
+}
+
+causes{
+    height: 80px;
+    top:720px;
+}
+
+map, causes{
+    position: absolute;
+    width: 480px;
+}

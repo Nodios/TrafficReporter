@@ -44,6 +44,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TrafficReporter.Model.Common\TrafficReporter.Model.Common.csproj">
+      <Project>{4f754da3-0299-4637-ae53-1092161c06ad}</Project>
+      <Name>TrafficReporter.Model.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficReporter.Model\TrafficReporter.Model.csproj">
+      <Project>{290a1c80-d35e-4348-bfbc-4d96b1bcf5dc}</Project>
+      <Name>TrafficReporter.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.Repository.Common\TrafficReporter.Repository.Common.csproj">
       <Project>{f3e72855-45b5-4399-b91c-ad054227c6f8}</Project>
       <Name>TrafficReporter.Repository.Common</Name>

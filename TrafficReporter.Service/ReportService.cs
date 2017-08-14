@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TrafficReporter.Service.Common;
 using TrafficReporter.Repository.Common;
+using TrafficReporter.Model;
+using TrafficReporter.Model.Common;
 
 
 namespace TrafficReporter.Service
@@ -26,6 +28,9 @@ namespace TrafficReporter.Service
 
         #region Properties
 
+
+
+
         /// <summary>
         /// Gets the repository.
         /// </summary>
@@ -34,20 +39,23 @@ namespace TrafficReporter.Service
         /// </value>
         protected IReportRepository Repository { get; private set; }
 
+        
+
+
+
         #endregion Properties 
 
         #region Methods
 
         /// <summary>
-        /// Add to report.
+        /// Add report.
         /// </summary>
-        /// <param name="Id">Report identifier</param>
+        /// <param name="">Report identifier</param>
         /// <returns></returns>
-        public bool AddReport()
+        public bool AddReport(ReportPOCO Report)
         {
-
-            return Repository.AddReport();
-
+            
+            return true;
         }
 
         /// <summary>
@@ -57,7 +65,7 @@ namespace TrafficReporter.Service
         /// <returns></returns>
         public bool RemoveReport(Guid Id)
         {
-            return Repository.RemoveReport(Id);
+            return true;
         }
 
         #endregion Methods

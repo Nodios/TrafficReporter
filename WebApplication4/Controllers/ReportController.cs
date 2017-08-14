@@ -9,31 +9,79 @@ namespace WebApplication4.Controllers
 {
     public class ReportController : ApiController
     {
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+        #region Constructors
+
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ReportController"/> class.
+        /// </summary>
+        /// <param name="service">The service.</param>
+        public ReportController(IReportService service)
         {
-            return new string[] { "value1", "value2" };
+            this.Service = service;
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        #endregion Constructors
+
+        #region Properties
+
+        /// <summary>
+        /// Gets the service.
+        /// </summary>
+        /// <value>The service.</value>
+        protected IReportService Service { get; private set; }
+
+        #endregion Properties
+
+        #region Methods
+
+        [HttpDelete]
+        [Route("my-cart/products/{id}")]
+        public bool DeleteReportAsync(Guid Id)
         {
-            return "value";
+            return Service.RemoveFromCart(id);
         }
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
+        [HttpGet]
+        [Route("products")]
+        public List<IProduct> GetAsync()
         {
+            return Service.GetAllAvailableProducts();
         }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        [HttpGet]
+        [Route("my-cart")]
+        public ICart GetMyCartAsync()
         {
+            return Service.GetMyCart();
         }
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
+        [HttpGet]
+        [Route("my-cart/products")]
+        public List<IProduct> GetMyCartProductsAsync()
         {
+            return Service.GetMyCart().Items;
         }
+
+        [HttpPost]
+        [Route("my-cart/products/{id}")]
+        public HttpResponseMessage PostMyCartProductsAsync(int id)
+        {
+            try
+            {
+                return Request.CreateResponse<bool>(Service.AddToCart(id));
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, "Item is Out of Stock.");
+            }
+            catch (ArgumentNullException)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Item's expiration date has passed.");
+            }
+        }
+
+
+        #endregion Methods
     }
 }

@@ -3,3 +3,15 @@ C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Commo
 C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Common\obj\Debug\TrafficReporter.Common.csprojResolveAssemblyReference.cache
 C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Common\obj\Debug\TrafficReporter.Common.dll
 C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\TrafficReporter.Common\obj\Debug\TrafficReporter.Common.pdb
+C:\Users\Lucija\Documents\TrafficReporter\TrafficReporter.Common\bin\Debug\AutoMapper.Net4.dll
+C:\Users\Lucija\Documents\TrafficReporter\TrafficReporter.Common\bin\Debug\TrafficReporter.Common.dll
+C:\Users\Lucija\Documents\TrafficReporter\TrafficReporter.Common\bin\Debug\TrafficReporter.Common.pdb
+C:\Users\Lucija\Documents\TrafficReporter\TrafficReporter.Common\bin\Debug\AutoMapper.dll
+C:\Users\Lucija\Documents\TrafficReporter\TrafficReporter.Common\bin\Debug\Ninject.dll
+C:\Users\Lucija\Documents\TrafficReporter\TrafficReporter.Common\bin\Debug\AutoMapper.pdb
+C:\Users\Lucija\Documents\TrafficReporter\TrafficReporter.Common\bin\Debug\AutoMapper.xml
+C:\Users\Lucija\Documents\TrafficReporter\TrafficReporter.Common\bin\Debug\AutoMapper.Net4.pdb
+C:\Users\Lucija\Documents\TrafficReporter\TrafficReporter.Common\bin\Debug\Ninject.xml
+C:\Users\Lucija\Documents\TrafficReporter\TrafficReporter.Common\obj\Debug\TrafficReporter.Common.csprojResolveAssemblyReference.cache
+C:\Users\Lucija\Documents\TrafficReporter\TrafficReporter.Common\obj\Debug\TrafficReporter.Common.dll
+C:\Users\Lucija\Documents\TrafficReporter\TrafficReporter.Common\obj\Debug\TrafficReporter.Common.pdb

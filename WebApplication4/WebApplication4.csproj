@@ -187,6 +187,20 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TrafficReporter.DAL\TrafficReporter.DAL.csproj">
+      <Project>{A0A7173B-00B2-48B5-9595-0F5F3CC11241}</Project>
+      <Name>TrafficReporter.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficReporter.Model.Common\TrafficReporter.Model.Common.csproj">
+      <Project>{4F754DA3-0299-4637-AE53-1092161C06AD}</Project>
+      <Name>TrafficReporter.Model.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficReporter.Service.Common\TrafficReporter.Service.Common.csproj">
+      <Project>{2f764aac-7e47-4fd2-b4f1-d4da45cb4afe}</Project>
+      <Name>TrafficReporter.Service.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

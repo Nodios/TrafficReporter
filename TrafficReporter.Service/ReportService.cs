@@ -7,7 +7,7 @@ using TrafficReporter.Service.Common;
 using TrafficReporter.Repository.Common;
 using TrafficReporter.Model;
 using TrafficReporter.Model.Common;
-
+using TrafficReporter.Common.Enums;
 
 namespace TrafficReporter.Service
 {
@@ -39,10 +39,11 @@ namespace TrafficReporter.Service
         /// </value>
         protected IReportRepository Repository { get; private set; }
 
-        
-
-
-
+        public void AddReport(double Long, double Lat, Cause Cause)
+        {
+            
+            
+        }
         #endregion Properties 
 
         #region Methods
@@ -66,6 +67,11 @@ namespace TrafficReporter.Service
         public bool RemoveReport(Guid Id)
         {
             return true;
+        }
+
+        public bool AddReport()
+        {
+            throw new NotImplementedException();
         }
 
         #endregion Methods

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using TrafficReporter.DAL.Entity_Models;
+using TrafficReporter.Model.Common;
+using TrafficReporter.Service.Common;
 
 namespace WebApplication4.Controllers
 {
@@ -36,49 +39,32 @@ namespace WebApplication4.Controllers
         #region Methods
 
         [HttpDelete]
-        [Route("my-cart/products/{id}")]
         public bool DeleteReportAsync(Guid Id)
         {
-            return Service.RemoveFromCart(id);
+            return Service.RemoveReport(Id);
         }
 
         [HttpGet]
-        [Route("products")]
-        public List<IProduct> GetAsync()
+        public List<Report> GetAsync()
         {
-            return Service.GetAllAvailableProducts();
+            List<Report> a = null;
+            return a;
         }
 
         [HttpGet]
-        [Route("my-cart")]
-        public ICart GetMyCartAsync()
+        public IReportPOCO GetReportAsync()
         {
-            return Service.GetMyCart();
+            IReportPOCO c = null;
+            return c;
         }
+
 
         [HttpGet]
-        [Route("my-cart/products")]
-        public List<IProduct> GetMyCartProductsAsync()
-        {
-            return Service.GetMyCart().Items;
-        }
 
-        [HttpPost]
-        [Route("my-cart/products/{id}")]
-        public HttpResponseMessage PostMyCartProductsAsync(int id)
+        public Report GetCauseAsync(double x1, double y1, double x2, double y2)
         {
-            try
-            {
-                return Request.CreateResponse<bool>(Service.AddToCart(id));
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                return Request.CreateResponse(HttpStatusCode.BadRequest, "Item is Out of Stock.");
-            }
-            catch (ArgumentNullException)
-            {
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Item's expiration date has passed.");
-            }
+            Report a = null;
+            return a;
         }
 
 

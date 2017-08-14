@@ -20,5 +20,7 @@ namespace TrafficReporter.Service.Common
         /// <returns></returns>
         bool RemoveReport(Guid Id);
 
+        
+
     }
 }

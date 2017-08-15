@@ -65,9 +65,17 @@
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Npgsql, Version=3.2.5.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.3.2.5\lib\net451\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -184,6 +192,10 @@
     <ProjectReference Include="..\TrafficReporter.DAL\TrafficReporter.DAL.csproj">
       <Project>{a0a7173b-00b2-48b5-9595-0f5f3cc11241}</Project>
       <Name>TrafficReporter.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficReporter.Model.Common\TrafficReporter.Model.Common.csproj">
+      <Project>{4f754da3-0299-4637-ae53-1092161c06ad}</Project>
+      <Name>TrafficReporter.Model.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.Service.Common\TrafficReporter.Service.Common.csproj">
       <Project>{2f764aac-7e47-4fd2-b4f1-d4da45cb4afe}</Project>

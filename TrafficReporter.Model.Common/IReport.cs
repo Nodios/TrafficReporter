@@ -11,8 +11,9 @@ namespace TrafficReporter.Model.Common
         DateTime DateCreated { get; set; }
         int Rating { get; set; }
         Direction Direction { get; set; }
-        Ban Ban { get; set; }
-        Guid UserId { get; set; }
+        double Longitude { get; set; }
+        double Lattitude { get; set; }
+
 
     }
 }

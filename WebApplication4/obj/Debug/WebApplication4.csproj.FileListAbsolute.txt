@@ -38,3 +38,4 @@ C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\WebApplication4\bin\N
 C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\WebApplication4\obj\Debug\WebApplication4.csprojResolveAssemblyReference.cache
 C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\WebApplication4\obj\Debug\WebApplication4.dll
 C:\Users\BumperstickCarsnatch\Source\Repos\TrafficReporter\WebApplication4\obj\Debug\WebApplication4.pdb
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\WebApplication4\obj\Debug\WebApplication4.csprojResolveAssemblyReference.cache

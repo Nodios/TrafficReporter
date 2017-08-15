@@ -43,7 +43,15 @@
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Npgsql, Version=3.2.5.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.3.2.5\lib\net451\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -60,13 +68,29 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DbConnectionStringTest.cs" />
+    <Compile Include="DbConnectionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TrafficReporter.Common\TrafficReporter.Common.csproj">
+      <Project>{ff640cc9-4112-44d3-8c6c-cf885259647e}</Project>
+      <Name>TrafficReporter.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.DAL\TrafficReporter.DAL.csproj">
       <Project>{a0a7173b-00b2-48b5-9595-0f5f3cc11241}</Project>
       <Name>TrafficReporter.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficReporter.Model.Common\TrafficReporter.Model.Common.csproj">
+      <Project>{4F754DA3-0299-4637-AE53-1092161C06AD}</Project>
+      <Name>TrafficReporter.Model.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficReporter.Model\TrafficReporter.Model.csproj">
+      <Project>{290A1C80-D35E-4348-BFBC-4D96B1BCF5DC}</Project>
+      <Name>TrafficReporter.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficReporter.Repository\TrafficReporter.Repository.csproj">
+      <Project>{3f00ad21-c1a0-4787-9ac1-348b7c5cb38c}</Project>
+      <Name>TrafficReporter.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -5,17 +5,18 @@ using System.Web;
 using System.Web.Mvc;
 using TrafficReporter.DAL.Entity_Models;
 using TrafficReporter.Service.Common;
+using TrafficReporter.Model.Common;
 
 
 namespace WebApplication4.Controllers
 {
     public class HomeController : Controller
     {
-        private IReportService ReportService;
+        private IReportService _reportService;
 
         public HomeController(IReportService reportService)
         {
-            ReportService = reportService;
+            _reportService = reportService;
         }
 
         public ActionResult Index()
@@ -39,7 +40,10 @@ namespace WebApplication4.Controllers
 
         public ActionResult AddReport(IReport report)
         {
-            ReportService.AddReport()
+            _reportService.AddReport(report);
+
+            return A
+
         }
     }
 }

@@ -9,10 +9,9 @@ namespace TrafficReporter.Model
         public Guid Id { get; set; }
         public Cause Cause { get; set; }
         public DateTime DateCreated { get; set; }
-        public Guid PictureId { get; set; }
         public int Rating { get; set; }
         public Direction Direction { get; set; }
-        public Ban Ban { get; set; }
-        public Guid UserId { get; set; }
+        public double Longitude { get; set; }
+        public double Lattitude { get; set; }
     }
 }

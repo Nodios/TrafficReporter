@@ -8,33 +8,34 @@ using System.Configuration;
 namespace TrafficReporter.DAL
 {
     /// <summary>
-    /// This class helps contribute to "factory" design pattern,
-    /// so our code doesn't depend on database provider.
-    /// See this link for more information.
-    /// https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/factory-model-overview
+    /// This class helps to get connection string easily only by name.
     /// </summary>
     public class DBConnectionConfiguration
     {
 
-        public static string GetConnectionStringByProvider(string providerName)
+        /// <summary>
+        /// Gets connection string to database.
+        /// This way it is easy to switch from database to another one.
+        /// </summary>
+        /// <param name="name">Name we given for our connection string in config file</param>
+        /// <returns></returns>
+        public static string GetConnectionStringByName(string name)
         {
-            string returnValue = null;
+            string connectionString = null;
 
-            var settings = ConfigurationManager.ConnectionStrings;
+            ConfigurationManager.RefreshSection("connectionStrings");
+            var connectionStrings = ConfigurationManager.ConnectionStrings;
 
-            if (settings != null)
+            foreach (ConnectionStringSettings connectionSetting in connectionStrings)
             {
-                foreach (ConnectionStringSettings connectionSetting in settings)
+                if (connectionSetting.Name.Equals(name))
                 {
-                    if (connectionSetting.ProviderName.Equals(providerName))
-                    {
-                        returnValue = connectionSetting.ConnectionString;
-                        break;
-                    }
+                    connectionString = connectionSetting.ConnectionString;
+
                 }
             }
 
-            return returnValue;
+            return connectionString;
         }
     }
 }

@@ -48,6 +48,7 @@ namespace TrafficReporter.Service
 
         #region Methods
 
+       
         /// <summary>
         /// Add report.
         /// </summary>
@@ -56,6 +57,24 @@ namespace TrafficReporter.Service
         public bool AddReport(ReportPOCO Report)
         {
             
+            return true;
+        }
+
+
+        int upTo = 2;
+        /// <summary>
+        /// Gets the reports.
+        /// </summary>
+        /// <param name="upTo">Up to some amount of reports.</param>
+        /// <returns></returns>
+        public bool GetReports(int upTo)
+
+        {
+            return true;
+        }
+
+        public bool GetReport(Guid Id)
+        {
             return true;
         }
 

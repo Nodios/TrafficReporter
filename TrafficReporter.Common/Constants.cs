@@ -17,5 +17,7 @@ namespace TrafficReporter.Common
     {
         public static string LocalConnectionString =
             "Host=localhost; Port=5432; Username='postgres'; Password=3530744182a; Database=TrafficReportDB";
+        public static string RemoteConnectionString =
+            "Host=192.168.21.10; Port = 5432; Username='postgres'; Password=postgres; Database=trafficReport";
     }
 }

@@ -20,14 +20,14 @@ namespace TrafficReporter.Repository
         {
             var rowsAffrected = 0;
 
-            using (var connection = new NpgsqlConnection(Constants.LocalConnectionString))
+            using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
             {
                 connection.Open();
 
                 using (var command = new NpgsqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "INSERT INTO report (id, cause, direction, longitude, lattitude, date_time)" +
+                    command.CommandText = "INSERT INTO trafreport (id, cause, direction, longitude, lattitude, date_time)" +
                                           "VALUES (@id, @cause, @direction, @longitude, @lattitude, @date_time)";
                     command.Parameters.AddWithValue("id", Guid.NewGuid());
                     command.Parameters.AddWithValue("cause", (int)report.Cause);
@@ -42,14 +42,24 @@ namespace TrafficReporter.Repository
             return rowsAffrected;
         }
 
-        public List<IReport> GetAllReports()
-        {
-            throw new NotImplementedException();
-        }
 
-        public IReport GetReport(Guid Id)
+
+        public IReport GetReport(Guid id)
         {
-            throw new NotImplementedException();
+            IReport report = null;
+
+            using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
+            {
+                connection.Open();
+
+                using (var command = new NpgsqlCommand("SELECT * FROM trafreport", connection))
+                using (var reader = command.ExecuteReader())
+                    while (reader.Read())
+                        Console.WriteLine(reader.GetString(0), reader.GetString(1));
+            }
+
+
+            return report;
         }
 
         public bool RemoveReport(Guid Id)

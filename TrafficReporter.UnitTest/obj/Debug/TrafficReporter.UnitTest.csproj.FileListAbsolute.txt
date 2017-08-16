@@ -27,3 +27,5 @@ C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest\bin\Debug\TrafficReporter.Service.dll
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest\bin\Debug\TrafficReporter.Service.Common.pdb
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest\bin\Debug\TrafficReporter.Service.pdb
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest\bin\Debug\Newtonsoft.Json.xml

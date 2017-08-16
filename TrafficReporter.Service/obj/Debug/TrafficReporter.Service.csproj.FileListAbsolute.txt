@@ -11,3 +11,5 @@ C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Service\
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Service\obj\Debug\TrafficReporter.Service.csprojResolveAssemblyReference.cache
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Service\obj\Debug\TrafficReporter.Service.dll
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Service\obj\Debug\TrafficReporter.Service.pdb
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Service\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Service\bin\Debug\Newtonsoft.Json.xml

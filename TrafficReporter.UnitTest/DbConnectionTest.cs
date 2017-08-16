@@ -33,7 +33,7 @@ namespace TrafficReporter.UnitTest
         /// This method tests AddReport of <see cref="ReportRepository"/>
         /// </summary>
         [TestMethod]
-        public void ReportRepositoryTest()
+        public void ReportRepositoryAddTest()
         {
             var repo = new ReportRepository();
             var report = new Report
@@ -47,6 +47,15 @@ namespace TrafficReporter.UnitTest
 
             Assert.AreEqual(repo.AddReport(report), 1);
 
+        }
+
+        [TestMethod]
+        public void ReportRepositoryGetByIdTest()
+        {
+            var id = new Guid("b814f246-ee8c-4e79-9f96-994d5cac90c9");
+            var repo = new ReportRepository();
+
+            repo.GetReport(id);
         }
 
         [TestMethod]

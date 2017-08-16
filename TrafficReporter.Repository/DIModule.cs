@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Ninject;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AutoMapper;
+using Ninject.Modules;
+using TrafficReporter.Repository.Common;
 using AutoMapper;
 using TrafficReporter.Model;
 using TrafficReporter.DAL.Entity_Models;
@@ -12,18 +12,42 @@ using TrafficReporter.Service.Common;
 
 namespace TrafficReporter.Repository
 {
-    class DIModule : Ninject.Modules.NinjectModule
+    public class DIModule : NinjectModule
     {
         public override void Load()
         {
-            var config = new MapperConfiguration(cfg =>
+            Bind<IMapper>().ToMethod(ctx =>
             {
-                cfg.CreateMap<ReportEntity, Report>();
-                cfg.CreateMap<ReportEntity, IReport>();
-                cfg.CreateMap<Report, IReport>();
+                var profiles = ctx.Kernel.Get<List<Profile>>();
+                var config = new MapperConfiguration(
+    c =>
+    {
 
-                Bind<IReportRepository>().To<ReportRepository>();
-            });
+        foreach (var profile in profiles)
+        {
+            c.AddProfile(profile);
         }
+    });
+                // Solution starts here
+                var mapper = config.CreateMapper();
+                return mapper;
+            }).InSingletonScope();
+
+
+
+
+            Bind<IReportRepository>().To<ReportRepository>();
+            
+
+
+
+        }
+        
+
+
     }
-}
+
+
+    }
+    
+

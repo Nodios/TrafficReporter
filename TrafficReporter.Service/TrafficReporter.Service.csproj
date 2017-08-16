@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{10AEB5E4-9125-431D-BFEE-07969A763AFC}</ProjectGuid>
+    <ProjectGuid>{22B35DED-74E1-457A-8EDC-0DF05D74A3A7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TrafficReporter.Service</RootNamespace>
@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,21 +44,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TrafficReporter.Common\TrafficReporter.Common.csproj">
+      <Project>{FF640CC9-4112-44D3-8C6C-CF885259647E}</Project>
+      <Name>TrafficReporter.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.Model.Common\TrafficReporter.Model.Common.csproj">
-      <Project>{4F754DA3-0299-4637-AE53-1092161C06AD}</Project>
+      <Project>{4f754da3-0299-4637-ae53-1092161c06ad}</Project>
       <Name>TrafficReporter.Model.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TrafficReporter.Model\TrafficReporter.Model.csproj">
+      <Project>{290a1c80-d35e-4348-bfbc-4d96b1bcf5dc}</Project>
+      <Name>TrafficReporter.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.Repository.Common\TrafficReporter.Repository.Common.csproj">
-      <Project>{F3E72855-45B5-4399-B91C-AD054227C6F8}</Project>
+      <Project>{f3e72855-45b5-4399-b91c-ad054227c6f8}</Project>
       <Name>TrafficReporter.Repository.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.Service.Common\TrafficReporter.Service.Common.csproj">
-      <Project>{2F764AAC-7E47-4FD2-B4F1-D4DA45CB4AFE}</Project>
+      <Project>{2f764aac-7e47-4fd2-b4f1-d4da45cb4afe}</Project>
       <Name>TrafficReporter.Service.Common</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

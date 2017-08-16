@@ -1,9 +1,14 @@
-﻿using System;
+﻿using TrafficReporter.DAL;
+using TrafficReporter.Model;
+using TrafficReporter.Model.Common;
+using TrafficReporter.Repository.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrafficReporter.Common;
+namespace Report.Repository
 using TrafficReporter.Model.Common;
 using TrafficReporter.Repository.Common;
 using Npgsql;
@@ -20,10 +25,14 @@ namespace TrafficReporter.Repository
     public class ReportRepository : IReportRepository
     {
         public int AddReport(IReport report)
-        {
             var rowsAffrected = 0;
 
             using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ReportRepository"/> class.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        public ReportRepository(IReportContext context)
             {
                 connection.Open();
 
@@ -48,6 +57,23 @@ namespace TrafficReporter.Repository
 
 
         public IReport GetReport(Guid id)
+        /// Gets the context.
+        /// </summary>
+        /// <value>
+        /// The context.
+        /// </value>
+        protected IReportContext Context { get; private set; }
+
+        #endregion Properties
+
+        #region Methods
+
+
+        /// <summary>
+        /// Adds the report.
+        /// </summary>
+        /// <returns></returns>
+        public bool AddReport(IReportPOCO report)
         {
             IReport report = new Report();
 
@@ -74,9 +100,12 @@ namespace TrafficReporter.Repository
             return report;
         }
 
+
         public bool RemoveReport(Guid Id)
         {
-            throw new NotImplementedException();
+            return Context.Reports.Remove(Context.Reports.First(p => p.Id.Equals(Id)));
         }
+
+        #endregion Methods
     }
 }

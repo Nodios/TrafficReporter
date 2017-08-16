@@ -7,6 +7,9 @@ using TrafficReporter.Common;
 using TrafficReporter.Model.Common;
 using TrafficReporter.Repository.Common;
 using Npgsql;
+using NpgsqlTypes;
+using TrafficReporter.Common.Enums;
+using TrafficReporter.Model;
 
 namespace TrafficReporter.Repository
 {
@@ -46,18 +49,27 @@ namespace TrafficReporter.Repository
 
         public IReport GetReport(Guid id)
         {
-            IReport report = null;
+            IReport report = new Report();
 
-            using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
+            using (var connection = new NpgsqlConnection(Constants.LocalConnectionString))
             {
                 connection.Open();
 
-                using (var command = new NpgsqlCommand("SELECT * FROM trafreport", connection))
+                using (var command = new NpgsqlCommand(String.Format("SELECT * FROM report WHERE id='{0}' LIMIT 1", id), connection))
                 using (var reader = command.ExecuteReader())
                     while (reader.Read())
-                        Console.WriteLine(reader.GetString(0), reader.GetString(1));
-            }
+                    {
+                        report.Id = id;
+                        report.Cause = (Cause)reader[1];
+                        report.Direction = (Direction)reader[2];
+                        report.Longitude = (double) reader[3];
+                        report.Lattitude = (double) reader[4];
+                        report.Rating = (int) reader[5];
+                        report.DateCreated = (DateTime) reader[6];
 
+                    }
+                        
+            }
 
             return report;
         }

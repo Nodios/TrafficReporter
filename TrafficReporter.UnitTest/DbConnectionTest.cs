@@ -52,10 +52,10 @@ namespace TrafficReporter.UnitTest
         [TestMethod]
         public void ReportRepositoryGetByIdTest()
         {
-            var id = new Guid("b814f246-ee8c-4e79-9f96-994d5cac90c9");
+            var id = new Guid("25d9f442-2c1d-4153-afce-894bb76417d0");
             var repo = new ReportRepository();
 
-            repo.GetReport(id);
+            var report = repo.GetReport(id);
         }
 
         [TestMethod]

@@ -7,6 +7,7 @@ using AutoMapper;
 using TrafficReporter.Model;
 using TrafficReporter.DAL.Entity_Models;
 using TrafficReporter.Model.Common;
+using TrafficReporter.Repository.Common;
 using TrafficReporter.Service.Common;
 
 namespace TrafficReporter.Repository
@@ -20,6 +21,8 @@ namespace TrafficReporter.Repository
                 cfg.CreateMap<ReportEntity, Report>();
                 cfg.CreateMap<ReportEntity, IReport>();
                 cfg.CreateMap<Report, IReport>();
+
+                Bind<IReportRepository>().To<ReportRepository>();
             });
         }
     }

@@ -39,6 +39,10 @@
       <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
@@ -88,9 +92,21 @@
       <Project>{290A1C80-D35E-4348-BFBC-4D96B1BCF5DC}</Project>
       <Name>TrafficReporter.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TrafficReporter.Repository.Common\TrafficReporter.Repository.Common.csproj">
+      <Project>{f3e72855-45b5-4399-b91c-ad054227c6f8}</Project>
+      <Name>TrafficReporter.Repository.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.Repository\TrafficReporter.Repository.csproj">
       <Project>{3f00ad21-c1a0-4787-9ac1-348b7c5cb38c}</Project>
       <Name>TrafficReporter.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficReporter.Service.Common\TrafficReporter.Service.Common.csproj">
+      <Project>{2f764aac-7e47-4fd2-b4f1-d4da45cb4afe}</Project>
+      <Name>TrafficReporter.Service.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficReporter.Service\TrafficReporter.Service.csproj">
+      <Project>{10AEB5E4-9125-431D-BFEE-07969A763AFC}</Project>
+      <Name>TrafficReporter.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -23,3 +23,7 @@ C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest\bin\Debug\Npgsql.xml
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest\bin\Debug\TrafficReporter.Repository.Common.pdb
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest\bin\Debug\TrafficReporter.Service.Common.dll
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest\bin\Debug\TrafficReporter.Service.dll
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest\bin\Debug\TrafficReporter.Service.Common.pdb
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.UnitTest\bin\Debug\TrafficReporter.Service.pdb

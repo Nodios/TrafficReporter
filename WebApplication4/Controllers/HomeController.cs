@@ -12,7 +12,12 @@ namespace WebApplication4.Controllers
 {
     public class HomeController : Controller
     {
-        private IReportService _reportService;
+        private readonly IReportService _reportService;
+
+        public HomeController()
+        {
+            
+        }
 
         public HomeController(IReportService reportService)
         {
@@ -42,7 +47,7 @@ namespace WebApplication4.Controllers
         {
             _reportService.AddReport(report);
 
-            return A
+            return View("Index");
 
         }
     }

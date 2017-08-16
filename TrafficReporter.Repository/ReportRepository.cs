@@ -18,6 +18,8 @@ namespace TrafficReporter.Repository
     {
         public int AddReport(IReport report)
         {
+            var rowsAffrected = 0;
+
             using (var connection = new NpgsqlConnection(Constants.LocalConnectionString))
             {
                 connection.Open();
@@ -33,10 +35,11 @@ namespace TrafficReporter.Repository
                     command.Parameters.AddWithValue("longitude", report.Longitude);
                     command.Parameters.AddWithValue("lattitude", report.Lattitude);
                     command.Parameters.AddWithValue("date_time", DateTime.Now);
-                    return command.ExecuteNonQuery();
+                    rowsAffrected = command.ExecuteNonQuery();
                 }
             }
-                
+
+            return rowsAffrected;
         }
 
         public List<IReport> GetAllReports()

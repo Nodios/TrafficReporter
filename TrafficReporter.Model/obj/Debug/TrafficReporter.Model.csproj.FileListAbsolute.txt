@@ -23,3 +23,5 @@ C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Model\bi
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Model\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Model\bin\Debug\Npgsql.xml
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Model\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Model\bin\Debug\Newtonsoft.Json.dll
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Model\bin\Debug\Newtonsoft.Json.xml

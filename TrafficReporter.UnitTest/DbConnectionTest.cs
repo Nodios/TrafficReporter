@@ -3,8 +3,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrafficReporter.DAL;
 using TrafficReporter.Model;
 using TrafficReporter.Repository;
-
+using TrafficReporter.Repository.Common;
 using TrafficReporter.Common.Enums;
+using TrafficReporter.Service;
 
 namespace TrafficReporter.UnitTest
 {
@@ -32,7 +33,7 @@ namespace TrafficReporter.UnitTest
         /// This method tests AddReport of <see cref="ReportRepository"/>
         /// </summary>
         [TestMethod]
-        public void AddReportTest()
+        public void ReportRepositoryTest()
         {
             var repo = new ReportRepository();
             var report = new Report
@@ -45,6 +46,24 @@ namespace TrafficReporter.UnitTest
             };
 
             Assert.AreEqual(repo.AddReport(report), 1);
+
+        }
+
+        [TestMethod]
+        public void ReportServiceTest()
+        {
+            
+            var service = new ReportService();
+            var report = new Report
+            {
+                Direction = Direction.E,
+                Cause = Cause.crash,
+                Lattitude = 50,
+                Longitude = 50,
+
+            };
+
+            Assert.AreEqual(service.AddReport(report), true);
 
         }
     }

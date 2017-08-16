@@ -1,22 +1,48 @@
-﻿using System;
+﻿using Ninject;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TrafficReporter.Model;
-using TrafficReporter.DAL.Entity_Models;
-using TrafficReporter.Model.Common;
+using AutoMapper;
+using Ninject.Modules;
+using TrafficReporter.Repository.Common;
 
 
 namespace TrafficReporter.Repository
 {
-    class DIModule : Ninject.Modules.NinjectModule
+    public class DIModule : NinjectModule
     {
         public override void Load()
         {
-            AutoMapper.Mapper.CreateMap<ReportPOCO, Report>();
-            AutoMapper.Mapper.CreateMap<ReportPOCO, IReportPOCO>();
-            AutoMapper.Mapper.CreateMap<Report, IReportPOCO>();
+            Bind<IMapper>().ToMethod(ctx =>
+            {
+                var profiles = ctx.Kernel.Get<List<Profile>>();
+                var config = new MapperConfiguration(
+    c =>
+    {
+
+        foreach (var profile in profiles)
+        {
+            c.AddProfile(profile);
         }
+    });
+                // Solution starts here
+                var mapper = config.CreateMapper();
+                return mapper;
+            }).InSingletonScope();
+
+
+
+
+            Bind<IReportRepository>().To<ReportRepository>();
+            
+
+
+
+        }
+        
+
+
     }
-}
+
+
+    }
+    
+

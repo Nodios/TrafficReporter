@@ -595,3 +595,4 @@ __pycache__/
 *.odx.cs
 
 *.xsd.cs
+TrafficReporter.Repository/ReportRepository.cs.orig

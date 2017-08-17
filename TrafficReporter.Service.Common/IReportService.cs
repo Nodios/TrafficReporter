@@ -19,8 +19,8 @@ namespace TrafficReporter.Service.Common
         /// <summary>
         /// Removes report from database trough repository method.
         /// </summary>
-        /// <param name="Id">Report identifier.</param>
+        /// <param name="id">Report identifier.</param>
         /// <returns></returns>
-        bool RemoveReport(Guid Id);
+        bool RemoveReport(Guid id);
     }
 }

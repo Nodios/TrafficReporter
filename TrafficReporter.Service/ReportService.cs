@@ -49,7 +49,7 @@ namespace TrafficReporter.Service
         /// <returns></returns>
         public bool AddReport(IReport Report)
         {
-            
+            _r
             return true;
         }
 

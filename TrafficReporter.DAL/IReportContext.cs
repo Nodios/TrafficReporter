@@ -15,7 +15,7 @@ namespace TrafficReporter.DAL
         /// <value>
         /// The reports.
         /// </value>
-        List<Report> Reports { get; set; }
+        List<ReportEntity> Reports { get; set; }
 
         #endregion Properties
     }

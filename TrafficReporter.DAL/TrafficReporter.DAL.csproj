@@ -52,7 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity Models\Report.cs" />
+    <Compile Include="DBConnectionConfiguration.cs" />
+    <Compile Include="Entity Models\ReportEntity.cs" />
     <Compile Include="ReportContext.cs" />
     <Compile Include="IReportContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +65,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

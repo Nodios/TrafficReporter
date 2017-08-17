@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TrafficReporter.DAL.Entity_Models;
 
+
 namespace TrafficReporter.DAL
 {
     public class ReportContext : IReportContext
@@ -10,8 +11,8 @@ namespace TrafficReporter.DAL
 
         public ReportContext()
         {
-            Reports = new List<Report>() {
-                new Report()
+            Reports = new List<ReportEntity>() {
+                new ReportEntity()
                 {
 
                 }
@@ -29,7 +30,7 @@ namespace TrafficReporter.DAL
         /// <value>
         /// The reports.
         /// </value>
-        public List<Report> Reports { get; set; }
+        public List<ReportEntity> Reports { get; set; }
 
         #endregion Properties
     }

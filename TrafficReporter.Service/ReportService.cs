@@ -87,6 +87,11 @@ namespace TrafficReporter.Service
             throw new NotImplementedException();
         }
 
+        IReport IReportService.GetReport(Guid id)
+        {
+            return this.Repository.GetReport(id);
+        }
+
         #endregion Methods
     }
 }

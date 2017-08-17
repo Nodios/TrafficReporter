@@ -47,3 +47,5 @@ D:\traff\TrafficReporter.Model\bin\Debug\Ninject.xml
 D:\traff\TrafficReporter.Model\obj\Debug\TrafficReporter.Model.csprojResolveAssemblyReference.cache
 D:\traff\TrafficReporter.Model\obj\Debug\TrafficReporter.Model.dll
 D:\traff\TrafficReporter.Model\obj\Debug\TrafficReporter.Model.pdb
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\bin\Debug\Ninject.dll
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\bin\Debug\Ninject.xml

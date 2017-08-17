@@ -55,3 +55,5 @@ D:\traff\TrafficReporter.Service\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\traff\TrafficReporter.Service\obj\Debug\TrafficReporter.Service.csprojResolveAssemblyReference.cache
 D:\traff\TrafficReporter.Service\obj\Debug\TrafficReporter.Service.dll
 D:\traff\TrafficReporter.Service\obj\Debug\TrafficReporter.Service.pdb
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Service\bin\Debug\Ninject.dll
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Service\bin\Debug\Ninject.xml

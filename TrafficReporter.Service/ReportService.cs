@@ -29,9 +29,6 @@ namespace TrafficReporter.Service
 
         #region Properties
 
-
-
-
         /// <summary>
         /// Gets the repository.
         /// </summary>
@@ -40,11 +37,6 @@ namespace TrafficReporter.Service
         /// </value>
         protected IReportRepository Repository { get; private set; }
 
-        public void AddReport(double Long, double Lat, Cause Cause)
-        {
-            
-            
-        }
         #endregion Properties 
 
         #region Methods
@@ -55,7 +47,7 @@ namespace TrafficReporter.Service
         /// </summary>
         /// <param name="">Report identifier</param>
         /// <returns></returns>
-        public bool AddReport(ReportPOCO Report)
+        public bool AddReport(IReport Report)
         {
             
             return true;
@@ -89,7 +81,7 @@ namespace TrafficReporter.Service
             return true;
         }
 
-        public bool AddReport()
+        public bool AddReport(IReportService r)
         {
             throw new NotImplementedException();
         }

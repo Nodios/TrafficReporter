@@ -6,6 +6,8 @@ namespace TrafficReporter.Model
 {
     public class Report : IReport
     {
+
+
         public Guid Id { get; set; }
         public Cause Cause { get; set; }
         public DateTime DateCreated { get; set; }

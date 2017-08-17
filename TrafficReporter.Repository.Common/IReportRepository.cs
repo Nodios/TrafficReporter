@@ -7,19 +7,26 @@ namespace TrafficReporter.Repository.Common
 {
     public interface IReportRepository
     {
-        
-        /// Adds the report.
+        ///<summary>
+        /// Adds the report to database.
         /// </summary>
-        /// <param name="report">The report.</param>
+        /// <param name="report">The report to be added to database.</param>
         /// <returns></returns>
         int AddReport(IReport report);
 
         /// <summary>
-        /// Removes the report.
+        /// Gets report from database which has passed parameter id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        IReport GetReport(Guid id);
+
+        /// <summary>
+        /// Removes the report from database by passing Id parameter.
         /// </summary>
         /// <param name="Id">The identifier.</param>
         /// <returns></returns>
-        bool RemoveReport(Guid Id);
+        bool RemoveReport(Guid id);
         
 
         

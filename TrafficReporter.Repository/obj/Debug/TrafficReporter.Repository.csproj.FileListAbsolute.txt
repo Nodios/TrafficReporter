@@ -24,13 +24,9 @@ C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Reposito
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\obj\Debug\TrafficReporter.Repository.dll
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\obj\Debug\TrafficReporter.Repository.pdb
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\bin\Debug\Npgsql.dll
-C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\bin\Debug\TrafficReporter.Service.Common.dll
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\bin\Debug\TrafficReporter.Service.Common.pdb
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\bin\Debug\Npgsql.xml
-C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\bin\Debug\Newtonsoft.Json.dll
-C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\bin\Debug\Newtonsoft.Json.xml
 C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Repository\obj\Debug\TrafficReporter.Repository.csprojResolveAssemblyReference.cache
 C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Repository\bin\Debug\TrafficReporter.Repository.dll.config
 C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Repository\bin\Debug\TrafficReporter.Repository.dll
@@ -57,3 +53,5 @@ C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.
 C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Repository\bin\Debug\Npgsql.xml
 C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Repository\obj\Debug\TrafficReporter.Repository.dll
 C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Repository\obj\Debug\TrafficReporter.Repository.pdb
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\bin\Debug\TrafficReporter.Service.dll
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\bin\Debug\TrafficReporter.Service.pdb

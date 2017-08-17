@@ -53,26 +53,47 @@ namespace TrafficReporter.Repository
 
             using (var connection = new NpgsqlConnection(Constants.LocalConnectionString))
             {
-                using (var command = new NpgsqlCommand(String.Format("SELECT * FROM report WHERE id = '{0}'", id)))
+                connection.Open();
+
+                using (var command = new NpgsqlCommand(String.Format("SELECT * FROM report WHERE id = '{0}'", id), connection))
                 using (var reader = command.ExecuteReader())
                     while (reader.Read())
                     {
-                        report.Id = id;
-                        report.Cause = (Cause) reader[1];
-                        report.Rating = (int) reader[2];
-                        report.Direction = (Direction) reader[3];
-                        report.Longitude = (double) reader[4];
-                        report.Lattitude = (double) reader[5];
-                        report.DateCreated = (DateTime) reader[6];
+                        report = new Report
+                        {
+                            Id = id,
+                            Cause = (Cause) reader[1],
+                            Rating = (int) reader[2],
+                            Direction = (Direction) reader[3],
+                            Longitude = (double) reader[4],
+                            Lattitude = (double) reader[5],
+                            DateCreated = (DateTime) reader[6]
+                        };
                     }
             }
 
             return report;
         }
 
-        public bool RemoveReport(Guid id)
+        public int RemoveReport(Guid id)
         {
-            throw new NotImplementedException();
+            var rowsAffrected = 0;
+
+            using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
+            {
+                connection.Open();
+
+                using (var command = new NpgsqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText =
+                        "DELETE FROM trafreport " +
+                        $"WHERE id='{id}'";
+                    rowsAffrected = command.ExecuteNonQuery();
+                }
+            }
+
+            return rowsAffrected;
         }
     }
 

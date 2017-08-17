@@ -41,11 +41,7 @@ namespace TrafficReporter.Service
         #region Methods
 
        
-        /// <summary>
-        /// Add report.
-        /// </summary>
-        /// <param name="report">Report to be added.</param>
-        /// <returns></returns>
+
         public bool AddReport(IReport report)
         {
             if (Repository.AddReport(report) != 1)
@@ -54,38 +50,18 @@ namespace TrafficReporter.Service
             return true;
         }
 
-
-
-        /// <summary>
-        /// Gets the reports.
-        /// </summary>
-        /// <param name="upTo">Up to some amount of reports.</param>
-        /// <returns></returns>
-        public bool GetReports(int upTo)
-
+        public IReport GetReport(Guid id)
         {
-            return true;
+            return Repository.GetReport(id);
         }
 
-        public bool GetReport(Guid Id)
-        {
-            return true;
-        }
-
-        /// <summary>
-        /// Removes report.
-        /// </summary>
-        /// <param name="Id">Report identifier.</param>
-        /// <returns></returns>
-        public bool RemoveReport(Guid Id)
-        {
-            return true;
-        }
-
-        public bool AddReport(IReportService r)
+ 
+        public bool RemoveReport(Guid id)
         {
             throw new NotImplementedException();
         }
+
+
 
         #endregion Methods
     }

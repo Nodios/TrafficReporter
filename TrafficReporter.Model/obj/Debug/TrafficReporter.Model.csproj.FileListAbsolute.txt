@@ -25,3 +25,13 @@ C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Model\bi
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Model\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Model\bin\Debug\Newtonsoft.Json.dll
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Model\bin\Debug\Newtonsoft.Json.xml
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\bin\Debug\TrafficReporter.Model.dll.config
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\bin\Debug\TrafficReporter.Model.dll
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\bin\Debug\TrafficReporter.Model.pdb
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\bin\Debug\TrafficReporter.Common.dll
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\bin\Debug\TrafficReporter.Model.Common.dll
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\bin\Debug\TrafficReporter.Common.pdb
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\bin\Debug\TrafficReporter.Model.Common.pdb
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\obj\Debug\TrafficReporter.Model.csprojResolveAssemblyReference.cache
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\obj\Debug\TrafficReporter.Model.dll
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\obj\Debug\TrafficReporter.Model.pdb

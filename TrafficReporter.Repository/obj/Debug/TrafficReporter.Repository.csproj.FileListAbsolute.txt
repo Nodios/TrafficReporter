@@ -31,3 +31,4 @@ C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Reposito
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\bin\Debug\Newtonsoft.Json.dll
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Repository\bin\Debug\Newtonsoft.Json.xml
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Repository\obj\Debug\TrafficReporter.Repository.csprojResolveAssemblyReference.cache

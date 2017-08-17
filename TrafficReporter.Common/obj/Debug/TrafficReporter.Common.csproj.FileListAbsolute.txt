@@ -17,3 +17,8 @@ C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Common\b
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Common\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Common\bin\Debug\Newtonsoft.Json.dll
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Common\bin\Debug\TrafficReporter.Common.dll
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Common\bin\Debug\TrafficReporter.Common.pdb
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Common\obj\Debug\TrafficReporter.Common.csprojResolveAssemblyReference.cache
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Common\obj\Debug\TrafficReporter.Common.dll
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Common\obj\Debug\TrafficReporter.Common.pdb

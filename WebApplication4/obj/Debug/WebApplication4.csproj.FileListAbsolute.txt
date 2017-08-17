@@ -80,3 +80,4 @@ C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\WebApplication4\bin\Syst
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\WebApplication4\bin\TrafficReporter.Common.pdb
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\WebApplication4\obj\Debug\WebApplication4.dll
 C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\WebApplication4\obj\Debug\WebApplication4.pdb
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\WebApplication4\obj\Debug\WebApplication4.csprojResolveAssemblyReference.cache

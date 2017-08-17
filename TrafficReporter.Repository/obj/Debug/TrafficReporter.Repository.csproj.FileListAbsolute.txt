@@ -83,3 +83,5 @@ D:\traff\TrafficReporter.Repository\bin\Debug\Npgsql.xml
 D:\traff\TrafficReporter.Repository\obj\Debug\TrafficReporter.Repository.csprojResolveAssemblyReference.cache
 D:\traff\TrafficReporter.Repository\obj\Debug\TrafficReporter.Repository.dll
 D:\traff\TrafficReporter.Repository\obj\Debug\TrafficReporter.Repository.pdb
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Repository\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Repository\bin\Debug\System.Threading.Tasks.Extensions.xml

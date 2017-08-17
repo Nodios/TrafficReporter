@@ -51,7 +51,7 @@ namespace TrafficReporter.Repository
         {
             IReport report = new Report();
 
-            using (var connection = new NpgsqlConnection(Constants.LocalConnectionString))
+            using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
             {
                 using (var command = new NpgsqlCommand(String.Format("SELECT * FROM report WHERE id = '{0}'", id)))
                 using (var reader = command.ExecuteReader())

@@ -7,7 +7,6 @@ using TrafficReporter.Model.Common;
 using TrafficReporter.Service.Common;
 using TrafficReporter.Repository.Common;
 using TrafficReporter.Model;
-using TrafficReporter.Model.Common;
 using TrafficReporter.Common.Enums;
 
 namespace TrafficReporter.Service
@@ -45,16 +44,18 @@ namespace TrafficReporter.Service
         /// <summary>
         /// Add report.
         /// </summary>
-        /// <param name="">Report identifier</param>
+        /// <param name="report">Report to be added.</param>
         /// <returns></returns>
-        public bool AddReport(IReport Report)
+        public bool AddReport(IReport report)
         {
-            _r
+            if (Repository.AddReport(report) != 1)
+                return false;
+
             return true;
         }
 
 
-        int upTo = 2;
+
         /// <summary>
         /// Gets the reports.
         /// </summary>

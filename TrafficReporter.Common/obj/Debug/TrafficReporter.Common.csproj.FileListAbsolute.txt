@@ -37,3 +37,4 @@ D:\traff\TrafficReporter.Common\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\traff\TrafficReporter.Common\obj\Debug\TrafficReporter.Common.csprojResolveAssemblyReference.cache
 D:\traff\TrafficReporter.Common\obj\Debug\TrafficReporter.Common.dll
 D:\traff\TrafficReporter.Common\obj\Debug\TrafficReporter.Common.pdb
+C:\Users\BumperstickCarsnatch\Documents\TrafficReporter\TrafficReporter.Common\obj\Debug\TrafficReporter.Common.csprojResolveAssemblyReference.cache

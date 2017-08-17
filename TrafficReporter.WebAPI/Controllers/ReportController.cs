@@ -21,10 +21,10 @@ namespace TrafficReporter.WebAPI.Controllers
 
         [HttpGet]
         [Route("{id:guid}")]
-        public IReport AddReport(Guid id)
+        public IReport Addreport(Guid id)
         {
             return this.Service.GetReport(id);
         }
-        
+
     }
 }

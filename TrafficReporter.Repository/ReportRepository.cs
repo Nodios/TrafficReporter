@@ -58,12 +58,12 @@ namespace TrafficReporter.Repository
                     while (reader.Read())
                     {
                         report.Id = id;
-                        report.Cause = (Cause) reader[1];
-                        report.Rating = (int) reader[2];
-                        report.Direction = (Direction) reader[3];
-                        report.Longitude = (double) reader[4];
-                        report.Lattitude = (double) reader[5];
-                        report.DateCreated = (DateTime) reader[6];
+                        report.Cause = (Cause)reader[1];
+                        report.Rating = (int)reader[2];
+                        report.Direction = (Direction)reader[3];
+                        report.Longitude = (double)reader[4];
+                        report.Lattitude = (double)reader[5];
+                        report.DateCreated = (DateTime)reader[6];
                     }
             }
 

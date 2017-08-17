@@ -63,6 +63,11 @@ namespace TrafficReporter.Service
 
 
 
+        IReport IReportService.GetReport(Guid id)
+        {
+            return this.Repository.GetReport(id);
+        }
+
         #endregion Methods
     }
 }

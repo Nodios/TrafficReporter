@@ -28,5 +28,7 @@ namespace TrafficReporter.Service.Common
         /// <param name="id">Report identifier.</param>
         /// <returns>True or false depending on operation success.</returns>
         bool RemoveReport(Guid id);
+
+        
     }
 }

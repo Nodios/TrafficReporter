@@ -55,7 +55,7 @@ namespace TrafficReporter.Repository
             {
                 connection.Open();
 
-                using (var command = new NpgsqlCommand(String.Format("SELECT * FROM report WHERE id = '{0}'", id), connection))
+                using (var command = new NpgsqlCommand($"SELECT * FROM report WHERE id = '{id}'", connection))
                 using (var reader = command.ExecuteReader())
                     while (reader.Read())
                     {

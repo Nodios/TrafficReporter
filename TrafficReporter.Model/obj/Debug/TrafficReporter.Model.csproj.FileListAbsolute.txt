@@ -35,3 +35,15 @@ C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.
 C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\obj\Debug\TrafficReporter.Model.csprojResolveAssemblyReference.cache
 C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\obj\Debug\TrafficReporter.Model.dll
 C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.Model\obj\Debug\TrafficReporter.Model.pdb
+D:\traff\TrafficReporter.Model\bin\Debug\TrafficReporter.Model.dll.config
+D:\traff\TrafficReporter.Model\bin\Debug\TrafficReporter.Model.dll
+D:\traff\TrafficReporter.Model\bin\Debug\TrafficReporter.Model.pdb
+D:\traff\TrafficReporter.Model\bin\Debug\Ninject.dll
+D:\traff\TrafficReporter.Model\bin\Debug\TrafficReporter.Common.dll
+D:\traff\TrafficReporter.Model\bin\Debug\TrafficReporter.Model.Common.dll
+D:\traff\TrafficReporter.Model\bin\Debug\TrafficReporter.Common.pdb
+D:\traff\TrafficReporter.Model\bin\Debug\TrafficReporter.Model.Common.pdb
+D:\traff\TrafficReporter.Model\bin\Debug\Ninject.xml
+D:\traff\TrafficReporter.Model\obj\Debug\TrafficReporter.Model.csprojResolveAssemblyReference.cache
+D:\traff\TrafficReporter.Model\obj\Debug\TrafficReporter.Model.dll
+D:\traff\TrafficReporter.Model\obj\Debug\TrafficReporter.Model.pdb

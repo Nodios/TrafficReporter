@@ -31,3 +31,11 @@ C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.
 C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.DAL\bin\Debug\TrafficReporter.Common.pdb
 C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.DAL\obj\Debug\TrafficReporter.DAL.dll
 C:\Users\MarcelaSP\Desktop\Ivan_vstudio\TrafficReporter-orginal\TrafficReporter.DAL\obj\Debug\TrafficReporter.DAL.pdb
+D:\traff\TrafficReporter.DAL\bin\Debug\TrafficReporter.DAL.dll.config
+D:\traff\TrafficReporter.DAL\bin\Debug\TrafficReporter.DAL.dll
+D:\traff\TrafficReporter.DAL\bin\Debug\TrafficReporter.DAL.pdb
+D:\traff\TrafficReporter.DAL\bin\Debug\TrafficReporter.Common.dll
+D:\traff\TrafficReporter.DAL\bin\Debug\TrafficReporter.Common.pdb
+D:\traff\TrafficReporter.DAL\obj\Debug\TrafficReporter.DAL.csprojResolveAssemblyReference.cache
+D:\traff\TrafficReporter.DAL\obj\Debug\TrafficReporter.DAL.dll
+D:\traff\TrafficReporter.DAL\obj\Debug\TrafficReporter.DAL.pdb

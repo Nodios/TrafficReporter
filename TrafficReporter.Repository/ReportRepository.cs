@@ -51,24 +51,22 @@ namespace TrafficReporter.Repository
         {
             IReport report = new Report();
 
-            using (var connection = new NpgsqlConnection(Constants.LocalConnectionString))
+            using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
             {
                 connection.Open();
 
-                using (var command = new NpgsqlCommand($"SELECT * FROM report WHERE id = '{id}'", connection))
+                using (var command = new NpgsqlCommand($"SELECT * FROM trafreport WHERE id = '{id}'", connection))
                 using (var reader = command.ExecuteReader())
                     while (reader.Read())
                     {
-                        report = new Report
-                        {
-                            Id = id,
-                            Cause = (Cause) reader[1],
-                            Rating = (int) reader[2],
-                            Direction = (Direction) reader[3],
-                            Longitude = (double) reader[4],
-                            Lattitude = (double) reader[5],
-                            DateCreated = (DateTime) reader[6]
-                        };
+                        report = new Report();
+                        report.Id = id;
+                        report.Cause = (Cause) reader["cause"];
+                        report.Rating = (int) reader["rating"];
+                        report.Direction = (Direction) reader["direction"];
+                        report.Longitude = (double) reader["longitude"];
+                        report.Lattitude = (double) reader["lattitude"];
+                        report.DateCreated = (DateTime) reader["date_created"];
                     }
             }
 

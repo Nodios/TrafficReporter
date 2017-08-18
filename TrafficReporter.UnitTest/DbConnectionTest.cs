@@ -52,28 +52,28 @@ namespace TrafficReporter.UnitTest
         [TestMethod]
         public void ReportRepositoryGetByIdTest()
         {
-            var id = new Guid("25d9f442-2c1d-4153-afce-894bb76417d0");
+            var id = new Guid("fd36782c-59b5-43bc-8c7a-74ead94a8049");
             var repo = new ReportRepository();
 
             var report = repo.GetReport(id);
         }
 
-        [TestMethod]
-        public void ReportServiceTest()
-        {
+        //[TestMethod]
+        //public void ReportServiceTest()
+        //{
             
-            var service = new ReportService();
-            var report = new Report
-            {
-                Direction = Direction.E,
-                Cause = Cause.crash,
-                Lattitude = 50,
-                Longitude = 50,
+        //    var service = new ReportService();
+        //    var report = new Report
+        //    {
+        //        Direction = Direction.E,
+        //        Cause = Cause.crash,
+        //        Lattitude = 50,
+        //        Longitude = 50,
 
-            };
+        //    };
 
-            Assert.AreEqual(service.AddReport(report), true);
+        //    Assert.AreEqual(service.AddReport(report), true);
 
-        }
+        //}
     }
 }

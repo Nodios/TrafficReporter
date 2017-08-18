@@ -56,9 +56,9 @@ namespace TrafficReporter.Service
         }
 
  
-        public bool RemoveReport(Guid id)
+        public int RemoveReport(Guid id)
         {
-            throw new NotImplementedException();
+            return Repository.RemoveReport(id);
         }
 
 

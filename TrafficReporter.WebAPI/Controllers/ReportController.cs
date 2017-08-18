@@ -19,6 +19,25 @@ namespace TrafficReporter.WebAPI.Controllers
             Service = service;
         }
 
+
+        [HttpPost]
+        public bool AddReport(IReport report)
+        {
+            return this.Service.AddReport(report);
+        }
+
+
+
+
+        [HttpDelete]
+        [Route("{id:guid}")]
+        public int RemoveReport(Guid id)
+        {
+            return this.Service.RemoveReport(id);
+        }
+
+
+
         [HttpGet]
         [Route("{id:guid}")]
         public IReport Getreport(Guid id)

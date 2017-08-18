@@ -42,31 +42,25 @@ namespace TrafficReporter.Service
 
        
 
-        public bool AddReport(IReport report)
+        public async Task<bool> AddReportAsync(IReport report)
         {
-            if (Repository.AddReport(report) != 1)
+            if (await Repository.AddReportAsync(report) != 1)
                 return false;
 
             return true;
         }
 
-        public IReport GetReport(Guid id)
+        public async Task<IReport> GetReportAsync(Guid id)
         {
-            return Repository.GetReport(id);
+            return await Repository.GetReportAsync(id);
         }
 
  
-        public int RemoveReport(Guid id)
+        public async Task<int> RemoveReportAsync(Guid id)
         {
-            return Repository.RemoveReport(id);
+            return await Repository.RemoveReportAsync(id);
         }
 
-
-
-        IReport IReportService.GetReport(Guid id)
-        {
-            return this.Repository.GetReport(id);
-        }
 
         #endregion Methods
     }

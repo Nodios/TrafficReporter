@@ -20,13 +20,30 @@ namespace TrafficReporter.Repository
     /// </summary>
     public class ReportRepository : IReportRepository
     {
-        public int AddReport(IReport report)
+        #region Properties
+
+        protected IReportRepository Repository { get; private set; }
+
+        #endregion Properties
+
+
+        #region Constructors
+
+        public ReportRepository(IReportRepository repository)
+        {
+            this.Repository = repository;
+        }
+
+        #endregion Constructors
+
+        #region Methods
+        public async Task<int> AddReportAsync(IReport report)
         {
             var rowsAffrected = 0;
 
             using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
                 using (var command = new NpgsqlCommand())
                 {
@@ -40,23 +57,23 @@ namespace TrafficReporter.Repository
                     command.Parameters.AddWithValue("longitude", report.Longitude);
                     command.Parameters.AddWithValue("lattitude", report.Lattitude);
                     command.Parameters.AddWithValue("date_time", DateTime.Now);
-                    rowsAffrected = command.ExecuteNonQuery();
+                    rowsAffrected = await command.ExecuteNonQueryAsync();
                 }
             }
 
             return rowsAffrected;
         }
 
-        public IReport GetReport(Guid id)
+        public async Task<IReport> GetReportAsync(Guid id)
         {
             IReport report = new Report();
 
             using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
                 using (var command = new NpgsqlCommand($"SELECT * FROM trafreport WHERE id = '{id}'", connection))
-                using (var reader = command.ExecuteReader())
+                using (var reader = await command.ExecuteReaderAsync())
                     while (reader.Read())
                     {
                         report = new Report();
@@ -73,13 +90,13 @@ namespace TrafficReporter.Repository
             return report;
         }
 
-        public int RemoveReport(Guid id)
+        public async Task<int> RemoveReportAsync(Guid id)
         {
             var rowsAffrected = 0;
 
             using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
                 using (var command = new NpgsqlCommand())
                 {
@@ -87,12 +104,13 @@ namespace TrafficReporter.Repository
                     command.CommandText =
                         "DELETE FROM trafreport " +
                         $"WHERE id='{id}'";
-                    rowsAffrected = command.ExecuteNonQuery();
+                    rowsAffrected = await command.ExecuteNonQueryAsync();
                 }
             }
 
             return rowsAffrected;
         }
+        #endregion Method
     }
 
 }

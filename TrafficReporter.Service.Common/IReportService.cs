@@ -1,6 +1,7 @@
 ﻿using System;
 using TrafficReporter.Model;
 using TrafficReporter.Model.Common;
+using System.Threading.Tasks;
 
 namespace TrafficReporter.Service.Common
 {
@@ -13,21 +14,21 @@ namespace TrafficReporter.Service.Common
         /// </summary>
         /// <param name="report"></param>
         /// <returns>True or false depending on operation success.</returns>
-        bool AddReport(IReport report);
+        Task<bool> AddReportAsync(IReport report);
 
         /// <summary>
         /// Gets report trough repository from database.
         /// </summary>
         /// <param name="id">Identifier which is criteria for searching through database.</param>
         /// <returns>Report with the given id.</returns>
-        IReport GetReport(Guid id);
+        Task<IReport> GetReportAsync(Guid id);
 
         /// <summary>
         /// Removes report from database trough repository method.
         /// </summary>
         /// <param name="id">Report identifier.</param>
         /// <returns>True or false depending on operation success.</returns>
-        int RemoveReport(Guid id);
+        Task<int> RemoveReportAsync(Guid id);
 
         
     }

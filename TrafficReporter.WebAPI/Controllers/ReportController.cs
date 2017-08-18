@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using TrafficReporter.Model.Common;
 using TrafficReporter.Service.Common;
+using System.Threading.Tasks;
 
 namespace TrafficReporter.WebAPI.Controllers
 {
@@ -21,9 +22,9 @@ namespace TrafficReporter.WebAPI.Controllers
 
 
         [HttpPost]
-        public bool AddReport(IReport report)
+        public async Task<bool> AddReportAsync(IReport report)
         {
-            return this.Service.AddReport(report);
+            return await this.Service.AddReportAsync(report);
         }
 
 
@@ -31,18 +32,18 @@ namespace TrafficReporter.WebAPI.Controllers
 
         [HttpDelete]
         [Route("{id:guid}")]
-        public int RemoveReport(Guid id)
+        public async Task<int> RemoveReportAsync(Guid id)
         {
-            return this.Service.RemoveReport(id);
+            return await this.Service.RemoveReportAsync(id);
         }
 
 
 
         [HttpGet]
         [Route("{id:guid}")]
-        public IReport Getreport(Guid id)
+        public async Task<IReport> GetreportAsync(Guid id)
         {
-            return this.Service.GetReport(id);
+            return await this.Service.GetReportAsync(id);
         }
 
     }

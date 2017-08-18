@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrafficReporter.Common.Enums;
 
 namespace TrafficReporter.Common
 {
     public interface ICauseFilter
     {
         // incident cause filtering parameter
-        CauseEnum Cause { get; set; } 
+        Cause Cause { get; set; } 
 
         // paging and sorting parameters
         string SortOrder { get; set; }

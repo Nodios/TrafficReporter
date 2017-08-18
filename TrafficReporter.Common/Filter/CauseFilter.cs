@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrafficReporter.Common.Enums;
 
 namespace TrafficReporter.Common
 {
@@ -10,7 +11,7 @@ namespace TrafficReporter.Common
     {
         #region Properties
 
-        public CauseEnum Cause { get; set; }
+        public Cause Cause { get; set; }
         public string SortOrder { get; set; }
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
@@ -41,7 +42,7 @@ namespace TrafficReporter.Common
         {
             try
             {
-                Cause = cause;
+                Cause = (Cause) Enum.Parse(typeof(Cause), cause);
                 SetPageNumberAndSize(pageNumber, pageSize);
             }
             catch (ArgumentException e)

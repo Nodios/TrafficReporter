@@ -60,15 +60,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filter\AreaFilter.cs" />
+    <Compile Include="Filter\CauseFilter.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Enums\Ban.cs" />
     <Compile Include="Enums\Cause.cs" />
     <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Filter\IAreaFilter.cs" />
+    <Compile Include="Filter\ICauseFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Filters\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

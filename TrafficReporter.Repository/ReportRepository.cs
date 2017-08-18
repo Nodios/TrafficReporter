@@ -20,6 +20,23 @@ namespace TrafficReporter.Repository
     /// </summary>
     public class ReportRepository : IReportRepository
     {
+        #region Properties
+
+        protected IReportRepository Repository { get; private set; }
+
+        #endregion Properties
+
+
+        #region Constructors
+
+        public ReportRepository(IReportRepository repository)
+        {
+            this.Repository = repository;
+        }
+
+        #endregion Constructors
+
+        #region Methods
         public int AddReport(IReport report)
         {
             var rowsAffrected = 0;
@@ -93,6 +110,7 @@ namespace TrafficReporter.Repository
 
             return rowsAffrected;
         }
+        #endregion Method
     }
 
 }

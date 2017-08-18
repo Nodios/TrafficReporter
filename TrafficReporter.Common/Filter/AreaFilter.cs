@@ -10,11 +10,13 @@ namespace TrafficReporter.Common
     {
         #region Properties
 
-        public double LowerLeftX { get; set; } = 44.5;
+        // fixed parameter values define the area (using point coordinates) in which application users can report incidents
+        public double LowerLeftX { get; set; } = 44.5;    
         public double LowerLeftY { get; set; } = 16.5;
         public double UpperRightX { get; set; } = 47.5;
         public double UpperRightY { get; set; } = 19.5;
 
+        // paging and sorting parameters
         public string SortOrder { get; set; }
         public int PageNumber { get; set; }
         public int PageSize { get; set; }

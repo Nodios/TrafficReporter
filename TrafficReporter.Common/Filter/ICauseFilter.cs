@@ -8,7 +8,10 @@ namespace TrafficReporter.Common
 {
     public interface ICauseFilter
     {
-        CauseEnum Cause { get; set; }
+        // incident cause filtering parameter
+        CauseEnum Cause { get; set; } 
+
+        // paging and sorting parameters
         string SortOrder { get; set; }
         int PageNumber { get; set; }
         int PageSize { get; set; }

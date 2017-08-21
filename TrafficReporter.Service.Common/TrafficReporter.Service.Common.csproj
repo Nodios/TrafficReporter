@@ -56,6 +56,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TrafficReporter.Common\TrafficReporter.Common.csproj">
+      <Project>{FF640CC9-4112-44D3-8C6C-CF885259647E}</Project>
+      <Name>TrafficReporter.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.DAL\TrafficReporter.DAL.csproj">
       <Project>{A0A7173B-00B2-48B5-9595-0F5F3CC11241}</Project>
       <Name>TrafficReporter.DAL</Name>

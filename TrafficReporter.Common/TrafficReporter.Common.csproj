@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilterMapping.cs" />
     <Compile Include="Filter\AreaFilter.cs" />
     <Compile Include="Filter\CauseFilter.cs" />
     <Compile Include="Constants.cs" />

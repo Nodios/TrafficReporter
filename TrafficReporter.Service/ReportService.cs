@@ -62,18 +62,15 @@ namespace TrafficReporter.Service
             return await Repository.RemoveReportAsync(id);
         }
 
-        public Task<IEnumerable<IReport>> GetFilteredReportsAsync(CauseFilter filter = null)
+
+
+
+        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(CauseFilter causeFilter = null, AreaFilter areaFilter= null)
         {
-            return Repository.GetFilteredReportsAsync(filter);
+            return await Repository.GetFilteredReportsAsync(causeFilter, areaFilter);
         }
 
-        public Task<IEnumerable<IReport>> GetFilteredReportAsync(AreaFilter filter = null)
-        {
-            return Repository.GetFilteredReportAsync(filter);
-        }
-
-
-
+        
 
 
         #endregion Methods

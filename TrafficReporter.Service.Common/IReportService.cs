@@ -31,5 +31,7 @@ namespace TrafficReporter.Service.Common
         Task<int> RemoveReportAsync(Guid id);
 
         
+
+
     }
 }

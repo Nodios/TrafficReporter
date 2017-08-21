@@ -6,6 +6,7 @@ using System.Web;
 using AutoMapper;
 using TrafficReporter.Model.Common;
 using TrafficReporter.WebAPI.ViewModels;
+using TrafficReporter.Model;
 
 namespace TrafficReporter.WebAPI.App_Start
 {
@@ -14,6 +15,7 @@ namespace TrafficReporter.WebAPI.App_Start
         public WebMappingProfile()
         {
             CreateMap<ReportViewModel, IReport>();
+            CreateMap<Report, ReportViewModel > ();
         }
     }
 }

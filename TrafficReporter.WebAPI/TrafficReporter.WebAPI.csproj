@@ -279,6 +279,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\Get.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TrafficReporter.Common\TrafficReporter.Common.csproj">
@@ -288,6 +289,10 @@
     <ProjectReference Include="..\TrafficReporter.Model.Common\TrafficReporter.Model.Common.csproj">
       <Project>{4f754da3-0299-4637-ae53-1092161c06ad}</Project>
       <Name>TrafficReporter.Model.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TrafficReporter.Model\TrafficReporter.Model.csproj">
+      <Project>{290A1C80-D35E-4348-BFBC-4D96B1BCF5DC}</Project>
+      <Name>TrafficReporter.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.Repository\TrafficReporter.Repository.csproj">
       <Project>{3f00ad21-c1a0-4787-9ac1-348b7c5cb38c}</Project>

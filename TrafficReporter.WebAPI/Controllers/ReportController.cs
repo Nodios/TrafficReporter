@@ -48,5 +48,9 @@ namespace TrafficReporter.WebAPI.Controllers
             return await this.Service.GetReportAsync(id);
         }
 
+
+
+
+
     }
 }

@@ -31,7 +31,7 @@ namespace TrafficReporter.WebAPI.Controllers
         {
             ViewBag.Title = "Home Page";
 
-            return View();
+            return View(viewModel);
         }
 
 
@@ -44,6 +44,20 @@ namespace TrafficReporter.WebAPI.Controllers
             }
 
             return View("Index", viewModel);
+        }
+        
+        public async Task<ActionResult> Get()
+        {
+            Guid asd = new Guid("14045067-8241-4b33-9649-f8523796c19f");
+            if (ModelState.IsValid)
+            {
+                IReport result = await _reportService.GetReportAsync(asd);
+
+                return View("Index", _mapper.Map<ReportViewModel>(result));
+            }
+
+            return View("Index");
+
         }
     }
 }

@@ -65,10 +65,11 @@ namespace TrafficReporter.UnitTest
         [TestMethod]
         public async Task ReportRepositoryFilterTest()
         {
-            var filter = new CauseFilter(0, 5, 5);
+            var causeFilter = new CauseFilter(0, 5, 5);
+            var areaFilter = new AreaFilter(0, 0, 100, 100, 5, 5);
             var repo = new ReportRepository();
 
-            var reports = await repo.GetFilteredReportsAsync(filter);
+            var reports = await repo.GetFilteredReportsAsync(causeFilter, areaFilter);
         }
     }
 }

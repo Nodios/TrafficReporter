@@ -26,9 +26,10 @@ namespace TrafficReporter.Repository.Common
         /// <summary>
         /// Gets all reports from database which satisfy passed filter.
         /// </summary>
-        /// <param name="causeFilter">Filter which report has to satisfy in order to be retrieved.</param>
-        /// <returns></returns>
-        Task<IEnumerable<IReport>> GetFilteredReportsAsync(ICauseFilter causeFilter);
+        /// <param name="causeFilter">Filter which report has to satisfy in order to be retrieved. Related to cause.</param>
+        /// <param name="areaFilter"></param>
+        /// <returns>Collection of reports that satisfy filters.</returns>
+        Task<IEnumerable<IReport>> GetFilteredReportsAsync(ICauseFilter causeFilter, IAreaFilter areaFilter);
 
         /// <summary>
         /// Removes the report from database by passing Id parameter.

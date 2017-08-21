@@ -86,7 +86,7 @@ namespace TrafficReporter.Repository
             return report;
         }
 
-        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(ICauseFilter causeFilter)
+        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(ICauseFilter causeFilter, IAreaFilter areaFilter)
         {
             List<IReport> reports = new List<IReport>();
 
@@ -98,9 +98,11 @@ namespace TrafficReporter.Repository
                 {
                     command.Connection = connection;
                     command.CommandText = "SELECT * FROM trafreport " +
-                                          string.Format(causeFilter.Cause != null
-                                              ? $"WHERE cause = {(int)causeFilter.Cause}"
-                                              : "");
+                                          string.Format($"WHERE cause = {(int) causeFilter.Cause} ") +
+                                          string.Format($"AND longitude BETWEEN {areaFilter.LowerLeftX} AND {areaFilter.UpperRightX} ") +
+                                          string.Format($"AND lattitude BETWEEN {areaFilter.LowerLeftY} AND {areaFilter.UpperRightY} ");
+
+                    
                     using (var reader = await command.ExecuteReaderAsync())
                     {
                         while (reader.Read())

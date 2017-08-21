@@ -17,14 +17,14 @@ static Causes = CAUSES;
 static Collection = [];
 
     
-   constructor(private map: any){}
+   constructor(){}
 
     // Add a new marker to map (as described in report)
-create(report: Report){
+    create(map:any, report: Report){
     let image = {url: Markers.Causes[report.cause], scaledSize: new google.maps.Size(40,40)}
         Markers.Collection[Markers.Collection.length] = new google.maps.Marker({
           position: report,
-          map: this.map,
+          map: map,
           icon: image
         });
     }
@@ -35,6 +35,7 @@ create(report: Report){
             marker.setMap(null);
         });
         Markers.Collection=[];  // 
+        
     }
 
 /*  ngOnInit(): void {

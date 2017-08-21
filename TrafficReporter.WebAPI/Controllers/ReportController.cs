@@ -7,6 +7,7 @@ using System.Web.Http;
 using TrafficReporter.Model.Common;
 using TrafficReporter.Service.Common;
 using System.Threading.Tasks;
+using Ninject;
 
 namespace TrafficReporter.WebAPI.Controllers
 {
@@ -15,6 +16,7 @@ namespace TrafficReporter.WebAPI.Controllers
     {
         protected IReportService Service { get; private set; }
 
+        [Inject]
         public ReportController(IReportService service)
         {
             Service = service;

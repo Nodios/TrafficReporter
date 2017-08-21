@@ -2,30 +2,29 @@
 using System.Collections.Generic;
 using System.IO.MemoryMappedFiles;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TrafficReporter.Model;
 using TrafficReporter.Service.Common;
 using TrafficReporter.WebAPI.ViewModels;
 using AutoMapper;
+using Ninject;
 using TrafficReporter.Model.Common;
+using TrafficReporter.Service;
 
 namespace TrafficReporter.WebAPI.Controllers
 {
     public class HomeController : Controller
     {
-        protected IReportService ReportService { get; private set; }
-        protected IMapper Mapper { get; set; }
+        private readonly IReportService _reportService;
+        private readonly IMapper _mapper;
 
-        public HomeController()
-        {
-            
-        }
-
+        
         public HomeController(IReportService reportService, IMapper mapper)
         {
-            ReportService = reportService;
-            Mapper = mapper;
+            _reportService = reportService;
+            _mapper = mapper;
         }
 
         public ActionResult Index(ReportViewModel viewModel = null)
@@ -36,11 +35,11 @@ namespace TrafficReporter.WebAPI.Controllers
         }
 
 
-        public ActionResult Create(ReportViewModel viewModel = null)
+        public async Task<ActionResult> Create(ReportViewModel viewModel = null)
         {
             if (ModelState.IsValid)
             {
-                ReportService.AddReport(Mapper.Map<IReport>(viewModel));
+                await _reportService.AddReportAsync(_mapper.Map<ReportViewModel, IReport>(viewModel));
                 return Index(null);
             }
 

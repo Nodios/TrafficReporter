@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TrafficReporter.Model.Common;
 
+
 namespace TrafficReporter.Model
 {
     public class DIModule : NinjectModule

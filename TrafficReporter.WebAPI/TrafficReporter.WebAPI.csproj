@@ -86,11 +86,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject.Web.WebApi, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.Web.WebApi.3.2.4.0\lib\net45-full\Ninject.Web.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.WebApi.WebHost, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.WebApi.WebHost.3.2.4.0\lib\net45-full\Ninject.Web.WebApi.WebHost.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -172,11 +180,13 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperModule.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Start\WebMappingProfile.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
     <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
@@ -275,17 +285,9 @@
       <Project>{ff640cc9-4112-44d3-8c6c-cf885259647e}</Project>
       <Name>TrafficReporter.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TrafficReporter.DAL\TrafficReporter.DAL.csproj">
-      <Project>{a0a7173b-00b2-48b5-9595-0f5f3cc11241}</Project>
-      <Name>TrafficReporter.DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.Model.Common\TrafficReporter.Model.Common.csproj">
       <Project>{4f754da3-0299-4637-ae53-1092161c06ad}</Project>
       <Name>TrafficReporter.Model.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TrafficReporter.Model\TrafficReporter.Model.csproj">
-      <Project>{290a1c80-d35e-4348-bfbc-4d96b1bcf5dc}</Project>
-      <Name>TrafficReporter.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.Repository\TrafficReporter.Repository.csproj">
       <Project>{3f00ad21-c1a0-4787-9ac1-348b7c5cb38c}</Project>

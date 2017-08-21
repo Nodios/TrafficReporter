@@ -20,18 +20,14 @@ namespace TrafficReporter.Repository
     /// </summary>
     public class ReportRepository : IReportRepository
     {
-        #region Properties
 
-        protected IReportRepository Repository { get; private set; }
-
-        #endregion Properties
 
 
         #region Constructors
 
-        public ReportRepository(IReportRepository repository)
+        public ReportRepository()
         {
-            this.Repository = repository;
+
         }
 
         #endregion Constructors
@@ -49,14 +45,14 @@ namespace TrafficReporter.Repository
                 {
                     command.Connection = connection;
                     command.CommandText =
-                        "INSERT INTO trafreport (id, cause, direction, longitude, lattitude, date_time)" +
-                        "VALUES (@id, @cause, @direction, @longitude, @lattitude, @date_time)";
+                        "INSERT INTO trafreport (id, cause, direction, longitude, lattitude, date_created)" +
+                        "VALUES (@id, @cause, @direction, @longitude, @lattitude, @date_created)";
                     command.Parameters.AddWithValue("id", Guid.NewGuid());
                     command.Parameters.AddWithValue("cause", (int) report.Cause);
                     command.Parameters.AddWithValue("direction", (int) report.Direction);
                     command.Parameters.AddWithValue("longitude", report.Longitude);
                     command.Parameters.AddWithValue("lattitude", report.Lattitude);
-                    command.Parameters.AddWithValue("date_time", DateTime.Now);
+                    command.Parameters.AddWithValue("date_created", DateTime.Now);
                     rowsAffrected = await command.ExecuteNonQueryAsync();
                 }
             }

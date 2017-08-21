@@ -1,0 +1,17 @@
+﻿@model IEnumerable<TrafficReporter.Model.Common.IReport>
+
+@{
+    ViewBag.Title = "FilterReports";
+}
+
+<h2>FilterReports</h2>
+
+@foreach (var report in Model)
+{   <body>      
+    @report.Id
+    @report.Lattitude
+    @report.Longitude
+    @report.Direction
+    @report.Rating
+    </body>
+}

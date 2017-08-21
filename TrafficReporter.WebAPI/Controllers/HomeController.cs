@@ -12,6 +12,9 @@ using AutoMapper;
 using Ninject;
 using TrafficReporter.Model.Common;
 using TrafficReporter.Service;
+using System.Net.Http;
+using TrafficReporter.Common;
+using System.Net;
 
 namespace TrafficReporter.WebAPI.Controllers
 {
@@ -35,6 +38,11 @@ namespace TrafficReporter.WebAPI.Controllers
         }
 
 
+        public ActionResult FilterReports(IEnumerable<IReport> reportCollection = null)
+        {
+            return View(reportCollection);
+        }
+
         public async Task<ActionResult> Create(ReportViewModel viewModel = null)
         {
             if (ModelState.IsValid)
@@ -45,5 +53,25 @@ namespace TrafficReporter.WebAPI.Controllers
 
             return View("Index", viewModel);
         }
+
+        [HttpGet]
+        public async Task<ActionResult> GetFilteredReportsAsync()
+        {
+
+            var result = await _reportService.GetFilteredReportsAsync(new CauseFilter(0, 10, 10), new AreaFilter(0, 0, 100, 100, 5, 5));
+            
+            if (result != null)
+            {
+                return View("FilterReports", result);
+            }
+            else
+            {
+                return View();
+            }
+        }
+            
+
+
+
     }
 }

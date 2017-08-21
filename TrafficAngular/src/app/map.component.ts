@@ -6,9 +6,9 @@ import { Report } from './report';
 import { Markers } from './marker'
 
 let PROB: Report[]=[
-    {cause:1, lat:45.5494748,lng:17.3905747},
-    {cause:2, lat:45.5494748,lng:17.3005747},
-    {cause:3, lat:45.5494748,lng:18.7005747}
+    {Id:"s", cause:1, Lattitude:45.5494748,Longitude:17.3905747,Rating:1,Direction:3,DateCreated:"11-11-2017"},
+    {Id:"d", cause:2, Lattitude:45.5494748,Longitude:17.3005747,Rating:1,Direction:3,DateCreated:"11-11-2017"},
+    {Id:"f", cause:3, Lattitude:45.5494748,Longitude:18.7005747,Rating:1,Direction:3,DateCreated:"11-11-2017"}
 ];
 
 
@@ -25,15 +25,16 @@ Problems = PROB;      // sadrži listu problema za prikazati
   marker: Markers;    //  
  public map:any;            //  za dohvaćanje google map instance
  public search: any;        //  za dohvaćanje google searchbox instance
+ reports: Report[] = [];
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef,
+  private reportService: ReportService) { }
 
 
 initMap(position):void {
   let selfRef = this;     
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
-        console.dir(google.maps);
         this.map = new google.maps.Map(this.elementRef.nativeElement.children[0], {
           zoom: 10,
           center: this,
@@ -78,6 +79,15 @@ initMap(position):void {
           });
         selfRef.map.fitBounds(bounds);
         });
+         
+         this.reportService.getReport("6e8c708d-9370-4f00-9b16-707173b6ab54")
+         .then(report => {
+          this.reports.push(report);
+         // console.log(this.reports[0]);
+          this.marker.create(this.map,this.reports[0]);
+        });
+
+       //  
       setInterval(this.updateReports,15000, this.map); 
       }
 

@@ -64,6 +64,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TrafficReporter.Common\TrafficReporter.Common.csproj">
+      <Project>{ff640cc9-4112-44d3-8c6c-cf885259647e}</Project>
+      <Name>TrafficReporter.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.Model.Common\TrafficReporter.Model.Common.csproj">
       <Project>{4F754DA3-0299-4637-AE53-1092161C06AD}</Project>
       <Name>TrafficReporter.Model.Common</Name>

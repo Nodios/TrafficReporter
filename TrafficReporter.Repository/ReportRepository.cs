@@ -62,7 +62,7 @@ namespace TrafficReporter.Repository
 
         public async Task<IReport> GetReportAsync(Guid id)
         {
-            IReport report = new Report();
+            IReport report = null;
 
             using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
             {
@@ -84,6 +84,43 @@ namespace TrafficReporter.Repository
             }
 
             return report;
+        }
+
+        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(ICauseFilter causeFilter)
+        {
+            List<IReport> reports = new List<IReport>();
+
+            using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
+            {
+                await connection.OpenAsync();
+
+                using (var command = new NpgsqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT * FROM trafreport " +
+                                          string.Format(causeFilter.Cause != null
+                                              ? $"WHERE cause = {(int)causeFilter.Cause}"
+                                              : "");
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (reader.Read())
+                        {
+                            var report = new Report();
+                            report.Id = (Guid)reader["id"];
+                            report.Cause = (Cause)reader["cause"];
+                            report.Rating = (int)reader["rating"];
+                            report.Direction = (Direction)reader["direction"];
+                            report.Longitude = (double)reader["longitude"];
+                            report.Lattitude = (double)reader["lattitude"];
+                            report.DateCreated = (DateTime)reader["date_created"];
+                            reports.Add(report);
+                        }
+                    }
+
+                }
+            }
+
+            return reports;
         }
 
         public async Task<int> RemoveReportAsync(Guid id)

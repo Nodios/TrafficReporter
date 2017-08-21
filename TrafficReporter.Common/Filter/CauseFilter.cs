@@ -38,11 +38,11 @@ namespace TrafficReporter.Common
 
         #region Methods
 
-        public CauseFilter(string cause, int pageNumber, int pageSize)
+        public CauseFilter(int cause, int pageNumber, int pageSize)
         {
             try
             {
-                Cause = (Cause) Enum.Parse(typeof(Cause), cause);
+                Cause = (Cause) cause;
                 SetPageNumberAndSize(pageNumber, pageSize);
             }
             catch (ArgumentException e)

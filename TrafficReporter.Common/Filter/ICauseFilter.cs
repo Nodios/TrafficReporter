@@ -14,7 +14,7 @@ namespace TrafficReporter.Common
 
         // paging and sorting parameters
         string SortOrder { get; set; }
-        int PageNumber { get; set; }
+        int PageNumber { get; set; }    
         int PageSize { get; set; }
     }
 }

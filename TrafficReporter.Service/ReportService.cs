@@ -8,6 +8,7 @@ using TrafficReporter.Service.Common;
 using TrafficReporter.Repository.Common;
 using TrafficReporter.Model;
 using TrafficReporter.Common.Enums;
+using TrafficReporter.Common;
 
 namespace TrafficReporter.Service
 {
@@ -60,6 +61,19 @@ namespace TrafficReporter.Service
         {
             return await Repository.RemoveReportAsync(id);
         }
+
+        public Task<IEnumerable<IReport>> GetFilteredReportsAsync(CauseFilter filter = null)
+        {
+            return Repository.GetFilteredReportsAsync(filter);
+        }
+
+        public Task<IEnumerable<IReport>> GetFilteredReportAsync(AreaFilter filter = null)
+        {
+            return Repository.GetFilteredReportAsync(filter);
+        }
+
+
+
 
 
         #endregion Methods

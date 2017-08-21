@@ -9,3 +9,5 @@ export class Report {/*
     direction: number;
     ban: number; */
 }
+
+// should check how to save id - probably string

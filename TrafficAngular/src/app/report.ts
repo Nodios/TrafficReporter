@@ -1,5 +1,5 @@
 export class Report {/*
-    id: number;
+    id: string;
     dateCreated: string; */
     cause: number;
     lat: number;

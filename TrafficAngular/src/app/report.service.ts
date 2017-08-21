@@ -15,7 +15,7 @@ export class ReportService {
 
   // request all reports in area defined by map bounds
   getReports(latMin: number,longMin: number,latMax: number, longMax: number): Promise<Report[]> {
-    return this.http.get(this.reportUrl)
+    return this.http.post(this.reportUrl+"/get",JSON.stringify({latMin,longMin,latMax,longMax}),{headers: this.headers})
                .toPromise()
                .then(response => response.json().data as Report[])
                .catch(this.handleError);
@@ -41,9 +41,9 @@ export class ReportService {
   // register a new report of type X at current location
   createReport(cause:number ,lat: number, long: number): Promise<Report> {
     return this.http
-      .post(this.reportUrl, JSON.stringify({cause,lat,long}), {headers: this.headers})
+      .post(this.reportUrl+"/create", JSON.stringify({cause,lat,long}), {headers: this.headers})
       .toPromise()
-      .then(res => res.json().data as Report)
+      .then(() => null)
       .catch(this.handleError);
   }
     

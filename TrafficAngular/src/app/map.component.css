@@ -4,7 +4,9 @@ div{
 }
 
 input {
+    margin: 1%;
     width: 90%;
     height: 5%;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(235,255,235,0.9);
+    color:black;
 }

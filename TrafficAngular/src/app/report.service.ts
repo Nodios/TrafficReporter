@@ -9,7 +9,7 @@ import { Report } from './report';
 export class ReportService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private reportUrl = 'api/problem';  // URL to web api
+  private reportUrl = 'http://localhost:50169/api/report';  // URL to web api
 
   constructor(private http: Http) { }
 
@@ -17,19 +17,20 @@ export class ReportService {
   getReports(latMin: number,longMin: number,latMax: number, longMax: number): Promise<Report[]> {
     return this.http.post(this.reportUrl+"/get",JSON.stringify({latMin,longMin,latMax,longMax}),{headers: this.headers})
                .toPromise()
-               .then(response => response.json().data as Report[])
+               .then(response => response.json() as Report[])
                .catch(this.handleError);
   } 
 
 
- /* getProblem(id: number): Promise<Report> { 
+  getReport(id: string): Promise<Report> { 
     const url = `${this.reportUrl}/${id}`;
     return this.http.get(url)
       .toPromise()
-      .then(response => response.json().data as Report)
+      .then(response => response.json() as Report)
       .catch(this.handleError);
   }
 
+/*
     delete(id: number): Promise<void> {
     const url = `${this.reportUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})

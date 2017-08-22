@@ -100,6 +100,8 @@ namespace TrafficReporter.Repository
                     command.Connection = connection;
                     var commandText = new StringBuilder("SELECT * FROM trafreport ");
 
+                    //If there is at least one filter, then apply
+                    //WHERE part of the SQL query.
                     if (causeFilter != null || areaFilter != null)
                     {
                         commandText.Append("WHERE ");
@@ -107,11 +109,16 @@ namespace TrafficReporter.Repository
                         if (causeFilter != null)
                         {
                             commandText.Append($"cause = {(int) causeFilter.Cause} ");
-                            commandText.Append("AND ");
+                            
                         }
 
                         if (areaFilter != null)
                         {
+                            //This adds AND keyword if there is at least one filter before this one.
+                            if (causeFilter != null)
+                            {
+                                commandText.Append("AND ");
+                            }
                             commandText.Append($"longitude BETWEEN {areaFilter.LowerLeftX} AND {areaFilter.UpperRightX} AND ");
                             commandText.Append($"lattitude BETWEEN {areaFilter.LowerLeftY} AND {areaFilter.UpperRightY}");
                         }

@@ -72,7 +72,7 @@ namespace TrafficReporter.UnitTest
             var areaFilter = new AreaFilter(0, 0, 100, 100, 5, 5);
             var repo = new ReportRepository();
 
-            var reports = await repo.GetFilteredReportsAsync(null, areaFilter);
+            var reports = await repo.GetFilteredReportsAsync(causeFilter, null);
         }
     }
 }

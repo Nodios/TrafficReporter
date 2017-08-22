@@ -596,3 +596,7 @@ __pycache__/
 
 *.xsd.cs
 TrafficReporter.Repository/ReportRepository.cs.orig
+TrafficReporter.UnitTest/TrafficReporter.UnitTest_REMOTE_8424.csproj
+TrafficReporter.UnitTest/TrafficReporter.UnitTest_LOCAL_8424.csproj
+TrafficReporter.UnitTest/TrafficReporter.UnitTest_BASE_8424.csproj
+TrafficReporter.UnitTest/TrafficReporter.UnitTest_BACKUP_8424.csproj

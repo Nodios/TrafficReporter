@@ -22,7 +22,7 @@ static Collection = [];
     // Add a new marker to map (as described in report)
     create(map:any, report: Report){
     let pos = {lat: report.Lattitude,lng:report.Longitude};
-    let image = {url: Markers.Causes[report.cause], scaledSize: new google.maps.Size(40,40)}
+    let image = {url: Markers.Causes[report.Cause], scaledSize: new google.maps.Size(40,40)}
         Markers.Collection[Markers.Collection.length] = new google.maps.Marker({
           position: pos,
           map: map,

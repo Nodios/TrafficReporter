@@ -6,9 +6,9 @@ import { Report } from './report';
 import { Markers } from './marker'
 
 let PROB: Report[]=[
-    {Id:"s", cause:1, Lattitude:45.5494748,Longitude:17.3905747,Rating:1,Direction:3,DateCreated:"11-11-2017"},
-    {Id:"d", cause:2, Lattitude:45.5494748,Longitude:17.3005747,Rating:1,Direction:3,DateCreated:"11-11-2017"},
-    {Id:"f", cause:3, Lattitude:45.5494748,Longitude:18.7005747,Rating:1,Direction:3,DateCreated:"11-11-2017"}
+    {Id:"s", Cause:1, Lattitude:45.5494748,Longitude:17.3905747,Rating:1,Direction:3,DateCreated:"11-11-2017"},
+    {Id:"d", Cause:2, Lattitude:45.5494748,Longitude:17.3005747,Rating:1,Direction:3,DateCreated:"11-11-2017"},
+    {Id:"f", Cause:3, Lattitude:45.5494748,Longitude:18.7005747,Rating:1,Direction:3,DateCreated:"11-11-2017"}
 ];
 
 
@@ -80,7 +80,8 @@ initMap(position):void {
         selfRef.map.fitBounds(bounds);
         });
          
-         this.reportService.getReport("6e8c708d-9370-4f00-9b16-707173b6ab54")
+    //     this.reportService.delete("3f1b1071-44e3-4551-870a-3d6a2d7e0534");  - dokazano radi
+         this.reportService.getReport("14045067-8241-4b33-9649-f8523796c19f")
          .then(report => {
           this.reports.push(report);
          // console.log(this.reports[0]);

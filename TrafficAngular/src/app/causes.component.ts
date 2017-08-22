@@ -25,7 +25,13 @@ onSelect(cause: number){
  navigator.geolocation.getCurrentPosition(this.postProblem.bind(this));
 }
 
+
+
  postProblem(position){
-    this.problemService.createReport(this.currentCause,position.coords.latitude,position.coords.latitude);
+   let report = new Report;
+   report.Cause=this.currentCause;
+   report.Lattitude=position.coords.latitude;
+   report.Longitude=position.coords.longitude;
+    this.problemService.createReport(report);
   }
 }

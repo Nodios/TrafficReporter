@@ -9,13 +9,13 @@ import { Report } from './report';
 export class ReportService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private reportUrl = 'http://localhost:50169/api/report';  // URL to web api
+  private reportUrl = 'http://localhost:50169/api/Report';  // URL to web api
 
   constructor(private http: Http) { }
 
   // request all reports in area defined by map bounds
   getReports(latMin: number,longMin: number,latMax: number, longMax: number): Promise<Report[]> {
-    return this.http.post(this.reportUrl+"/get",JSON.stringify({latMin,longMin,latMax,longMax}),{headers: this.headers})
+    return this.http.post(this.reportUrl,JSON.stringify({latMin,longMin,latMax,longMax}),{headers: this.headers})
                .toPromise()
                .then(response => response.json() as Report[])
                .catch(this.handleError);
@@ -30,19 +30,19 @@ export class ReportService {
       .catch(this.handleError);
   }
 
-/*
+
     delete(id: number): Promise<void> {
     const url = `${this.reportUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})
       .toPromise()
       .then(() => null)
       .catch(this.handleError);
-  } */
+  } 
 
-  // register a new report of type X at current location
-  createReport(cause:number ,lat: number, long: number): Promise<Report> {
+  // register a new report
+  createReport(report: Report): Promise<Report> {
     return this.http
-      .post(this.reportUrl+"/create", JSON.stringify({cause,lat,long}), {headers: this.headers})
+      .post(this.reportUrl, report, {headers: this.headers})
       .toPromise()
       .then(() => null)
       .catch(this.handleError);

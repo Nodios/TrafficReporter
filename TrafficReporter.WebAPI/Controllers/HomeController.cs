@@ -55,10 +55,11 @@ namespace TrafficReporter.WebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetFilteredReportsAsync()
+        [Route("api/home/")]
+        public async Task<ActionResult> GetFilteredReportsAsync(double dx, double dy, double ux, double uy)
         {
 
-            var result = await _reportService.GetFilteredReportsAsync(new CauseFilter(0, 10, 10), new AreaFilter(0, 0, 100, 100, 5, 5));
+            var result = await _reportService.GetFilteredReportsAsync(new CauseFilter(1, 10, 10), new AreaFilter(dx, dy, ux, uy, 5, 5));
             
             if (result != null)
             {

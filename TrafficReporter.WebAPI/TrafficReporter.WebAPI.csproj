@@ -178,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Report\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutoMapperModule.cs" />
@@ -280,6 +281,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\FilterReports.cshtml" />
+    <Content Include="Views\Home\CauseFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TrafficReporter.Common\TrafficReporter.Common.csproj">

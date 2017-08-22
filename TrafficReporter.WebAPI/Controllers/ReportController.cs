@@ -3,17 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web.Http;
+
 using TrafficReporter.Model.Common;
 using TrafficReporter.Service.Common;
 using System.Threading.Tasks;
 using Ninject;
+using AutoMapper;
+using TrafficReporter.Common;
+using System.Web.Mvc;
 
 namespace TrafficReporter.WebAPI.Controllers
 {
     [RoutePrefix("api/report")]
-    public class ReportController : ApiController
+    public class ReportController : Controller
     {
+        private readonly IReportService _reportService;
+        private readonly IMapper _mapper;
+
+
+        public ReportController(IReportService reportService, IMapper mapper)
+        {
+            _reportService = reportService;
+            _mapper = mapper;
+        }
+
         protected IReportService Service { get; private set; }
 
         [Inject]
@@ -48,5 +61,24 @@ namespace TrafficReporter.WebAPI.Controllers
             return await this.Service.GetReportAsync(id);
         }
 
+
+        [HttpGet]
+        [Route("api/home/")]
+        public async Task<ActionResult> GetFilteredReportsAsync(double dx, double dy, double ux, double uy)
+        {
+
+            var result = await _reportService.GetFilteredReportsAsync(new CauseFilter(1, 10, 10), new AreaFilter(dx, dy, ux, uy, 5, 5));
+
+            if (result != null)
+            {
+                return View("FilterReports", result);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        
     }
 }

@@ -4,6 +4,7 @@ using TrafficReporter.Model.Common;
 using TrafficReporter.Repository.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +38,7 @@ namespace TrafficReporter.Repository
         {
             var rowsAffrected = 0;
 
-            using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
+            using (var connection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["RemoteDB"].ConnectionString))
             {
                 await connection.OpenAsync();
 
@@ -64,7 +65,7 @@ namespace TrafficReporter.Repository
         {
             IReport report = null;
 
-            using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
+            using (var connection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["RemoteDB"].ConnectionString))
             {
                 await connection.OpenAsync();
 
@@ -90,7 +91,7 @@ namespace TrafficReporter.Repository
         {
             List<IReport> reports = new List<IReport>();
 
-            using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
+            using (var connection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["RemoteDB"].ConnectionString))
             {
                 await connection.OpenAsync();
 
@@ -129,7 +130,7 @@ namespace TrafficReporter.Repository
         {
             var rowsAffrected = 0;
 
-            using (var connection = new NpgsqlConnection(Constants.RemoteConnectionString))
+            using (var connection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["RemoteDB"].ConnectionString))
             {
                 await connection.OpenAsync();
 
@@ -145,7 +146,7 @@ namespace TrafficReporter.Repository
 
             return rowsAffrected;
         }
-        #endregion Method
+        #endregion Methods
     }
 
 }

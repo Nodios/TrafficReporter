@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Configuration;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TrafficReporter.Common;
@@ -25,8 +27,9 @@ namespace TrafficReporter.UnitTest
         [TestMethod]
         public void GetConnectionStringByNameTest()
         {
-
-            var connectionString = DBConnectionConfiguration.GetConnectionStringByName("LocalJPaulik");
+            var connectionString =
+                ConfigurationManager.ConnectionStrings["LocalJPaulik"].ConnectionString;
+            
             Assert.AreEqual(connectionString,
                 "Host=localhost; Port=5432; Username='postgres'; Password=3530744182a; Database=TrafficReportDB");
         }

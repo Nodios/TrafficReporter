@@ -98,11 +98,25 @@ namespace TrafficReporter.Repository
                 using (var command = new NpgsqlCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = "SELECT * FROM trafreport " +
-                                          string.Format($"WHERE cause = {(int) causeFilter.Cause} ") +
-                                          string.Format($"AND longitude BETWEEN {areaFilter.LowerLeftX} AND {areaFilter.UpperRightX} ") +
-                                          string.Format($"AND lattitude BETWEEN {areaFilter.LowerLeftY} AND {areaFilter.UpperRightY} ");
+                    var commandText = new StringBuilder("SELECT * FROM trafreport ");
 
+                    if (causeFilter != null || areaFilter != null)
+                    {
+                        commandText.Append("WHERE ");
+
+                        if (causeFilter != null)
+                        {
+                            commandText.Append($"cause = {(int) causeFilter.Cause} ");
+                            commandText.Append("AND ");
+                        }
+
+                        if (areaFilter != null)
+                        {
+                            commandText.Append($"longitude BETWEEN {areaFilter.LowerLeftX} AND {areaFilter.UpperRightX} AND ");
+                            commandText.Append($"lattitude BETWEEN {areaFilter.LowerLeftY} AND {areaFilter.UpperRightY}");
+                        }
+                    }
+                    command.CommandText = commandText.ToString();
                     
                     using (var reader = await command.ExecuteReaderAsync())
                     {

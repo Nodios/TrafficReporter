@@ -79,7 +79,8 @@ namespace TrafficReporter.Repository
                     {
                         report = new Report();
                         report.Id = id;
-                        report.Cause = (Cause)reader["cause"];                        
+                        report.Cause = (Cause)reader["cause"]; 
+                                               
                         report.Rating = (int) reader["rating"];
                         report.Direction = (Direction) reader["direction"];
                         report.Longitude = (double) reader["longitude"];

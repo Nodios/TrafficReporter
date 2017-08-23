@@ -32,7 +32,7 @@ namespace TrafficReporter.WebAPI.Controllers
             _mapper = mapper;
         }
 
-        protected IReportService Service { get; private set; }
+        
 
         
 
@@ -40,7 +40,7 @@ namespace TrafficReporter.WebAPI.Controllers
         [HttpPost]
         public async Task<bool> AddReportAsync(ReportViewModel report)
         {
-            return await this.Service.AddReportAsync(_mapper.Map<IReport>(report));
+            return await this._reportService.AddReportAsync(_mapper.Map<IReport>(report));
         }
 
 
@@ -50,7 +50,7 @@ namespace TrafficReporter.WebAPI.Controllers
         [Route("{id:guid}")]
         public async Task<int> RemoveReportAsync(Guid id)
         {
-            return await this.Service.RemoveReportAsync(id);
+            return await this._reportService.RemoveReportAsync(id);
         }
 
 
@@ -59,7 +59,7 @@ namespace TrafficReporter.WebAPI.Controllers
         [Route("{id:guid}")]
         public async Task<IReport> GetreportAsync(Guid id)
         {
-            return await this.Service.GetReportAsync(id);
+            return await this._reportService.GetReportAsync(id);
         }
 
 

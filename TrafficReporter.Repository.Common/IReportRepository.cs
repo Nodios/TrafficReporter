@@ -30,7 +30,7 @@ namespace TrafficReporter.Repository.Common
         /// <param name="causeFilter">Filter which report has to satisfy in order to be retrieved. Related to cause.</param>
         /// <param name="areaFilter"></param>
         /// <returns>Collection of reports that satisfy filters.</returns>
-        Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter, IPageFilter pagefilter);
+        Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter);
 
         /// <summary>
         /// Removes the report from database by passing Id parameter.

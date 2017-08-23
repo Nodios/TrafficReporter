@@ -66,9 +66,9 @@ namespace TrafficReporter.Service
 
 
 
-        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter=null, IPageFilter pagefilter=null)
+        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter=null)
         {
-            return await Repository.GetFilteredReportsAsync(filter, pagefilter);
+            return await Repository.GetFilteredReportsAsync(filter);
         }
 
         

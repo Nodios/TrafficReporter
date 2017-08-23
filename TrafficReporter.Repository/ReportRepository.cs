@@ -87,7 +87,7 @@ namespace TrafficReporter.Repository
             return report;
         }
 
-        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter, IPageFilter pagefilter)
+        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter)
         {
             List<IReport> reports = new List<IReport>();
 
@@ -102,7 +102,7 @@ namespace TrafficReporter.Repository
 
                     //If there is at least one filter, then apply
                     //WHERE part of the SQL query.
-                    if (filter != null || pagefilter != null)
+                    if (filter != null)
                     {
                         commandText.Append("WHERE ");
 

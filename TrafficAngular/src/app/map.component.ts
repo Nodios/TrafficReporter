@@ -23,6 +23,7 @@ Problems = PROB;      // sadrži listu problema za prikazati
   lat: number;        //  <-.
   lng: number;        //  <-+ trenutne kordinate
   marker: Markers;    //  
+  tracker: any;
  public map:any;            //  za dohvaćanje google map instance
  public search: any;        //  za dohvaćanje google searchbox instance
  reports: Report[] = [];
@@ -84,8 +85,10 @@ initMap(position):void {
          this.reportService.getReports()
          .then(report => {
            report.forEach(function(rep) {
-            selfRef.marker.create(selfRef.map,rep); 
+            selfRef.marker.create(selfRef.map,rep);
+           // console.log(rep); 
            });
+
          // console.log(this.reports[0]);
           
         });
@@ -94,6 +97,24 @@ initMap(position):void {
       setInterval(this.updateReports,15000, this.map); 
       }
 
+updatePosition(self: any){
+  navigator.geolocation.getCurrentPosition(self.setPosition.bind(self));
+}
+
+setPosition(position){
+  this.lat = position.coords.latitude;
+  this.lng = position.coords.longitude;
+  this.map.setCenter(this);
+}
+
+trackingToggle(){
+  if(!this.tracker){
+    this.tracker = setInterval( this.updatePosition,1000, this);
+  }
+  else{
+    clearInterval(this.tracker); this.tracker=undefined;
+  }
+}
 
 updateReports(map: any):void{
    let a = map.getBounds()

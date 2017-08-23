@@ -32,6 +32,8 @@ onSelect(cause: number){
    report.Cause=this.currentCause;
    report.Lattitude=position.coords.latitude;
    report.Longitude=position.coords.longitude;
+   report.DateCreated= new Date().toUTCString();
+   console.log(report);
     this.problemService.createReport(report);
   }
 }

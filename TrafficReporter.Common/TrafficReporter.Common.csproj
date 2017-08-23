@@ -61,14 +61,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FilterMapping.cs" />
-    <Compile Include="Filter\AreaFilter.cs" />
-    <Compile Include="Filter\CauseFilter.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Enums\Ban.cs" />
     <Compile Include="Enums\Cause.cs" />
     <Compile Include="Enums\Direction.cs" />
-    <Compile Include="Filter\IAreaFilter.cs" />
-    <Compile Include="Filter\ICauseFilter.cs" />
+    <Compile Include="Filter\Filter.cs" />
+    <Compile Include="Filter\IFilter.cs" />
+    <Compile Include="Filter\IPageFilter.cs" />
+    <Compile Include="Filter\PageFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

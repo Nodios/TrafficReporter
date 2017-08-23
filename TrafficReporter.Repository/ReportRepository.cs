@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Npgsql;
 using TrafficReporter.Common;
 using TrafficReporter.Common.Enums;
-
+using TrafficReporter.Common.Filter;
 
 namespace TrafficReporter.Repository
 {
@@ -87,7 +87,7 @@ namespace TrafficReporter.Repository
             return report;
         }
 
-        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(ICauseFilter causeFilter, IAreaFilter areaFilter)
+        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter, IPageFilter pagefilter)
         {
             List<IReport> reports = new List<IReport>();
 
@@ -102,25 +102,25 @@ namespace TrafficReporter.Repository
 
                     //If there is at least one filter, then apply
                     //WHERE part of the SQL query.
-                    if (causeFilter != null || areaFilter != null)
+                    if (filter != null || pagefilter != null)
                     {
                         commandText.Append("WHERE ");
 
-                        if (causeFilter != null)
+                        if (filter != null)
                         {
-                            commandText.Append($"cause = {(int) causeFilter.Cause} ");
+                            commandText.Append($"cause = {(int) filter.Cause} ");
                             
                         }
 
-                        if (areaFilter != null)
+                        if (filter != null)
                         {
                             //This adds AND keyword if there is at least one filter before this one.
-                            if (causeFilter != null)
+                            if (filter != null)
                             {
                                 commandText.Append("AND ");
                             }
-                            commandText.Append($"longitude BETWEEN {areaFilter.LowerLeftX} AND {areaFilter.UpperRightX} AND ");
-                            commandText.Append($"lattitude BETWEEN {areaFilter.LowerLeftY} AND {areaFilter.UpperRightY}");
+                            commandText.Append($"longitude BETWEEN {filter.LowerLeftX} AND {filter.UpperRightX} AND ");
+                            commandText.Append($"lattitude BETWEEN {filter.LowerLeftY} AND {filter.UpperRightY}");
                         }
                     }
                     command.CommandText = commandText.ToString();

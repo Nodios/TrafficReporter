@@ -4,6 +4,7 @@ using TrafficReporter.Model.Common;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using TrafficReporter.Common;
+using TrafficReporter.Common.Filter;
 
 namespace TrafficReporter.Service.Common
 {
@@ -32,7 +33,7 @@ namespace TrafficReporter.Service.Common
         /// <returns>True or false depending on operation success.</returns>
         Task<int> RemoveReportAsync(Guid id);
 
-        Task<IEnumerable<IReport>> GetFilteredReportsAsync(ICauseFilter causeFilter = null, IAreaFilter areaFilter = null);
+        Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter=null, IPageFilter pagefilter=null);
 
         
     }

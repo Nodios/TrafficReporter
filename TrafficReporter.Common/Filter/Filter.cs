@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrafficReporter.Common.Enums;
 
-namespace TrafficReporter.Common
+namespace TrafficReporter.Common.Filter
 {
-    public class AreaFilter : IAreaFilter
+    public class Filter :IFilter
     {
-        #region Properties
-
         // fixed parameter values define the area (using point coordinates) in which application users can report incidents
-        public double LowerLeftX { get; set; } = 44.5;    
+        public double LowerLeftX { get; set; } = 44.5;
         public double LowerLeftY { get; set; } = 16.5;
         public double UpperRightX { get; set; } = 47.5;
         public double UpperRightY { get; set; } = 19.5;
-
-        // paging and sorting parameters
+        public Cause Cause { get; set; }
         public string SortOrder { get; set; }
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
-        #endregion
+
+
+
 
         #region Variables
 
@@ -30,22 +30,31 @@ namespace TrafficReporter.Common
 
         //#region Constructor
 
-        //// Trebamo od nekud povući lokaciju korisnika 
-        //// Filtriranje je na strani baze podataka, onda samo proslijedimo LL i UR njima
-        //public AreaFilter(double llX, double llY, double urX, double urY)
+        //public CauseFilter(CauseEnum Cause)
         //{
-        //    LowerLeftX = llX;
-        //    LowerLeftY = llY;
-        //    UpperRightX = urX;
-        //    UpperRightY = urY;
+
+        //    this.Cause = Cause;
 
         //}
 
         //#endregion Constructor
 
-        #region Methods
 
-        public AreaFilter(double llX, double llY, double urX, double urY, int pageNumber, int pageSize)
+
+        public Filter(int cause, int pageNumber, int pageSize)
+        {
+            try
+            {
+                Cause = (Cause)cause;
+                SetPageNumberAndSize(pageNumber, pageSize);
+            }
+            catch (ArgumentException e)
+            {
+                throw e;
+            }
+        }
+
+        public Filter(double llX, double llY, double urX, double urY, int pageNumber, int pageSize)
         {
             try
             {
@@ -62,13 +71,12 @@ namespace TrafficReporter.Common
             }
         }
 
+
         private void SetPageNumberAndSize(int pageNumber = 1, int pageSize = 0)
         {
             PageNumber = (pageNumber > 0) ? pageNumber : 1;
             PageSize = (pageSize > 0 && pageSize <= DefaultPageSize) ? pageSize : DefaultPageSize;
         }
-
-        #endregion Methods
 
     }
 }

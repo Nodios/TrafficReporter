@@ -81,11 +81,13 @@ initMap(position):void {
         });
          
     //     this.reportService.delete("3f1b1071-44e3-4551-870a-3d6a2d7e0534");  - dokazano radi
-         this.reportService.getReport("14045067-8241-4b33-9649-f8523796c19f")
+         this.reportService.getReports()
          .then(report => {
-          this.reports.push(report);
+           report.forEach(function(rep) {
+            selfRef.marker.create(selfRef.map,rep); 
+           });
          // console.log(this.reports[0]);
-          this.marker.create(this.map,this.reports[0]);
+          
         });
 
        //  

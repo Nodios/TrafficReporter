@@ -41,11 +41,6 @@ namespace TrafficReporter.DAL.Entity_Models
         /// </summary>
         public int Rating { get; set; }
 
-        /// <summary>
-        /// If the traffic is blocked, for whom is the traffic banned:
-        /// e.g. trucks, buses...
-        /// </summary>
-        public Ban Ban { get; set; }
 
         /// <summary>
         /// In which direction is the traffic endagered.

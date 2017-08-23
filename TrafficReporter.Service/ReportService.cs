@@ -9,6 +9,7 @@ using TrafficReporter.Repository.Common;
 using TrafficReporter.Model;
 using TrafficReporter.Common.Enums;
 using TrafficReporter.Common;
+using TrafficReporter.Common.Filter;
 
 namespace TrafficReporter.Service
 {
@@ -51,23 +52,23 @@ namespace TrafficReporter.Service
             return true;
         }
 
-        public async Task<IReport> GetReportAsync(Guid id)
+        public Task<IReport> GetReportAsync(Guid id)
         {
-            return await Repository.GetReportAsync(id);
+            return Repository.GetReportAsync(id);
         }
 
  
-        public async Task<int> RemoveReportAsync(Guid id)
+        public Task<int> RemoveReportAsync(Guid id)
         {
-            return await Repository.RemoveReportAsync(id);
+            return Repository.RemoveReportAsync(id);
         }
 
 
 
 
-        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(ICauseFilter causeFilter = null, IAreaFilter areaFilter= null)
+        public Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter=null)
         {
-            return await Repository.GetFilteredReportsAsync(causeFilter, areaFilter);
+            return Repository.GetFilteredReportsAsync(filter);
         }
 
         

@@ -14,6 +14,8 @@ using TrafficReporter.Common;
 
 //using System.Web.Mvc;
 using System.Web.Http;
+using TrafficReporter.Common.Filter;
+using TrafficReporter.WebAPI.ViewModels;
 
 namespace TrafficReporter.WebAPI.Controllers
 {
@@ -36,9 +38,9 @@ namespace TrafficReporter.WebAPI.Controllers
 
 
         [HttpPost]
-        public async Task<bool> AddReportAsync(IReport report)
+        public async Task<bool> AddReportAsync(ReportViewModel report)
         {
-            return await this.Service.AddReportAsync(report);
+            return await this.Service.AddReportAsync(_mapper.Map<IReport>(report));
         }
 
 
@@ -66,7 +68,7 @@ namespace TrafficReporter.WebAPI.Controllers
         public async Task<IEnumerable<IReport>> GetFilteredReportsAsync()
         {
 
-            var result = await _reportService.GetFilteredReportsAsync(new CauseFilter(0, 10, 10), new AreaFilter(0,0,100,100, 5, 5));
+            var result = await _reportService.GetFilteredReportsAsync();
 
             if (result != null)
             {

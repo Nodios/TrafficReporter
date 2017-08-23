@@ -7,7 +7,7 @@ using TrafficReporter.Common.Enums;
 
 namespace TrafficReporter.WebAPI.ViewModels
 {
-    public class ReportViewModel
+    public class ReportViewModel 
     {
         public Guid Id { get; set; }
         [Required]

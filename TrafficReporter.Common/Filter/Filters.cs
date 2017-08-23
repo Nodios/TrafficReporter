@@ -7,7 +7,7 @@ using TrafficReporter.Common.Enums;
 
 namespace TrafficReporter.Common.Filter
 {
-    public class Filter :IFilter
+    public class Filters :IFilter
     {
         // fixed parameter values define the area (using point coordinates) in which application users can report incidents
         public double LowerLeftX { get; set; } = 44.5;
@@ -41,7 +41,7 @@ namespace TrafficReporter.Common.Filter
 
 
 
-        public Filter(int cause, int pageNumber, int pageSize)
+        public Filters(int cause, int pageNumber, int pageSize)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace TrafficReporter.Common.Filter
             }
         }
 
-        public Filter(double llX, double llY, double urX, double urY, int pageNumber, int pageSize)
+        public Filters(double llX, double llY, double urX, double urY, int pageNumber, int pageSize)
         {
             try
             {

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TrafficReporter.Common.Filter;
 namespace TrafficReporter.Common
 {
     class FilterMapping : NinjectModule
@@ -22,8 +22,8 @@ namespace TrafficReporter.Common
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<IAreaFilter, AreaFilter>();
-                cfg.CreateMap<ICauseFilter, CauseFilter>();
+                cfg.CreateMap<IFilter, Filters>();
+                cfg.CreateMap<IPageFilter, PageFilter>();
             });
 
             return config;

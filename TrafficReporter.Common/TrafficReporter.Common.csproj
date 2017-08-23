@@ -65,7 +65,7 @@
     <Compile Include="Enums\Ban.cs" />
     <Compile Include="Enums\Cause.cs" />
     <Compile Include="Enums\Direction.cs" />
-    <Compile Include="Filter\Filter.cs" />
+    <Compile Include="Filter\Filters.cs" />
     <Compile Include="Filter\IFilter.cs" />
     <Compile Include="Filter\IPageFilter.cs" />
     <Compile Include="Filter\PageFilter.cs" />

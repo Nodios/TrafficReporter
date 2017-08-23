@@ -12,6 +12,7 @@ using Npgsql;
 using TrafficReporter.Common;
 using TrafficReporter.Common.Enums;
 using TrafficReporter.Common.Filter;
+using TrafficReporter.DAL.Entity_Models;
 
 namespace TrafficReporter.Repository
 {
@@ -28,7 +29,7 @@ namespace TrafficReporter.Repository
 
         public ReportRepository()
         {
-
+            
         }
 
         #endregion Constructors
@@ -63,7 +64,10 @@ namespace TrafficReporter.Repository
 
         public async Task<IReport> GetReportAsync(Guid id)
         {
-            IReport report = null;
+
+
+           
+        IReport report = null;
 
             using (var connection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["RemoteDB"].ConnectionString))
             {
@@ -75,12 +79,15 @@ namespace TrafficReporter.Repository
                     {
                         report = new Report();
                         report.Id = id;
-                        report.Cause = (Cause) reader["cause"];
+                        report.Cause = (Cause)reader["cause"];                        
                         report.Rating = (int) reader["rating"];
                         report.Direction = (Direction) reader["direction"];
                         report.Longitude = (double) reader["longitude"];
                         report.Lattitude = (double) reader["lattitude"];
                         report.DateCreated = (DateTime) reader["date_created"];
+
+                        
+
                     }
             }
 
@@ -166,7 +173,13 @@ namespace TrafficReporter.Repository
             }
 
             return rowsAffrected;
+
+
+
         }
+
+
+
         #endregion Methods
     }
 

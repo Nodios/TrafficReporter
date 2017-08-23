@@ -52,23 +52,23 @@ namespace TrafficReporter.Service
             return true;
         }
 
-        public async Task<IReport> GetReportAsync(Guid id)
+        public Task<IReport> GetReportAsync(Guid id)
         {
-            return await Repository.GetReportAsync(id);
+            return Repository.GetReportAsync(id);
         }
 
  
-        public async Task<int> RemoveReportAsync(Guid id)
+        public Task<int> RemoveReportAsync(Guid id)
         {
-            return await Repository.RemoveReportAsync(id);
+            return Repository.RemoveReportAsync(id);
         }
 
 
 
 
-        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter=null)
+        public Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter=null)
         {
-            return await Repository.GetFilteredReportsAsync(filter);
+            return Repository.GetFilteredReportsAsync(filter);
         }
 
         

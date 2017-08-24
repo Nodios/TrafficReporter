@@ -15,3 +15,6 @@ button {
     position: absolute;
     top: 800px;
 }
+.selected{
+    background-color: yellow;
+}

@@ -1,6 +1,6 @@
 <div></div>
 <input placeholder="Upišite ime mjesta">
-<button (click)="trackingToggle()">Toggle tracking</button>
+<button (click)="trackingToggle()" [class.selected]="tracker">Toggle tracking </button>
 <!-- 
 <agm-map [latitude]="lat"
    [longitude]="lng" [streetViewControl]="false"

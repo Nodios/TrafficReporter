@@ -7,6 +7,7 @@ import { MapComponent } from './map.component';
 import { CausesComponent} from './causes.component';
 
 import { ReportService} from './report.service';
+import {CommunicationService } from './communication.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ReportService} from './report.service';
     HttpModule,
     BrowserModule
   ],
-  providers: [ReportService],
+  providers: [ReportService,CommunicationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

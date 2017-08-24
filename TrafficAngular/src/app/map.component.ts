@@ -1,15 +1,11 @@
 import { Component, OnInit, ElementRef  } from '@angular/core';
 declare var google:any;
 
-import { ReportService } from './report.service';
 import { Report } from './report';
-import { Markers } from './marker'
+import { Markers } from './marker';
 
-let PROB: Report[]=[
-    {Id:"s", Cause:1, Lattitude:45.5494748,Longitude:17.3905747,Rating:1,Direction:3,DateCreated:"11-11-2017"},
-    {Id:"d", Cause:2, Lattitude:45.5494748,Longitude:17.3005747,Rating:1,Direction:3,DateCreated:"11-11-2017"},
-    {Id:"f", Cause:3, Lattitude:45.5494748,Longitude:18.7005747,Rating:1,Direction:3,DateCreated:"11-11-2017"}
-];
+import { ReportService } from './report.service';
+import {CommunicationService } from './communication.service';
 
 
 @Component({
@@ -19,7 +15,6 @@ let PROB: Report[]=[
 })
 
 export class MapComponent implements OnInit {
-Problems = PROB;      // sadrži listu problema za prikazati
   lat: number;        //  <-.
   lng: number;        //  <-+ trenutne kordinate
   marker: Markers;    //  
@@ -29,7 +24,15 @@ Problems = PROB;      // sadrži listu problema za prikazati
  reports: Report[] = [];
 
   constructor(private elementRef: ElementRef,
-  private reportService: ReportService) { }
+  private reportService: ReportService,
+  private communicationService: CommunicationService) {
+    this.communicationService.activator$.subscribe(
+      data =>{
+        console.log(data);
+        this.updateReports(this.map,this);
+      }
+    );
+   }
 
 
 initMap(position):void {
@@ -46,16 +49,20 @@ initMap(position):void {
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.elementRef.nativeElement.children[1]);
       
         this.marker =new Markers();
-        this.Problems.forEach(problem => {
-          this.marker.create(this.map, problem);
-        });
-
 
         this.map.addListener('bounds_changed', function() {  // usmjerava searchbox da nudi lokacije bliže onima koje gledamo na mapi
           let bounds = selfRef.map.getBounds();
           selfRef.search.setBounds(bounds);
-          console.log(bounds.b.b, bounds.f.b, bounds.b.f, bounds.f.f);
+
+          selfRef.reportService.getReports()    // dohvati reportove 
+          .then(report => {                     // te obriši
+            selfRef.marker.empty();             // stare markere
+            report.forEach(function(rep) {      // i dodaj nove
+             selfRef.marker.create(selfRef.map,rep);
+            });
+         // console.log(bounds.b.b, bounds.f.b, bounds.b.f, bounds.f.f);
         });
+      });
 
         this.search.addListener('places_changed',function(){     // povezuje searchbox s mapom
            let places = selfRef.search.getPlaces();
@@ -81,12 +88,14 @@ initMap(position):void {
         selfRef.map.fitBounds(bounds);
         });
          
-    //     this.reportService.delete("3f1b1071-44e3-4551-870a-3d6a2d7e0534");  - dokazano radi
+     // this.reportService.delete("3f1b1071-44e3-4551-870a-3d6a2d7e0534"); - dokazano radi
          this.reportService.getReports()
          .then(report => {
            report.forEach(function(rep) {
             selfRef.marker.create(selfRef.map,rep);
-           // console.log(rep); 
+           console.log(rep); 
+          /* if(rep.Cause!=1)
+            selfRef.reportService.delete(rep.Id);*/
            });
 
          // console.log(this.reports[0]);
@@ -94,7 +103,7 @@ initMap(position):void {
         });
 
        //  
-      setInterval(this.updateReports,15000, this.map); 
+      setInterval(this.updateReports,15000, this.map, this); 
       }
 
 updatePosition(self: any){
@@ -116,9 +125,16 @@ trackingToggle(){
   }
 }
 
-updateReports(map: any):void{
+updateReports(map: any, selfRef: any):void{
    let a = map.getBounds()
-        console.log(a.b.b, a.f.b, a.b.f, a.f.f);
+   selfRef.reportService.getReports()    // dohvati reportove 
+   .then(report => {                     // te obriši
+     selfRef.marker.empty();             // stare markere
+     report.forEach(function(rep) {      // i dodaj nove
+      selfRef.marker.create(selfRef.map,rep);
+     });
+    });
+     //   console.log(a.b.b, a.f.b, a.b.f, a.f.f);
 }
 
     ngOnInit(): void {

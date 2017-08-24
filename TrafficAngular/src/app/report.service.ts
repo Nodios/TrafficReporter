@@ -31,7 +31,7 @@ export class ReportService {
   }
 
 
-    delete(id: number): Promise<void> {
+    delete(id: string): Promise<void> {
     const url = `${this.reportUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})
       .toPromise()

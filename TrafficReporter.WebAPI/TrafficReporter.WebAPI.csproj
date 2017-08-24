@@ -283,8 +283,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
-    <Content Include="Views\Home\FilterReports.cshtml" />
-    <Content Include="Views\Home\CauseFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TrafficReporter.Common\TrafficReporter.Common.csproj">

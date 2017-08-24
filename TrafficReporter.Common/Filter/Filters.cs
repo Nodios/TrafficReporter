@@ -10,11 +10,12 @@ namespace TrafficReporter.Common.Filter
     public class Filters :IFilter
     {
         // fixed parameter values define the area (using point coordinates) in which application users can report incidents
-        public double LowerLeftX { get; set; } = 44.5;
-        public double LowerLeftY { get; set; } = 16.5;
-        public double UpperRightX { get; set; } = 47.5;
-        public double UpperRightY { get; set; } = 19.5;
-        public Cause Cause { get; set; }
+        public double LowerLeftX { get; set; } 
+        public double LowerLeftY { get; set; } 
+        public double UpperRightX { get; set; } 
+        public double UpperRightY { get; set; } 
+        public string Cause { get; set; }
+        public List<Cause> CauseCollection { get; set; }
         public string SortOrder { get; set; }
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
@@ -28,33 +29,37 @@ namespace TrafficReporter.Common.Filter
 
         #endregion Variables
 
-        //#region Constructor
+        #region Constructor
 
-        //public CauseFilter(CauseEnum Cause)
-        //{
-
-        //    this.Cause = Cause;
-
-        //}
-
-        //#endregion Constructor
-
-
-
-        public Filters(int cause, int pageNumber, int pageSize)
+        public Filters(string causeString)
         {
-            try
+
+            for (int i = 0; i < causeString.Length; i++)
             {
-                Cause = (Cause)cause;
-                SetPageNumberAndSize(pageNumber, pageSize);
+                if (causeString[i].Equals("1"))
+                {
+                    CauseCollection.Add((Cause)i);
+                }
             }
-            catch (ArgumentException e)
+
+        }
+
+        #endregion Constructor
+
+
+
+        public Filters(string causeString, int pageNumber, int pageSize)
+        {
+            for (int i = 0; i < causeString.Length; i++)
             {
-                throw e;
+                if (causeString[i].Equals("1"))
+                {
+                    CauseCollection.Add((Cause)i);
+                }
             }
         }
 
-        public Filters(double llX, double llY, double urX, double urY, int pageNumber, int pageSize)
+        public Filters(double llX, double llY, double urX, double urY, string causeString, int pageNumber, int pageSize)
         {
             try
             {
@@ -62,6 +67,15 @@ namespace TrafficReporter.Common.Filter
                 LowerLeftY = llY;
                 UpperRightX = urX;
                 UpperRightY = urY;
+                Cause = causeString;
+
+                for (int i = 0; i < Cause.Length; i++)
+                {
+                    if (Cause[i].Equals("1"))
+                    {
+                        CauseCollection.Add((Cause)i);
+                    }
+                }
 
                 SetPageNumberAndSize(pageNumber, pageSize);
             }

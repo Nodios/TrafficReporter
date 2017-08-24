@@ -12,10 +12,12 @@ using AutoMapper;
 using TrafficReporter.Common;
 
 
+
 //using System.Web.Mvc;
 using System.Web.Http;
 using TrafficReporter.Common.Filter;
 using TrafficReporter.WebAPI.ViewModels;
+using TrafficReporter.Common.Enums;
 
 namespace TrafficReporter.WebAPI.Controllers
 {
@@ -64,11 +66,13 @@ namespace TrafficReporter.WebAPI.Controllers
 
 
         [HttpGet]
-        [Route("GetFilters")]
-        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync()
+        public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(double dx, double dy, double ux, double uy, string cause, int pageNumber=1, int pageSize=10)
         {
 
-            var result = await _reportService.GetFilteredReportsAsync();
+            Filters f = new Filters(dx, dy, ux, uy, cause, pageNumber, pageSize);
+
+
+            var result = await _reportService.GetFilteredReportsAsync(f);
 
             if (result != null)
             {
@@ -78,6 +82,11 @@ namespace TrafficReporter.WebAPI.Controllers
             {
                 return new List<IReport>();
             }
+
+
+
+
+
         }
 
 

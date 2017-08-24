@@ -79,9 +79,11 @@ namespace TrafficReporter.Repository
                     {
                         report = new Report();
                         report.Id = id;
-                        report.Cause = (Cause)reader["cause"]; 
-                                               
-                        report.Rating = (int) reader["rating"];
+                        report.Cause = (Cause)reader["cause"];
+                        if (!System.Convert.IsDBNull(reader["rating"]))
+                                report.Rating = (int)reader["rating"];
+                        else
+                            report.Rating = 0;
                         report.Direction = (Direction) reader["direction"];
                         report.Longitude = (double) reader["longitude"];
                         report.Lattitude = (double) reader["lattitude"];
@@ -116,10 +118,14 @@ namespace TrafficReporter.Repository
 
                         if (filter != null)
                         {
-                            commandText.Append($"cause = {(int) filter.Cause} ");
+                            commandText.Append($"cause = {filter.Cause[0]} ");
                             
                         }
-
+                        foreach (int c in filter.Cause)
+                        {
+                            commandText.Append("OR ");
+                            commandText.Append($"cause = {c-48} ");
+                        }
                         if (filter != null)
                         {
                             //This adds AND keyword if there is at least one filter before this one.

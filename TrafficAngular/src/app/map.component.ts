@@ -50,11 +50,12 @@ initMap(position):void {
       
         this.marker =new Markers();
 
-        this.map.addListener('bounds_changed', function() {  // usmjerava searchbox da nudi lokacije bliže onima koje gledamo na mapi
+        this.map.addListener('idle', function() {  // usmjerava searchbox da nudi lokacije bliže onima koje gledamo na mapi
           let bounds = selfRef.map.getBounds();
           selfRef.search.setBounds(bounds);
+ 
 
-          selfRef.reportService.getReports()    // dohvati reportove 
+          selfRef.reportService.getReports(bounds.b.b, bounds.f.b, bounds.b.f, bounds.f.f)    // dohvati reportove 
           .then(report => {                     // te obriši
             selfRef.marker.empty();             // stare markere
             report.forEach(function(rep) {      // i dodaj nove
@@ -89,18 +90,18 @@ initMap(position):void {
         });
          
      // this.reportService.delete("3f1b1071-44e3-4551-870a-3d6a2d7e0534"); - dokazano radi
-         this.reportService.getReports()
+      /*   this.reportService.getReports()
          .then(report => {
            report.forEach(function(rep) {
             selfRef.marker.create(selfRef.map,rep);
            console.log(rep); 
-          /* if(rep.Cause!=1)
-            selfRef.reportService.delete(rep.Id);*/
-           });
+          if(rep.Cause!=1)
+            selfRef.reportService.delete(rep.Id);
+           });*/
 
          // console.log(this.reports[0]);
           
-        });
+      
 
        //  
       setInterval(this.updateReports,15000, this.map, this); 

@@ -32,6 +32,7 @@ namespace TrafficReporter.WebAPI.Controllers
 
         public ActionResult Index(ReportViewModel viewModel = null)
         {
+
             ViewBag.Title = "Home Page";
 
             return View();
@@ -54,22 +55,7 @@ namespace TrafficReporter.WebAPI.Controllers
             return View("Index", viewModel);
         }
 
-        [HttpGet]
-        [Route("{dx}/{dy}/{ux}/{uy}")]
-        public async Task<ActionResult> GetFilteredReportsAsync()
-        {
-
-            var result = await _reportService.GetFilteredReportsAsync();
-            
-            if (result != null)
-            {
-                return View("FilterReports", result);
-            }
-            else
-            {
-                return View();
-            }
-        }
+       
             
 
 

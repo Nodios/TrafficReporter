@@ -5,7 +5,8 @@ AS
 LANGUAGE SQL IMMUTABLE
 
 UPDATE trafreport
-SET time_remaining = get_time(cause);
+SET time_remaining = get_time(cause)
+WHERE time_remaining <= 0;
 
 SELECT * FROM trafreport;
 

@@ -42,8 +42,17 @@ namespace TrafficReporter.Service
 
         #region Methods
 
-       
 
+
+        /// <summary>
+        /// Adds report trough repository method.
+        /// Also if something happens during add, this method can throw exception
+        /// and methods invoking this can respond to that.
+        /// </summary>
+        /// <param name="report"></param>
+        /// <returns>
+        /// True or false depending on operation success.
+        /// </returns>
         public async Task<bool> AddReportAsync(IReport report)
         {
             if (await Repository.AddReportAsync(report) != 1)
@@ -52,12 +61,26 @@ namespace TrafficReporter.Service
             return true;
         }
 
+        /// <summary>
+        /// Gets report trough repository from database.
+        /// </summary>
+        /// <param name="id">Identifier which is criteria for searching through database.</param>
+        /// <returns>
+        /// Report with the given id.
+        /// </returns>
         public Task<IReport> GetReportAsync(Guid id)
         {
             return Repository.GetReportAsync(id);
         }
 
- 
+
+        /// <summary>
+        /// Removes report from database trough repository method.
+        /// </summary>
+        /// <param name="id">Report identifier.</param>
+        /// <returns>
+        /// True or false depending on operation success.
+        /// </returns>
         public Task<int> RemoveReportAsync(Guid id)
         {
             return Repository.RemoveReportAsync(id);
@@ -66,6 +89,11 @@ namespace TrafficReporter.Service
 
 
 
+        /// <summary>
+        /// Gets the filtered reports asynchronous.
+        /// </summary>
+        /// <param name="filter">The filter.</param>
+        /// <returns></returns>
         public Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter=null)
         {
             return Repository.GetFilteredReportsAsync(filter);

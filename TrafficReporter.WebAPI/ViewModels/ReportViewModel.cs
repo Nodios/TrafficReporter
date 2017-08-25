@@ -17,9 +17,11 @@ namespace TrafficReporter.WebAPI.ViewModels
         public Direction Direction { get; set; }
 
         [Required]
-        public double Longitude { get; set; }
+        [Range(-180, 180,ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public double Longitude { get; set; }        
 
         [Required]
+        [Range(-90, 90, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public double Lattitude { get; set; }
 
     }

@@ -128,23 +128,28 @@ namespace TrafficReporter.Repository
                     //WHERE part of the SQL query.
                     if (filter != null)
                     {
-                        commandText.Append("WHERE (");
+                        commandText.Append("WHERE ");
 
-                        for (int c=0; c<filter.Cause.Length; c++)
+                        if (filter != null)
                         {
-
-                            commandText.Append($"cause = " + filter.Cause[c] );
-                            if (c+1 < filter.Cause.Length)
-                                commandText.Append(" OR ");
+                            commandText.Append($"cause = {filter.Cause[0]} ");
+                            
                         }
-                        
+                        foreach (int c in filter.Cause)
+                        {
+                            commandText.Append("OR ");
+                            commandText.Append($"cause = {c-48} ");
+                        }
+                        if (filter != null)
+                        {
                             //This adds AND keyword if there is at least one filter before this one.
-                            
-                                commandText.Append(") AND ");
-                            
+                            if (filter != null)
+                            {
+                                commandText.Append("AND ");
+                            }
                             commandText.Append($"longitude BETWEEN {filter.LowerLeftX} AND {filter.UpperRightX} AND ");
                             commandText.Append($"lattitude BETWEEN {filter.LowerLeftY} AND {filter.UpperRightY}");
-                        
+                        }
                     }
                     command.CommandText = commandText.ToString().Replace(',','.');
                     
@@ -154,7 +159,7 @@ namespace TrafficReporter.Repository
                         {
                             var report = new Report();
                             report.Id = (Guid)reader["id"];
-                            report.Cause = (int)reader["cause"];
+                            report.Cause =(int)reader["cause"];
                             report.Rating = (int)reader["rating"];
                             report.Direction = (Direction)reader["direction"];
                             report.Longitude = (double)reader["longitude"];

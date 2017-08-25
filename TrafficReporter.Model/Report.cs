@@ -43,19 +43,47 @@ namespace TrafficReporter.Model
         /// The direction.
         /// </value>
         public Direction Direction { get; set; }
+
+
         /// <summary>
         /// Gets or sets the longitude.
         /// </summary>
         /// <value>
         /// The longitude.
         /// </value>
-        public double Longitude { get; set; }
+        /// <exception cref="System.ArgumentOutOfRangeException">Longitude - Argument must be in range of -180 to 180</exception>
+        public double Longitude
+        {
+            get { return Longitude; }
+            set
+            {
+                if (value >= -180 || value <= 180)
+                {
+                    throw new ArgumentOutOfRangeException("Longitude", "Argument must be in range of -180 to 180");
+                }
+                Longitude = value;
+            }
+        }
+
+
         /// <summary>
-        /// Gets or sets the lattitude.
+        /// Gets or sets the latitude.
         /// </summary>
         /// <value>
-        /// The lattitude.
+        /// The latitude.
         /// </value>
-        public double Lattitude { get; set; }
+        /// <exception cref="System.ArgumentOutOfRangeException">Latitude - Argument must be in range of -90 to 90</exception>
+        public double Lattitude
+        {
+            get { return Lattitude; }
+            set
+            {
+                if (value >= -90 || value <= 90)
+                {
+                    throw new ArgumentOutOfRangeException("Latitude", "Argument must be in range of -90 to 90");
+                }
+                Lattitude = value;
+            }
+        }
     }
 }

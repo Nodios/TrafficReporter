@@ -34,13 +34,7 @@ namespace TrafficReporter.Common.Filter
         public Filters(string causeString)
         {
 
-            for (int i = 0; i < causeString.Length; i++)
-            {
-                if (causeString[i].Equals("1"))
-                {
-                    CauseCollection.Add((int)i);
-                }
-            }
+            
 
         }
 
@@ -50,13 +44,7 @@ namespace TrafficReporter.Common.Filter
 
         public Filters(string causeString, int pageNumber, int pageSize)
         {
-            for (int i = 0; i < causeString.Length; i++)
-            {
-                if (causeString[i].Equals("1"))
-                {
-                    CauseCollection.Add((int)i);
-                }
-            }
+            
         }
 
         public Filters(double llX, double llY, double urX, double urY, string causeString, int pageNumber, int pageSize)
@@ -69,13 +57,7 @@ namespace TrafficReporter.Common.Filter
                 UpperRightY = urY;
                 Cause = causeString;
 
-                for (int i = 0; i < Cause.Length; i++)
-                {
-                    if (Cause[i].Equals("1"))
-                    {
-                        CauseCollection.Add((int)i);
-                    }
-                }
+                
 
                 SetPageNumberAndSize(pageNumber, pageSize);
             }

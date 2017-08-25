@@ -33,6 +33,11 @@ namespace TrafficReporter.Service.Common
         /// <returns>True or false depending on operation success.</returns>
         Task<int> RemoveReportAsync(Guid id);
 
+        /// <summary>
+        /// Gets the filtered reports asynchronous.
+        /// </summary>
+        /// <param name="filter">The filter.</param>
+        /// <returns></returns>
         Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter=null);
 
         

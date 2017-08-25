@@ -61,7 +61,6 @@ initMap(position):void {
             report.forEach(function(rep) {      // i dodaj nove
              selfRef.marker.create(selfRef.map,rep);
             });
-         // console.log(bounds.b.b, bounds.f.b, bounds.b.f, bounds.f.f);
         });
       });
 
@@ -99,11 +98,6 @@ initMap(position):void {
             selfRef.reportService.delete(rep.Id);
            });*/
 
-         // console.log(this.reports[0]);
-          
-      
-
-       //  
       setInterval(this.updateReports,15000, this.map, this); 
       }
 
@@ -128,14 +122,13 @@ trackingToggle(){
 
 updateReports(map: any, selfRef: any):void{
    let a = map.getBounds()
-   selfRef.reportService.getReports()    // dohvati reportove 
-   .then(report => {                     // te obriši
-     selfRef.marker.empty();             // stare markere
-     report.forEach(function(rep) {      // i dodaj nove
+   selfRef.reportService.getReports(a.b.b, a.f.b, a.b.f, a.f.f)    // dohvati reportove 
+   .then(report => {                            // te obriši
+     selfRef.marker.empty();                    // stare markere
+     report.forEach(function(rep) {             // i dodaj nove
       selfRef.marker.create(selfRef.map,rep);
      });
     });
-     //   console.log(a.b.b, a.f.b, a.b.f, a.f.f);
 }
 
     ngOnInit(): void {

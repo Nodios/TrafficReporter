@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 using TrafficReporter.Model.Common;
 using TrafficReporter.Service.Common;
 using TrafficReporter.Repository.Common;
-using TrafficReporter.Model;
-using TrafficReporter.Common.Enums;
-using TrafficReporter.Common;
 using TrafficReporter.Common.Filter;
 
 namespace TrafficReporter.Service

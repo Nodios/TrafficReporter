@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Cause.cs" />
     <Compile Include="FilterMapping.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Enums\Ban.cs" />

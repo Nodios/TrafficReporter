@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TrafficReporter.Common.Enums;
 
+
 namespace TrafficReporter.Model.Common
 {
     public interface IReport

@@ -17,7 +17,7 @@ using TrafficReporter.Common;
 using System.Web.Http;
 using TrafficReporter.Common.Filter;
 using TrafficReporter.WebAPI.ViewModels;
-using TrafficReporter.Common.Enums;
+
 
 namespace TrafficReporter.WebAPI.Controllers
 {

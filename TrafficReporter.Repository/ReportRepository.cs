@@ -86,7 +86,7 @@ namespace TrafficReporter.Repository
                     {
                         report = new Report();
                         report.Id = id;
-                        report.Cause = (Cause)reader["cause"];
+                        report.Cause = (int)reader["cause"];
                         if (!System.Convert.IsDBNull(reader["rating"]))
                                 report.Rating = (int)reader["rating"];
                         else
@@ -159,7 +159,7 @@ namespace TrafficReporter.Repository
                         {
                             var report = new Report();
                             report.Id = (Guid)reader["id"];
-                            report.Cause = (Cause)reader["cause"];
+                            report.Cause = (int)reader["cause"];
                             report.Rating = (int)reader["rating"];
                             report.Direction = (Direction)reader["direction"];
                             report.Longitude = (double)reader["longitude"];

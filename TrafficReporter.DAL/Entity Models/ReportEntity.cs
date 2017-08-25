@@ -19,7 +19,7 @@ namespace TrafficReporter.DAL.Entity_Models
         /// <summary>
         /// What is the cause for reporting of an anomaly in traffic.
         /// </summary>
-        public Cause Cause { get; set; }
+        public int Cause { get; set; }
 
         /// <summary>
         /// Date when the report has been created.

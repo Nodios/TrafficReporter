@@ -15,7 +15,7 @@ namespace TrafficReporter.Common.Filter
         public double UpperRightX { get; set; } 
         public double UpperRightY { get; set; } 
         public string Cause { get; set; }
-        public List<Cause> CauseCollection { get; set; }
+        public List<int> CauseCollection { get; set; }
         public string SortOrder { get; set; }
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
@@ -38,7 +38,7 @@ namespace TrafficReporter.Common.Filter
             {
                 if (causeString[i].Equals("1"))
                 {
-                    CauseCollection.Add((Cause)i);
+                    CauseCollection.Add((int)i);
                 }
             }
 
@@ -54,7 +54,7 @@ namespace TrafficReporter.Common.Filter
             {
                 if (causeString[i].Equals("1"))
                 {
-                    CauseCollection.Add((Cause)i);
+                    CauseCollection.Add((int)i);
                 }
             }
         }
@@ -73,7 +73,7 @@ namespace TrafficReporter.Common.Filter
                 {
                     if (Cause[i].Equals("1"))
                     {
-                        CauseCollection.Add((Cause)i);
+                        CauseCollection.Add((int)i);
                     }
                 }
 

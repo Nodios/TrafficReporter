@@ -63,7 +63,6 @@
     <Compile Include="FilterMapping.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Enums\Ban.cs" />
-    <Compile Include="Enums\Cause.cs" />
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Filter\Filters.cs" />
     <Compile Include="Filter\IFilter.cs" />

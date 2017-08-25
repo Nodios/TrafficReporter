@@ -19,7 +19,7 @@ namespace TrafficReporter.Model.Common
         /// <value>
         /// The cause.
         /// </value>
-        Cause Cause { get; set; }
+        int Cause { get; set; }
         /// <summary>
         /// Gets or sets the date created.
         /// </summary>

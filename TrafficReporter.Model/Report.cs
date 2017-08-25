@@ -21,7 +21,7 @@ namespace TrafficReporter.Model
         /// <value>
         /// The cause.
         /// </value>
-        public Cause Cause { get; set; }
+        public int Cause { get; set; }
         /// <summary>
         /// Gets or sets the date created.
         /// </summary>

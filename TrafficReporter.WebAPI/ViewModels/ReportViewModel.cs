@@ -11,7 +11,7 @@ namespace TrafficReporter.WebAPI.ViewModels
     {
         public Guid Id { get; set; }
         [Required]
-        public Cause Cause { get; set; }
+        public int Cause { get; set; }
 
         [Required]
         public Direction Direction { get; set; }

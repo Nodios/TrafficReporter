@@ -137,7 +137,7 @@ namespace TrafficReporter.Repository
                             commandText.Append($"lattitude BETWEEN {filter.LowerLeftY} AND {filter.UpperRightY}");
                         }
                     }
-                    command.CommandText = commandText.ToString();
+                    command.CommandText = commandText.ToString().Replace(',','.');
                     
                     using (var reader = await command.ExecuteReaderAsync())
                     {

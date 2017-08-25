@@ -20,6 +20,7 @@ export class MapComponent implements OnInit {
   marker: Markers;    //  
   tracker: any;
  public map:any;            //  za dohvaćanje google map instance
+ public directionsDisplay: any;   // za prikazivanje rute
  public search: any;        //  za dohvaćanje google searchbox instance
  reports: Report[] = [];
 
@@ -28,15 +29,21 @@ export class MapComponent implements OnInit {
   private communicationService: CommunicationService) {
     this.communicationService.activator$.subscribe(
       data =>{
-        console.log(data);
         this.updateReports(this.map,this);
       }
     );
+
+    this.communicationService.directions$.subscribe(
+      data =>{
+      this.directionsDisplay.setDirections(data);
+      }
+    )
    }
 
 
 initMap(position):void {
   let selfRef = this;     
+  
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
         this.map = new google.maps.Map(this.elementRef.nativeElement.children[0], {
@@ -47,6 +54,11 @@ initMap(position):void {
         });
         this.search = new google.maps.places.SearchBox(this.elementRef.nativeElement.children[1]);
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.elementRef.nativeElement.children[1]);
+        
+        this.directionsDisplay = new google.maps.DirectionsRenderer();
+
+        this.directionsDisplay.setMap(this.map);
+
       
         this.marker =new Markers();
 

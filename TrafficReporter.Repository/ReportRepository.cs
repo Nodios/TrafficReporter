@@ -35,6 +35,13 @@ namespace TrafficReporter.Repository
         #endregion Constructors
 
         #region Methods
+        /// <summary>
+        /// Adds the report to database.
+        /// </summary>
+        /// <param name="report">The report to be added to database.</param>
+        /// <returns>
+        /// Number of rows affected by removing(should be 1).
+        /// </returns>
         public async Task<int> AddReportAsync(IReport report)
         {
             var rowsAffrected = 0;
@@ -79,7 +86,7 @@ namespace TrafficReporter.Repository
                     {
                         report = new Report();
                         report.Id = id;
-                        report.Cause = (Cause)reader["cause"];
+                        report.Cause = (int)reader["cause"];
                         if (!System.Convert.IsDBNull(reader["rating"]))
                                 report.Rating = (int)reader["rating"];
                         else
@@ -97,6 +104,13 @@ namespace TrafficReporter.Repository
             return report;
         }
 
+        /// <summary>
+        /// Gets all reports from database which satisfy passed filter.
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns>
+        /// Collection of reports that satisfy filters.
+        /// </returns>
         public async Task<IEnumerable<IReport>> GetFilteredReportsAsync(IFilter filter)
         {
             List<IReport> reports = new List<IReport>();
@@ -140,7 +154,7 @@ namespace TrafficReporter.Repository
                         {
                             var report = new Report();
                             report.Id = (Guid)reader["id"];
-                            report.Cause = (Cause)reader["cause"];
+                            report.Cause = (int)reader["cause"];
                             report.Rating = (int)reader["rating"];
                             report.Direction = (Direction)reader["direction"];
                             report.Longitude = (double)reader["longitude"];
@@ -156,6 +170,13 @@ namespace TrafficReporter.Repository
             return reports;
         }
 
+        /// <summary>
+        /// Removes the report from database by passing Id parameter.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// Number of rows affected by removing(should be 1).
+        /// </returns>
         public async Task<int> RemoveReportAsync(Guid id)
         {
             var rowsAffrected = 0;

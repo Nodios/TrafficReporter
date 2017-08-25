@@ -52,16 +52,22 @@ namespace TrafficReporter.Model
         /// The longitude.
         /// </value>
         /// <exception cref="System.ArgumentOutOfRangeException">Longitude - Argument must be in range of -180 to 180</exception>
+
+
+        private double _longitude;
         public double Longitude
         {
-            get { return Longitude; }
+            get { return _longitude; }
             set
             {
-                if (value >= -180 || value <= 180)
+                if (value < -180 || value > 180)
                 {
                     throw new ArgumentOutOfRangeException("Longitude", "Argument must be in range of -180 to 180");
                 }
-                Longitude = value;
+                else
+                {
+                    _longitude = value;
+                }
             }
         }
 
@@ -73,16 +79,21 @@ namespace TrafficReporter.Model
         /// The latitude.
         /// </value>
         /// <exception cref="System.ArgumentOutOfRangeException">Latitude - Argument must be in range of -90 to 90</exception>
+        private double _lattitude;
+
         public double Lattitude
         {
-            get { return Lattitude; }
+            get { return _lattitude; }
             set
             {
-                if (value >= -90 || value <= 90)
+                if (value < -90 || value > 90)
                 {
-                    throw new ArgumentOutOfRangeException("Latitude", "Argument must be in range of -90 to 90");
+                    throw new ArgumentOutOfRangeException("Lattitude", "Argument must be in range of -90 to 90");
                 }
-                Lattitude = value;
+                else
+                {
+                    _lattitude = value;
+                }
             }
         }
     }

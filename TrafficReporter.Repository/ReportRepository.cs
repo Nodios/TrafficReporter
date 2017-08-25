@@ -128,28 +128,21 @@ namespace TrafficReporter.Repository
                     //WHERE part of the SQL query.
                     if (filter != null)
                     {
-                        commandText.Append("WHERE ");
-
-                        if (filter != null)
+                        commandText.Append("WHERE ( ");
+                        
+                        for (int c=0;c<filter.Cause.Length;c++)
                         {
-                            commandText.Append($"cause = {filter.Cause[0]} ");
                             
+                            commandText.Append($"cause = {filter.Cause[c]} ");
+                            if (c+1<filter.Cause.Length)
+                                commandText.Append(" OR ");
                         }
-                        foreach (int c in filter.Cause)
-                        {
-                            commandText.Append("OR ");
-                            commandText.Append($"cause = {c-48} ");
-                        }
-                        if (filter != null)
-                        {
-                            //This adds AND keyword if there is at least one filter before this one.
-                            if (filter != null)
-                            {
-                                commandText.Append("AND ");
-                            }
-                            commandText.Append($"longitude BETWEEN {filter.LowerLeftX} AND {filter.UpperRightX} AND ");
-                            commandText.Append($"lattitude BETWEEN {filter.LowerLeftY} AND {filter.UpperRightY}");
-                        }
+                                                   
+                        commandText.Append(") AND ");
+                            
+                        commandText.Append($"longitude BETWEEN {filter.LowerLeftX} AND {filter.UpperRightX} AND ");
+                        commandText.Append($"lattitude BETWEEN {filter.LowerLeftY} AND {filter.UpperRightY}");
+                        
                     }
                     command.CommandText = commandText.ToString().Replace(',','.');
                     

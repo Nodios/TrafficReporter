@@ -24,5 +24,8 @@ namespace TrafficReporter.WebAPI.ViewModels
         [Range(-90, 90, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public double Lattitude { get; set; }
 
+        [Required]
+        //todo make DateCreated to pass like UTC time.
+        public DateTime DateCreated { get; set; }
     }
 }

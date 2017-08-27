@@ -72,7 +72,6 @@ namespace TrafficReporter.Repository
         {
             IReport report = null;
 
-            
 
             using (var connection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["RemoteDB"]
                 .ConnectionString))
@@ -129,15 +128,19 @@ namespace TrafficReporter.Repository
                         if (filter.Cause != 0)
                         {
                             //I'm here adding AND  because coordinates must be specified or
-                            //db could be outputting too much reports.
-                            commandText.Append("cause & {filter.Cause} > 0 AND ");
+                            //db could be outputting reports that might be out of the area
+                            //of visible map.
+                            commandText.Append($"cause & {filter.Cause} > 0 AND ");
                         }
-                        
+
                         
                         commandText.Append($"longitude BETWEEN {filter.LowerLeftX} AND {filter.UpperRightX} AND ");
                         commandText.Append($"lattitude BETWEEN {filter.LowerLeftY} AND {filter.UpperRightY}");
 
-                        
+                        commandText.Append($"");
+
+                        commandText.Append($"LIMIT {filter.PageSize}");
+
                     }
                     command.CommandText = commandText.ToString().Replace(',', '.');
 
@@ -147,12 +150,12 @@ namespace TrafficReporter.Repository
                         {
                             var report = new Report();
                             report.Id = (Guid) reader.GetDataSafely("id");
-                            report.Cause = (int)reader.GetDataSafely("cause");
-                            report.Rating = (int)reader.GetDataSafely("rating");
-                            report.Direction = (Direction)reader.GetDataSafely("direction");
-                            report.Longitude = (double)reader.GetDataSafely("longitude");
-                            report.Lattitude = (double)reader.GetDataSafely("lattitude");
-                            report.DateCreated = (DateTime)reader.GetDataSafely("date_created");
+                            report.Cause = (int) reader.GetDataSafely("cause");
+                            report.Rating = (int) reader.GetDataSafely("rating");
+                            report.Direction = (Direction) reader.GetDataSafely("direction");
+                            report.Longitude = (double) reader.GetDataSafely("longitude");
+                            report.Lattitude = (double) reader.GetDataSafely("lattitude");
+                            report.DateCreated = (DateTime) reader.GetDataSafely("date_created");
                             reports.Add(report);
                         }
                     }

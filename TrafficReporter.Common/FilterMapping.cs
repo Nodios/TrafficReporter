@@ -24,6 +24,7 @@ namespace TrafficReporter.Common
             {
                 cfg.CreateMap<IFilter, Filters>();
                 cfg.CreateMap<IPageFilter, PageFilter>();
+                cfg.CreateMap<IFilterFactory, FilterFactory>();
             });
 
             return config;

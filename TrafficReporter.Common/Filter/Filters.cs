@@ -13,9 +13,8 @@ namespace TrafficReporter.Common.Filter
         public double LowerLeftX { get; set; } 
         public double LowerLeftY { get; set; } 
         public double UpperRightX { get; set; } 
-        public double UpperRightY { get; set; } 
-        public string Cause { get; set; }
-        public List<int> CauseCollection { get; set; }
+        public double UpperRightY { get; set; }
+        public int Cause { get; set; }
         public string SortOrder { get; set; }
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
@@ -25,7 +24,8 @@ namespace TrafficReporter.Common.Filter
 
         #region Variables
 
-        public int DefaultPageSize = 10;
+        private const int DefaultPageNumber = 1;
+        private const int DefaultPageSize = 10;
 
         #endregion Variables
 
@@ -40,14 +40,7 @@ namespace TrafficReporter.Common.Filter
 
         #endregion Constructor
 
-
-
-        public Filters(string causeString, int pageNumber, int pageSize)
-        {
-            
-        }
-
-        public Filters(double llX, double llY, double urX, double urY, string causeString, int pageNumber, int pageSize)
+        public Filters(double llX, double llY, double urX, double urY, int cause = 0, int pageNumber = DefaultPageNumber, int pageSize = DefaultPageSize)
         {
             try
             {
@@ -55,11 +48,9 @@ namespace TrafficReporter.Common.Filter
                 LowerLeftY = llY;
                 UpperRightX = urX;
                 UpperRightY = urY;
-                Cause = causeString;
-
-                
-
-                SetPageNumberAndSize(pageNumber, pageSize);
+                Cause = cause;
+                PageNumber = pageNumber;
+                PageSize = pageSize;
             }
             catch (ArgumentException e)
             {
@@ -67,12 +58,6 @@ namespace TrafficReporter.Common.Filter
             }
         }
 
-
-        private void SetPageNumberAndSize(int pageNumber = 1, int pageSize = 0)
-        {
-            PageNumber = (pageNumber > 0) ? pageNumber : 1;
-            PageSize = (pageSize > 0 && pageSize <= DefaultPageSize) ? pageSize : DefaultPageSize;
-        }
 
     }
 }

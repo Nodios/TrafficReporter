@@ -13,8 +13,7 @@ namespace TrafficReporter.Common.Filter
         double LowerLeftY { get; set; }
         double UpperRightX { get; set; }
         double UpperRightY { get; set; }
-        string Cause { get; set; }
-        List<int> CauseCollection  { get; set; }
+        int Cause { get; set; }
         
 
     }

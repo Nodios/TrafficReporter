@@ -16,4 +16,5 @@ export class CommunicationService {
     this.directions.next(data);
   }
 
-}
+  public menuHiddenState: boolean = true;
+  }

@@ -6,7 +6,7 @@ import { ReportService } from './report.service';
 import {CommunicationService } from './communication.service';
 
 
-const CAUSES: number[] = [1,2,3,4,5];
+const CAUSES: number[] = [1,2,4,8,16];
 
 @Component({
   selector: 'causes',

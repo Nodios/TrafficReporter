@@ -15,7 +15,7 @@ export class ReportService {
 
   // request all reports in area defined by map bounds
   getReports( latMin: number,longMin: number,latMax: number, longMax: number): Promise<Report[]> {
-    return this.http.get(this.reportUrl+"?dx="+latMin+"&dy="+longMin+"&ux="+latMax+"&uy="+longMax+"&cause=12345")
+    return this.http.get(this.reportUrl+"?dx="+latMin+"&dy="+longMin+"&ux="+latMax+"&uy="+longMax+"&cause=0&pageSize=50")
                .toPromise()
                .then(response => response.json() as Report[])
                .catch(this.handleError);

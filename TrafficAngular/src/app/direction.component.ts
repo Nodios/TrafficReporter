@@ -10,7 +10,6 @@ import {CommunicationService } from './communication.service';
 })
 
 export class DirectionComponent{
-    
  public directionsService: any;   // za traženje rute
 
     constructor(private communicationService: CommunicationService){
@@ -20,16 +19,18 @@ export class DirectionComponent{
   @Input()  origin: string;
   @Input()  destination: string;
 
-    sendToMap(){
+    sendToMap(){   
         var self = this;
+        this.communicationService.menuHiddenState=!this.communicationService.menuHiddenState;
         let request = {
             origin: this.origin,
             destination: this.destination,
             travelMode: google.maps.TravelMode['DRIVING']
           }
           this.directionsService.route(request, function(response, status) {
-            if (status == 'OK') 
+            if (status == 'OK') {
                 self.communicationService.sendDirections(response);
+            }
           });
 
     }

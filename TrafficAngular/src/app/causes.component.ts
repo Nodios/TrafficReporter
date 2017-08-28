@@ -33,8 +33,8 @@ onSelect(cause: number){
  postProblem(position){
    let report = new Report;
    report.Cause=this.currentCause;
-   report.Lattitude=position.coords.latitude;
-   report.Longitude=position.coords.longitude;
+   report.Lattitude=position.coords.latitude+Math.random()*5;
+   report.Longitude=position.coords.longitude+Math.random()*5;
    report.DateCreated= new Date().toUTCString();
    //console.log(report);
     this.problemService.createReport(report)

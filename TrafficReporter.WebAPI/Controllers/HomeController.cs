@@ -54,11 +54,11 @@ namespace TrafficReporter.WebAPI.Controllers
         /// </summary>
         /// <param name="viewModel">The view model.</param>
         /// <returns></returns>
-        public async Task<ActionResult> Create(ReportViewModel viewModel = null)
+        public async  Task<ActionResult> Create(ReportViewModel viewModel = null)
         {
             if (ModelState.IsValid)
             {
-                await _reportService.AddReportAsync(_mapper.Map<ReportViewModel, IReport>(viewModel));
+                //await _reportService.AddReportAsync(_mapper.Map<ReportViewModel, IReport>(viewModel));
                 return Index(null);
             }
 

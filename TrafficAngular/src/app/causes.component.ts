@@ -24,7 +24,6 @@ constructor(
     ) {}
 
 onSelect(cause: number){
-  console.log(cause);
     this.currentCause = cause;
  navigator.geolocation.getCurrentPosition(this.postProblem.bind(this));
 }

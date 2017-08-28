@@ -65,6 +65,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Enums\Ban.cs" />
     <Compile Include="Enums\Direction.cs" />
+    <Compile Include="Enums\Inserted.cs" />
     <Compile Include="FilterProfile.cs" />
     <Compile Include="Filter\FilterFactory.cs" />
     <Compile Include="Filter\Filters.cs" />

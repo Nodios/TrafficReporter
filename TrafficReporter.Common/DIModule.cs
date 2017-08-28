@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using AutoMapper;
+using Ninject.Modules;
 using TrafficReporter.Common.Filter;
 
 namespace TrafficReporter.Common
 {
-    public class FilterProfile : Profile
+    public class DIModule : NinjectModule
     {
-        public FilterProfile()
+        public override void Load()
         {
-            CreateMap<IFilter, Filters>();
-            CreateMap<IPageFilter, PageFilter>();
+            Bind<IFilterFactory>().To<FilterFactory>();
         }
     }
 }

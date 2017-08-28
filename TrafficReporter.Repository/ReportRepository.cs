@@ -43,10 +43,24 @@ namespace TrafficReporter.Repository
         {
             var rowsAffrected = 0;
 
+            
+
             using (var connection = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["RemoteDB"]
                 .ConnectionString))
             {
                 await connection.OpenAsync();
+
+                //This method should add only if other report in range and with same
+                //cause doesn't exist.
+                var reportInRangeId = await CheckIfOtherReportInRangeAsync(report, connection);
+                if (!reportInRangeId.Equals(Guid.Empty))
+                {
+                    int rowsAffected = await UpdateReportAsync(reportInRangeId, report.Cause, connection);
+                    connection.Close();
+                    return rowsAffected;
+                }
+
+                #region AddReport
 
                 using (var command = new NpgsqlCommand())
                 {
@@ -56,16 +70,75 @@ namespace TrafficReporter.Repository
                         "VALUES (@id, @cause, @direction, @longitude, @lattitude, @date_created)";
                     command.Parameters.AddWithValue("id", report.Id);
                     command.Parameters.AddWithValue("cause", report.Cause);
-                    command.Parameters.AddWithValue("direction", (int) report.Direction);
+                    command.Parameters.AddWithValue("direction", (int)report.Direction);
                     command.Parameters.AddWithValue("longitude", report.Longitude);
                     command.Parameters.AddWithValue("lattitude", report.Lattitude);
                     //todo do not use datetime.now here, get time from frontend
-                    command.Parameters.AddWithValue("date_created", DateTime.Now);
+                    command.Parameters.AddWithValue("date_created", report.DateCreated);
                     rowsAffrected = await command.ExecuteNonQueryAsync();
                 }
+
+                #endregion AddReport
+                connection.Close();
             }
 
             return rowsAffrected;
+        }
+
+        /// <summary>
+        /// Updates report which has passed id by reseting time_remaining and incrementing rating.
+        /// </summary>
+        /// <param name="reportInRangeId">Unique identifier.</param>
+        /// <param name="cause">Cause used to get amount for time reseting.</param>
+        /// <param name="connection">Connection to PostgreSql.</param>
+        private async Task<int> UpdateReportAsync(Guid reportInRangeId, int cause, NpgsqlConnection connection)
+        {
+            int rowsAffected = 0;
+
+            using (var command = new NpgsqlCommand($"UPDATE trafreport SET time_remaining = get_time({cause}), rating = rating + 1 " +
+                                                   $"WHERE id = {reportInRangeId}", connection))
+            {
+                rowsAffected = await command.ExecuteNonQueryAsync();
+            }
+
+            return rowsAffected;
+        }
+
+        ///  <summary>
+        ///  This is a private method for the add method which checks
+        ///  if other report of same cause and within range exists.
+        ///  </summary>
+        ///  <param name="report">Report for which we want to check if there are other reports in range of this one.</param>
+        /// <param name="connection">Connection to PostgreSQL</param>
+        /// <returns>Report id within range if it exists.(We need only one id for updating(reset time and increase rating).)</returns>
+        /// todo should we check for same id?
+        private async Task<Guid> CheckIfOtherReportInRangeAsync(IReport report, NpgsqlConnection connection)
+        {
+            Guid returnValue = Guid.Empty;
+
+            using (var command =
+                new NpgsqlCommand(
+                    "SELECT report_uuid FROM get_reports_with_same_cause_and_within_range" +
+                    $"({report.Longitude}, {report.Lattitude}, {report.Cause})",
+                    connection))
+            {
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            returnValue = (Guid)reader.GetDataSafely("report_uuid");
+                        }
+
+                    }
+                    
+                    reader.Close();
+                }
+                
+            }
+
+            return returnValue;
         }
 
         public async Task<IReport> GetReportAsync(Guid id)
@@ -80,17 +153,24 @@ namespace TrafficReporter.Repository
 
                 using (var command = new NpgsqlCommand($"SELECT * FROM trafreport WHERE id = '{id}'", connection))
                 using (var reader = await command.ExecuteReaderAsync())
-                    while (reader.Read())
+                {
+                    if (reader.HasRows)
                     {
-                        report = new Report();
-                        report.Id = id;
-                        report.Cause = (int) reader.GetDataSafely("cause");
-                        report.Rating = (int) reader.GetDataSafely("rating");
-                        report.Direction = (Direction) reader.GetDataSafely("direction");
-                        report.Longitude = (double) reader.GetDataSafely("longitude");
-                        report.Lattitude = (double) reader.GetDataSafely("lattitude");
-                        report.DateCreated = (DateTime) reader.GetDataSafely("date_created");
+                        while (reader.Read())
+                        {
+                            report = new Report();
+                            report.Id = id;
+                            report.Cause = (int)reader.GetDataSafely("cause");
+                            report.Rating = (int)reader.GetDataSafely("rating");
+                            report.Direction = (Direction)reader.GetDataSafely("direction");
+                            report.Longitude = (double)reader.GetDataSafely("longitude");
+                            report.Lattitude = (double)reader.GetDataSafely("lattitude");
+                            report.DateCreated = (DateTime)reader.GetDataSafely("date_created");
+                        } 
                     }
+                    reader.Close();
+                }
+                connection.Close();
             }
 
             return report;
@@ -158,8 +238,11 @@ namespace TrafficReporter.Repository
                             report.DateCreated = (DateTime) reader.GetDataSafely("date_created");
                             reports.Add(report);
                         }
+
+                        reader.Close();
                     }
                 }
+                connection.Close();
             }
 
             return reports;

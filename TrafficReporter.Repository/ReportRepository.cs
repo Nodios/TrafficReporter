@@ -77,7 +77,7 @@ namespace TrafficReporter.Repository
                     command.Parameters.AddWithValue("date_created", report.DateCreated);
                     rowsAffrected = await command.ExecuteNonQueryAsync();
                 }
-
+                await UpdateReportAsync(report.Id, report.Cause, connection);
                 #endregion AddReport
                 connection.Close();
             }

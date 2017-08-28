@@ -55,7 +55,7 @@ namespace TrafficReporter.Repository
                 var reportInRangeId = await CheckIfOtherReportInRangeAsync(report, connection);
                 if (!reportInRangeId.Equals(Guid.Empty))
                 {
-                    int rowsAffected = await UpdateReportAsync(reportInRangeId, report.Cause, connection);
+                    int rowsAffected = await UpdateTimeAndRatingAsync(reportInRangeId, report.Cause, connection);
                     connection.Close();
                     return rowsAffected;
                 }
@@ -77,7 +77,7 @@ namespace TrafficReporter.Repository
                     command.Parameters.AddWithValue("date_created", report.DateCreated);
                     rowsAffrected = await command.ExecuteNonQueryAsync();
                 }
-                await UpdateReportAsync(report.Id, report.Cause, connection);
+                await UpdateTimeAndRatingAsync(report.Id, report.Cause, connection);
                 #endregion AddReport
                 connection.Close();
             }
@@ -91,7 +91,7 @@ namespace TrafficReporter.Repository
         /// <param name="reportInRangeId">Unique identifier.</param>
         /// <param name="cause">Cause used to get amount for time reseting.</param>
         /// <param name="connection">Connection to PostgreSql.</param>
-        private async Task<int> UpdateReportAsync(Guid reportInRangeId, int cause, NpgsqlConnection connection)
+        private async Task<int> UpdateTimeAndRatingAsync(Guid reportInRangeId, int cause, NpgsqlConnection connection)
         {
             int rowsAffected = 0;
 

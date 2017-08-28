@@ -52,8 +52,8 @@ initMap(position):void {
           streetViewControl: false,
           mapTypeControl: false
         });
-        this.search = new google.maps.places.SearchBox(this.elementRef.nativeElement.children[1]);
-        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.elementRef.nativeElement.children[1]);
+       /* this.search = new google.maps.places.SearchBox(this.elementRef.nativeElement.children[1]);
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.elementRef.nativeElement.children[1]); */
         
         this.directionsDisplay = new google.maps.DirectionsRenderer();
 
@@ -64,7 +64,7 @@ initMap(position):void {
 
         this.map.addListener('idle', function() {  // usmjerava searchbox da nudi lokacije bliže onima koje gledamo na mapi
           let bounds = selfRef.map.getBounds();
-          selfRef.search.setBounds(bounds);
+        //  selfRef.search.setBounds(bounds);
  
 
           selfRef.reportService.getReports(bounds.b.b, bounds.f.b, bounds.b.f, bounds.f.f)    // dohvati reportove 
@@ -76,7 +76,7 @@ initMap(position):void {
         });
       });
 
-        this.search.addListener('places_changed',function(){     // povezuje searchbox s mapom
+     /*   this.search.addListener('places_changed',function(){     // povezuje searchbox s mapom
            let places = selfRef.search.getPlaces();
 
           if (places.length == 0) {
@@ -98,7 +98,7 @@ initMap(position):void {
             }
           });
         selfRef.map.fitBounds(bounds);
-        });
+        });  */
          
      // this.reportService.delete("3f1b1071-44e3-4551-870a-3d6a2d7e0534"); - dokazano radi
       /*   this.reportService.getReports()
@@ -130,6 +130,10 @@ trackingToggle(){
   else{
     clearInterval(this.tracker); this.tracker=undefined;
   }
+}
+
+menuToggle(){
+  this.communicationService.menuHiddenState=!this.communicationService.menuHiddenState;
 }
 
 updateReports(map: any, selfRef: any):void{

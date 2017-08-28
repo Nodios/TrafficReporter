@@ -26,10 +26,11 @@ namespace TrafficReporter.WebAPI.Controllers
         private readonly IFilterFactory _filterFactory;
 
 
-        public ReportController(IReportService reportService, IMapper mapper)
+        public ReportController(IReportService reportService, IMapper mapper, IFilterFactory filterFactory)
         {
             _reportService = reportService;
             _mapper = mapper;
+            _filterFactory = filterFactory;
         }
 
 

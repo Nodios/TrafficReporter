@@ -52,7 +52,7 @@ namespace TrafficReporter.Service
         /// </returns>
         public async Task<bool> AddReportAsync(IReport report)
         {
-            report.Id = new Guid();
+            report.Id = Guid.NewGuid();
             if (await Repository.AddReportAsync(report) != 1)
                 return false;
 

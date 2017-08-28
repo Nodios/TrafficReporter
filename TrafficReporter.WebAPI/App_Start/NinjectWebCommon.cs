@@ -13,6 +13,7 @@ namespace TrafficReporter.WebAPI.App_Start
     using System.Web.Http;
     using Ninject.Web.WebApi;
     using System.Linq;
+    using TrafficReporter.Common;
 
     public static class NinjectWebCommon 
     {
@@ -72,8 +73,6 @@ namespace TrafficReporter.WebAPI.App_Start
         private static void RegisterServices(IKernel kernel)
         {
 
-
-            
         }        
     }
 }

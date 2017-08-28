@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using TrafficReporter.Common;
 using TrafficReporter.Common.Filter;
+using TrafficReporter.Common.Enums;
 
 namespace TrafficReporter.Service.Common
 {
@@ -17,7 +18,7 @@ namespace TrafficReporter.Service.Common
         /// </summary>
         /// <param name="report"></param>
         /// <returns>True or false depending on operation success.</returns>
-        Task<bool> AddReportAsync(IReport report);
+        Task<Inserted> AddReportAsync(IReport report);
 
         /// <summary>
         /// Gets report trough repository from database.

@@ -8,7 +8,8 @@ using TrafficReporter.Service.Common;
 using System.Threading.Tasks;
 using Ninject;
 using AutoMapper;
-using TrafficReporter.Common;
+using TrafficReporter.Common.Enums;
+
 
 //using System.Web.Mvc;
 using System.Web.Http;
@@ -40,7 +41,7 @@ namespace TrafficReporter.WebAPI.Controllers
         /// <param name="report">The report.</param>
         /// <returns>Success of this operation</returns>
         [HttpPost]
-        public async Task<bool> AddReportAsync(ReportViewModel report)
+        public async Task<Inserted> AddReportAsync(ReportViewModel report)
         {
             return await this._reportService.AddReportAsync(_mapper.Map<IReport>(report));
         }

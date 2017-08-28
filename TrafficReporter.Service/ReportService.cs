@@ -7,6 +7,7 @@ using TrafficReporter.Model.Common;
 using TrafficReporter.Service.Common;
 using TrafficReporter.Repository.Common;
 using TrafficReporter.Common.Filter;
+using TrafficReporter.Common.Enums;
 
 namespace TrafficReporter.Service
 {
@@ -50,13 +51,13 @@ namespace TrafficReporter.Service
         /// <returns>
         /// True or false depending on operation success.
         /// </returns>
-        public async Task<bool> AddReportAsync(IReport report)
+        public async Task<Inserted> AddReportAsync(IReport report)
         {
             report.Id = Guid.NewGuid();
             if (await Repository.AddReportAsync(report) != 1)
-                return false;
+                return Inserted.Updated;
 
-            return true;
+            return Inserted.Added;
         }
 
         /// <summary>

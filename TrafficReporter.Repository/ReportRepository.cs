@@ -57,11 +57,11 @@ namespace TrafficReporter.Repository
                 {
                     int rowsAffected = await UpdateTimeAndRatingAsync(reportInRangeId, report.Cause, connection);
                     connection.Close();
-                    return rowsAffected;
+                    return (int)Inserted.Updated;
                 }
 
                 #region AddReport
-
+                
                 using (var command = new NpgsqlCommand())
                 {
                     command.Connection = connection;
@@ -82,7 +82,7 @@ namespace TrafficReporter.Repository
                 connection.Close();
             }
 
-            return rowsAffrected;
+            return (int)Inserted.Added;
         }
 
         /// <summary>

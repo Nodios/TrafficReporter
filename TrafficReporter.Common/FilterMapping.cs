@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrafficReporter.Common.Filter;
+
 namespace TrafficReporter.Common
 {
-    class FilterMapping : NinjectModule
+    public class FilterMapping : NinjectModule
     {
         public override void Load()
         {
@@ -24,6 +25,7 @@ namespace TrafficReporter.Common
             {
                 cfg.CreateMap<IFilter, Filters>();
                 cfg.CreateMap<IPageFilter, PageFilter>();
+                cfg.CreateMap<IFilterFactory, FilterFactory>();
             });
 
             return config;

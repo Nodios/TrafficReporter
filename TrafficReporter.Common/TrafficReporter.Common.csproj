@@ -60,15 +60,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DIModule.cs" />
     <Compile Include="Enums\Cause.cs" />
-    <Compile Include="FilterMapping.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Enums\Ban.cs" />
     <Compile Include="Enums\Direction.cs" />
+    <Compile Include="FilterProfile.cs" />
+    <Compile Include="Filter\FilterFactory.cs" />
     <Compile Include="Filter\Filters.cs" />
     <Compile Include="Filter\IFilter.cs" />
+    <Compile Include="Filter\IFilterFactory.cs" />
     <Compile Include="Filter\IPageFilter.cs" />
     <Compile Include="Filter\PageFilter.cs" />
+    <Compile Include="HelperClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

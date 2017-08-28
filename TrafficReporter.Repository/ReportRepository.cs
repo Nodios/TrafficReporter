@@ -96,7 +96,7 @@ namespace TrafficReporter.Repository
             int rowsAffected = 0;
 
             using (var command = new NpgsqlCommand($"UPDATE trafreport SET time_remaining = get_time({cause}), rating = rating + 1 " +
-                                                   $"WHERE id = {reportInRangeId}", connection))
+                                                   $"WHERE id = '{reportInRangeId}'", connection))
             {
                 rowsAffected = await command.ExecuteNonQueryAsync();
             }
@@ -119,7 +119,7 @@ namespace TrafficReporter.Repository
             using (var command =
                 new NpgsqlCommand(
                     "SELECT report_uuid FROM get_reports_with_same_cause_and_within_range" +
-                    $"({report.Longitude}, {report.Lattitude}, {report.Cause})",
+                    $"({report.Longitude.ToString().Replace(',', '.')}, {report.Lattitude.ToString().Replace(',', '.')}, {report.Cause})",
                     connection))
             {
                 using (var reader = await command.ExecuteReaderAsync())

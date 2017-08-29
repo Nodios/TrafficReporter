@@ -295,7 +295,7 @@
       <Name>TrafficReporter.Model.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.Model\TrafficReporter.Model.csproj">
-      <Project>{290a1c80-d35e-4348-bfbc-4d96b1bcf5dc}</Project>
+      <Project>{290A1C80-D35E-4348-BFBC-4D96B1BCF5DC}</Project>
       <Name>TrafficReporter.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\TrafficReporter.Repository\TrafficReporter.Repository.csproj">

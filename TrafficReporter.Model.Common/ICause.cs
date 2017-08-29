@@ -16,7 +16,7 @@ namespace TrafficReporter.Model.Common
         /// <summary>
         /// This data is used for passing icons.
         /// </summary>
-        string DataUri { get; set; }
+        string IconUri { get; set; }
 
         /// <summary>
         /// Name for a cause.

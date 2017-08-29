@@ -1,11 +1,15 @@
 import { Component, OnInit, ElementRef  } from '@angular/core';
 declare var google:any;
 
-import { Report } from './report';
-import { Markers } from './marker';
-
 import { ReportService } from './report.service';
-import {CommunicationService } from './communication.service';
+import { Report } from './report';
+import { Markers } from './marker'
+
+let PROB: Report[]=[
+    {Id:"s", Cause:1, Lattitude:45.5494748,Longitude:17.3905747,Rating:1,Direction:3,DateCreated:"11-11-2017"},
+    {Id:"d", Cause:2, Lattitude:45.5494748,Longitude:17.3005747,Rating:1,Direction:3,DateCreated:"11-11-2017"},
+    {Id:"f", Cause:3, Lattitude:45.5494748,Longitude:18.7005747,Rating:1,Direction:3,DateCreated:"11-11-2017"}
+];
 
 
 @Component({
@@ -15,6 +19,7 @@ import {CommunicationService } from './communication.service';
 })
 
 export class MapComponent implements OnInit {
+Problems = PROB;      // sadrži listu problema za prikazati
   lat: number;        //  <-.
   lng: number;        //  <-+ trenutne kordinate
   marker: Markers;    //  
@@ -24,15 +29,7 @@ export class MapComponent implements OnInit {
  reports: Report[] = [];
 
   constructor(private elementRef: ElementRef,
-  private reportService: ReportService,
-  private communicationService: CommunicationService) {
-    this.communicationService.activator$.subscribe(
-      data =>{
-        console.log(data);
-        this.updateReports(this.map,this);
-      }
-    );
-   }
+  private reportService: ReportService) { }
 
 
 initMap(position):void {
@@ -40,30 +37,32 @@ initMap(position):void {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
         this.map = new google.maps.Map(this.elementRef.nativeElement.children[0], {
+        //this.map = new google.maps.Map(document.getElementById('map'),{
           zoom: 10,
           center: this,
           streetViewControl: false,
-          mapTypeControl: false
+          mapTypeControl: false,
+            
+          
+
+        
+
+
         });
         this.search = new google.maps.places.SearchBox(this.elementRef.nativeElement.children[1]);
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.elementRef.nativeElement.children[1]);
       
         this.marker =new Markers();
+        this.Problems.forEach(problem => {
+          this.marker.create(this.map, problem);
+        });
 
-        this.map.addListener('idle', function() {  // usmjerava searchbox da nudi lokacije bliže onima koje gledamo na mapi
+
+        this.map.addListener('bounds_changed', function() {  // usmjerava searchbox da nudi lokacije bliže onima koje gledamo na mapi
           let bounds = selfRef.map.getBounds();
           selfRef.search.setBounds(bounds);
- 
-
-          selfRef.reportService.getReports(bounds.b.b, bounds.f.b, bounds.b.f, bounds.f.f)    // dohvati reportove 
-          .then(report => {                     // te obriši
-            selfRef.marker.empty();             // stare markere
-            report.forEach(function(rep) {      // i dodaj nove
-             selfRef.marker.create(selfRef.map,rep);
-            });
-         // console.log(bounds.b.b, bounds.f.b, bounds.b.f, bounds.f.f);
+          console.log(bounds.b.b, bounds.f.b, bounds.b.f, bounds.f.f);
         });
-      });
 
         this.search.addListener('places_changed',function(){     // povezuje searchbox s mapom
            let places = selfRef.search.getPlaces();
@@ -89,24 +88,23 @@ initMap(position):void {
         selfRef.map.fitBounds(bounds);
         });
          
-     // this.reportService.delete("3f1b1071-44e3-4551-870a-3d6a2d7e0534"); - dokazano radi
-      /*   this.reportService.getReports()
+    //     this.reportService.delete("3f1b1071-44e3-4551-870a-3d6a2d7e0534");  - dokazano radi
+  /*   this.reportService.getReports()
          .then(report => {
            report.forEach(function(rep) {
             selfRef.marker.create(selfRef.map,rep);
-           console.log(rep); 
-          if(rep.Cause!=1)
-            selfRef.reportService.delete(rep.Id);
-           });*/
+           // console.log(rep); 
+           });
 
          // console.log(this.reports[0]);
           
-      
+        });
 
        //  
-      setInterval(this.updateReports,15000, this.map, this); 
+      setInterval(this.updateReports,15000, this.map); 
       }
-
+*/
+    }
 updatePosition(self: any){
   navigator.geolocation.getCurrentPosition(self.setPosition.bind(self));
 }
@@ -125,17 +123,21 @@ trackingToggle(){
     clearInterval(this.tracker); this.tracker=undefined;
   }
 }
+/*
+activateStandingMode(){
 
-updateReports(map: any, selfRef: any):void{
+  if(this.buttontext == "Stationary mode"){
+    this.buttontext = "Running mode";
+    
+  }
+  else
+    this.buttontext = "Stationary mode";
+}
+*/
+
+updateReports(map: any):void{
    let a = map.getBounds()
-   selfRef.reportService.getReports()    // dohvati reportove 
-   .then(report => {                     // te obriši
-     selfRef.marker.empty();             // stare markere
-     report.forEach(function(rep) {      // i dodaj nove
-      selfRef.marker.create(selfRef.map,rep);
-     });
-    });
-     //   console.log(a.b.b, a.f.b, a.b.f, a.f.f);
+        console.log(a.b.b, a.f.b, a.b.f, a.f.f);
 }
 
     ngOnInit(): void {

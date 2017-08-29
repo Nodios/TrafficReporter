@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapperProfile.cs" />
+    <Compile Include="CauseRepository.cs" />
     <Compile Include="DIModule.cs" />
     <Compile Include="ReportRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

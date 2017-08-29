@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 import { CausesService } from './causes.service';
 import { CommunicationService } from './communication.service';
 
 import { Cause } from './causes';
-
-const CAUSES: Cause[] = [{id:1,name:'požar',data_uri:'s'},{id:2,name:'policija',data_uri:'s'}];
 
 
 @Component({
@@ -16,12 +14,25 @@ const CAUSES: Cause[] = [{id:1,name:'požar',data_uri:'s'},{id:2,name:'policija'
 
   export class MenuComponent{
 
-    causes:Cause[]=CAUSES; 
+    causes:Cause[]; 
 
-    constructor(private causesService: CausesService,
-      private communicationService: CommunicationService) {/*
-        this.causesService.getCauses().then(data => this.causes = data);*/
+    constructor(private causesService: CausesService, private elementRef: ElementRef,
+      private communicationService: CommunicationService) {
+        this.causesService.getCauses().then(data => {
+          this.causes = data
+          console.log(this.causes);}
+        );
+        
        }
+
+  apply(){
+    let j=0;
+    for(let i=0; i+1<this.elementRef.nativeElement.children[0].children.length;i++)
+      if(this.elementRef.nativeElement.children[0].children[i].children[0].checked)
+        j+=Number(this.elementRef.nativeElement.children[0].children[i].children[0].value);   
+    this.communicationService.setFilter(j);
+    this.communicationService.menuStateHidden=true;
+  }
 
   }
   

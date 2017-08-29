@@ -1,6 +1,6 @@
 
 export class Cause{
-  id: number;
-  name: string;
-  data_uri: string;
+  Id: number;
+  IconUri: string;
+  Name: string;
 }

@@ -15,6 +15,7 @@ import { Markers } from './marker'
 })
 
 export class MapComponent implements OnInit {
+  filter: number = 0; // sadrži postavke filtra po cause
   lat: number;        //  <-.
   lng: number;        //  <-+ trenutne kordinate
   marker: Markers;    //  
@@ -29,13 +30,19 @@ export class MapComponent implements OnInit {
   private communicationService: CommunicationService) {
     this.communicationService.activator$.subscribe(
       data =>{
-        this.updateReports(this.map,this);
+        setTimeout(this.updateReports,200,this);
       }
     );
 
     this.communicationService.directions$.subscribe(
       data =>{
       this.directionsDisplay.setDirections(data);
+      }
+    )
+
+    this.communicationService.filter$.subscribe(
+      data =>{
+        this.filter = data;
       }
     )
    }
@@ -69,7 +76,7 @@ initMap(position):void {
         //  selfRef.search.setBounds(bounds);
  
 
-          selfRef.reportService.getReports(bounds.b.b, bounds.f.b, bounds.b.f, bounds.f.f)    // dohvati reportove 
+          selfRef.reportService.getReports(bounds.b.b, bounds.f.b, bounds.b.f, bounds.f.f, selfRef.filter)    // dohvati reportove 
           .then(report => {                     // te obriši
             selfRef.marker.empty();             // stare markere
             report.forEach(function(rep) {      // i dodaj nove
@@ -155,9 +162,9 @@ menuToggle(){
   this.communicationService.directionsStateHidden=true;
 }
 
-updateReports(map: any, selfRef: any):void{
-   let a = map.getBounds()
-   selfRef.reportService.getReports(a.b.b, a.f.b, a.b.f, a.f.f)    // dohvati reportove 
+updateReports(selfRef: any):void{
+   let a = selfRef.map.getBounds()
+   selfRef.reportService.getReports(a.b.b, a.f.b, a.b.f, a.f.f,selfRef.filter)    // dohvati reportove 
    .then(report => {                            // te obriši
      selfRef.marker.empty();                    // stare markere
      report.forEach(function(rep) {             // i dodaj nove

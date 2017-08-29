@@ -1,8 +1,8 @@
 
 import { Component } from '@angular/core';
 
-import { FilterService } from './filter-service';
-import { Cause } from './filter-class';
+import { CausesService } from './causes.service';
+import { Cause } from './causes';
 
 @Component({
     selector: 'menu',
@@ -14,10 +14,10 @@ import { Cause } from './filter-class';
 
     causes: Cause[];
 
-    constructor(private filterService: FilterService) { }
+    constructor(private causesService: CausesService) { }
 
     getCauses(): void {
-      this.filterService.getCauses().then(causes => this.causes = causes);
+      this.causesService.getCauses().then(data => this.causes = data);
     }
   }
   

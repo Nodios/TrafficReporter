@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef  } from '@angular/core';
 declare var google:any;
 
 import { ReportService } from './report.service';
+import { CommunicationService} from './communication.service';
+
 import { Report } from './report';
 import { Markers } from './marker'
 
@@ -57,12 +59,6 @@ initMap(position):void {
           center: this,
           streetViewControl: false,
           mapTypeControl: false,
-            
-          
-
-        
-
-
         });
        /* this.search = new google.maps.places.SearchBox(this.elementRef.nativeElement.children[1]);
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.elementRef.nativeElement.children[1]); */
@@ -90,6 +86,7 @@ initMap(position):void {
              selfRef.marker.create(selfRef.map,rep);
             });
         });
+      });
 
      /*   this.search.addListener('places_changed',function(){     // povezuje searchbox s mapom
            let places = selfRef.search.getPlaces();
@@ -123,10 +120,11 @@ initMap(position):void {
            // console.log(rep); 
            });
 
-      setInterval(this.updateReports,15000, this.map, this); 
-      }
-*/
-    }
+      setInterval(this.updateReports,15000, this.map, this); */
+ }
+
+
+
 updatePosition(self: any){
   navigator.geolocation.getCurrentPosition(self.setPosition.bind(self));
 }

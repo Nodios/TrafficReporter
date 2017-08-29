@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 declare var google:any;
 
-import {CommunicationService } from './communication.service';
+import { CommunicationService } from './communication.service';
 
 @Component({
     selector: 'direction',

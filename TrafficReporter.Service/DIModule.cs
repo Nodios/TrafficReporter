@@ -13,6 +13,7 @@ namespace TrafficReporter.Service
         public override void Load()
         {
             Bind<IReportService>().To<ReportService>();
+            Bind<ICauseService>().To<CauseService>();
         }
     }
 }

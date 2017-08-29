@@ -1,7 +1,7 @@
 ﻿CREATE OR REPLACE FUNCTION get_time(int)
 RETURNS time
 AS
-	'SELECT time_remaining FROM cause_time WHERE id = $1'
+	'SELECT time_remaining FROM cause_table WHERE id = $1'
 LANGUAGE SQL IMMUTABLE
 
 UPDATE trafreport

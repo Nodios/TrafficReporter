@@ -2,7 +2,7 @@
 --insert two parameters as two geo coordinates
 --it will return table which has id and distance
 --of every report in trafreport 
-CREATE OR REPLACE FUNCTION get_distances_in_range(new_longitude double precision, new_lattitude double precision, new_cause integer)
+CREATE OR REPLACE FUNCTION get_distances_from_reports_by_cause(new_longitude double precision, new_lattitude double precision, new_cause integer)
 RETURNS TABLE (
 	report_id uuid,
 	distance double precision

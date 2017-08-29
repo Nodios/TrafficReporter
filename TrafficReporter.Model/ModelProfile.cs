@@ -1,19 +1,19 @@
-﻿using Ninject.Modules;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using TrafficReporter.Model.Common;
-
 
 namespace TrafficReporter.Model
 {
-    public class DIModule : NinjectModule
+    public class ModelProfile : Profile
     {
-        public override void Load()
+        public ModelProfile()
         {
-            Bind<IReport>().To<Report>();
+            CreateMap<IReport, Report>();
+            CreateMap<ICause, Cause>();
         }
     }
 }

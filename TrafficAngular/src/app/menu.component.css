@@ -1,0 +1,10 @@
+input{
+    margin-bottom: 1em;
+}
+button{
+    float: right;
+}
+div{
+    background: rgba(127,127,127,0.2);
+    padding: 20px 10px;
+}

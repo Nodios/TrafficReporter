@@ -21,7 +21,7 @@ export class DirectionComponent{
 
     sendToMap(){   
         var self = this;
-        this.communicationService.menuHiddenState=!this.communicationService.menuHiddenState;
+        this.communicationService.directionsStateHidden=!this.communicationService.directionsStateHidden;
         let request = {
             origin: this.origin,
             destination: this.destination,

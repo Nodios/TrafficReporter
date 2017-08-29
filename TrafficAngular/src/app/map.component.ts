@@ -7,13 +7,7 @@ import { CommunicationService} from './communication.service';
 import { Report } from './report';
 import { Markers } from './marker'
 
-let PROB: Report[]=[
-    {Id:"s", Cause:1, Lattitude:45.5494748,Longitude:17.3905747,Rating:1,Direction:3,DateCreated:"11-11-2017"},
-    {Id:"d", Cause:2, Lattitude:45.5494748,Longitude:17.3005747,Rating:1,Direction:3,DateCreated:"11-11-2017"},
-    {Id:"f", Cause:3, Lattitude:45.5494748,Longitude:18.7005747,Rating:1,Direction:3,DateCreated:"11-11-2017"}
-];
-
-
+ 
 @Component({
   selector: 'map',
   templateUrl: './map.component.html',
@@ -21,7 +15,6 @@ let PROB: Report[]=[
 })
 
 export class MapComponent implements OnInit {
-Problems = PROB;      // sadrži listu problema za prikazati
   lat: number;        //  <-.
   lng: number;        //  <-+ trenutne kordinate
   marker: Markers;    //  
@@ -59,6 +52,7 @@ initMap(position):void {
           center: this,
           streetViewControl: false,
           mapTypeControl: false,
+          fullscreenControl: false,
         });
        /* this.search = new google.maps.places.SearchBox(this.elementRef.nativeElement.children[1]);
         this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.elementRef.nativeElement.children[1]); */
@@ -69,10 +63,6 @@ initMap(position):void {
 
       
         this.marker =new Markers();
-        this.Problems.forEach(problem => {
-          this.marker.create(this.map, problem);
-        });
-
 
         this.map.addListener('bounds_changed', function() {  // usmjerava searchbox da nudi lokacije bliže onima koje gledamo na mapi
           let bounds = selfRef.map.getBounds();
@@ -155,8 +145,14 @@ activateStandingMode(){
 }
 */
 
+directionToggle(){
+  this.communicationService.directionsStateHidden=!this.communicationService.directionsStateHidden;
+  this.communicationService.menuStateHidden=true;
+}
+
 menuToggle(){
-  this.communicationService.menuHiddenState=!this.communicationService.menuHiddenState;
+  this.communicationService.menuStateHidden=!this.communicationService.menuStateHidden;
+  this.communicationService.directionsStateHidden=true;
 }
 
 updateReports(map: any, selfRef: any):void{

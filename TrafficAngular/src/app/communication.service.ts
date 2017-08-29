@@ -16,5 +16,13 @@ export class CommunicationService {
     this.directions.next(data);
   }
 
-  public menuHiddenState: boolean = true;
+  public directionsStateHidden: boolean = true;
+  public menuStateHidden: boolean = true;
+
+  private filter = new Subject<number>();
+  filter$ = this.filter.asObservable();
+  setFilter(data: number){
+    this.filter.next(data);
+  }
+
   }

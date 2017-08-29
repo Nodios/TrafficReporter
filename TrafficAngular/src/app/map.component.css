@@ -16,6 +16,7 @@ input {
     z-index: 1000;
         top: 95%;
 }
+
 .selected{
     background-color: yellow;
 }
@@ -24,6 +25,14 @@ img{
     width: 50px;
     position: absolute;
     top: 0px;
-    left: 0px;
+
     background: rgba(127,127,127,0.2)
+}
+
+#direction{
+    left: 0px;
+}
+
+#settings{
+    right: 0px;
 }

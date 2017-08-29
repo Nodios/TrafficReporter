@@ -29,12 +29,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     HttpModule,
     BrowserModule,
-    RouterModule.forRoot([
-      {
-        path: 'menu',
-        component: MenuComponent                
-      }
-    ])
+    FormsModule
   ],
   providers: [ReportService,CommunicationService, CausesService],
   bootstrap: [AppComponent]

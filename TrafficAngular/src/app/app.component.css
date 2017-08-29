@@ -7,13 +7,13 @@ causes{
     top:90%;
 }
 
-map, causes, direction{
+map, causes, direction, menu{
     position: absolute;
     margin: 0px;
     width: 100%;    
 }
 
-direction{
+direction, menu{
     top: 0px;
     left: 30%;   
     width: 50%;

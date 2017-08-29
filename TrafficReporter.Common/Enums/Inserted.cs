@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TrafficReporter.Common.Enums
 {
-    public enum Cause
+    public enum Inserted
     {
-        crash, traffic, hole
+        Updated, Added
     }
 }

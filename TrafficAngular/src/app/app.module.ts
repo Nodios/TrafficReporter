@@ -7,6 +7,7 @@ import { MapComponent } from './map.component';
 import { CausesComponent} from './causes.component';
 import { MenuComponent} from './menu.component';
 
+import { DirectionComponent} from './direction.component'
 
 import { ReportService} from './report.service';
 import {CommunicationService } from './communication.service';
@@ -15,12 +16,15 @@ import { CausesService} from './causes.service';
 import { RouterModule }   from '@angular/router';
 
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
     CausesComponent,
-    MenuComponent
+    MenuComponent,
+    DirectionComponent
   ],
   imports: [
     HttpModule,

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TrafficReporter.Common.Enums;
+
 
 namespace TrafficReporter.Common.Filter
 {
@@ -13,8 +13,7 @@ namespace TrafficReporter.Common.Filter
         double LowerLeftY { get; set; }
         double UpperRightX { get; set; }
         double UpperRightY { get; set; }
-        string Cause { get; set; }
-        List<Cause> CauseCollection  { get; set; }
+        int Cause { get; set; }
         
 
     }

@@ -13,10 +13,17 @@ input {
 
 #tracking {
     position: absolute;
-    top: 800px;
+    z-index: 1000;
+        top: 95%;
 }
-#filter {
+.selected{
+    background-color: yellow;
+}
+
+img{
+    width: 50px;
     position: absolute;
-    top: 800px;
-    right: -100px;
+    top: 0px;
+    left: 0px;
+    background: rgba(127,127,127,0.2)
 }

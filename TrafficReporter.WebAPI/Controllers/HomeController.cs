@@ -39,16 +39,26 @@ namespace TrafficReporter.WebAPI.Controllers
         }
 
 
+        /// <summary>
+        /// Filters the reports.
+        /// </summary>
+        /// <param name="reportCollection">The report collection.</param>
+        /// <returns></returns>
         public ActionResult FilterReports(IEnumerable<IReport> reportCollection = null)
         {
             return View(reportCollection);
         }
 
-        public async Task<ActionResult> Create(ReportViewModel viewModel = null)
+        /// <summary>
+        /// Creates the specified view model.
+        /// </summary>
+        /// <param name="viewModel">The view model.</param>
+        /// <returns></returns>
+        public async  Task<ActionResult> Create(ReportViewModel viewModel = null)
         {
             if (ModelState.IsValid)
             {
-                await _reportService.AddReportAsync(_mapper.Map<ReportViewModel, IReport>(viewModel));
+                //await _reportService.AddReportAsync(_mapper.Map<ReportViewModel, IReport>(viewModel));
                 return Index(null);
             }
 

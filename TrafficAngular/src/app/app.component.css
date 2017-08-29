@@ -1,13 +1,25 @@
 map {
-    height: 720px; 
+    height: 90%; 
 }
 
 causes{
-    height: 80px;
-    top:720px;
+    height: 10%;
+    top:90%;
 }
 
-map, causes{
+map, causes, direction{
     position: absolute;
-    width: 480px;
+    margin: 0px;
+    width: 100%;    
 }
+
+direction{
+    top: 0px;
+    left: 30%;   
+    width: 50%;
+}
+
+causes{
+    background-color: lightcyan;
+}
+

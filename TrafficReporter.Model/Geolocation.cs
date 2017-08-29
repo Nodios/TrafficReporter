@@ -13,7 +13,7 @@ namespace TrafficReporter
             get { return Longitude; }
             set
             {
-                if (value > -180 || value < 180)
+                if (value >= -180 || value <= 180)
                 {
                     throw new ArgumentOutOfRangeException("Longitude", "Argument must be in range of -180 to 180");
                 }
@@ -25,7 +25,7 @@ namespace TrafficReporter
             get { return Latitude; }
             set
             {
-                if (value > -90 || value < 90)
+                if (value >= -90 || value <= 90)
                 {
                     throw new ArgumentOutOfRangeException("Latitude", "Argument must be in range of -90 to 90");
                 }

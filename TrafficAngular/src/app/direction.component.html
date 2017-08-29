@@ -1,0 +1,5 @@
+<div [hidden]="communicationService.menuHiddenState">
+<input [(ngModel)]="origin" placeholder="Starting point" /> <br>
+<input [(ngModel)]="destination" placeholder="Destination" /> <br>
+<button (click)="sendToMap()"> Find a way</button>
+</div>

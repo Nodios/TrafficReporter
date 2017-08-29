@@ -11,16 +11,21 @@ namespace TrafficReporter.WebAPI.ViewModels
     {
         public Guid Id { get; set; }
         [Required]
-        public Cause Cause { get; set; }
+        public int Cause { get; set; }
 
         [Required]
         public Direction Direction { get; set; }
 
         [Required]
-        public double Longitude { get; set; }
+        [Range(-180, 180,ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        public double Longitude { get; set; }        
 
         [Required]
+        [Range(-90, 90, ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public double Lattitude { get; set; }
 
+        [Required]
+        //todo make DateCreated to pass like UTC time.
+        public DateTime DateCreated { get; set; }
     }
 }

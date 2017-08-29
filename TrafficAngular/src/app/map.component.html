@@ -1,8 +1,8 @@
 <div></div>
-<input placeholder="Upišite ime mjesta">
-<button id = "tracking" (click)="trackingToggle()">Toggle tracking</button>
-<button id = "filter" (click)="getCauses()">Filter Menu</button>
-<!--
+<img src="./assets/images/menu160.png" (click)="menuToggle()"/>
+<!--  <input placeholder="Upišite ime mjesta"> -->
+<button (click)="trackingToggle()" [class.selected]="tracker">Toggle tracking </button>
+<!-- 
 <agm-map [latitude]="lat"
    [longitude]="lng" [streetViewControl]="false"
    [zoom]=10>

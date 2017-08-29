@@ -6,7 +6,7 @@ import { ReportService } from './report.service';
 import {CommunicationService } from './communication.service';
 
 
-const CAUSES: number[] = [1,2,3,4,5];
+const CAUSES: number[] = [1,2,4,8,16];
 
 @Component({
   selector: 'causes',
@@ -37,7 +37,8 @@ onSelect(cause: number){
    report.Longitude=position.coords.longitude;
    report.DateCreated= new Date().toUTCString();
    //console.log(report);
-    this.problemService.createReport(report);
+    this.problemService.createReport(report)
+    .then(data =>{ console.log(data);});
     this.communicationService.activate(true);
   }
 }

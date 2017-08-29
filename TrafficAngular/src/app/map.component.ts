@@ -25,15 +25,30 @@ Problems = PROB;      // sadrži listu problema za prikazati
   marker: Markers;    //  
   tracker: any;
  public map:any;            //  za dohvaćanje google map instance
+ public directionsDisplay: any;   // za prikazivanje rute
  public search: any;        //  za dohvaćanje google searchbox instance
  reports: Report[] = [];
 
   constructor(private elementRef: ElementRef,
-  private reportService: ReportService) { }
+  private reportService: ReportService,
+  private communicationService: CommunicationService) {
+    this.communicationService.activator$.subscribe(
+      data =>{
+        this.updateReports(this.map,this);
+      }
+    );
+
+    this.communicationService.directions$.subscribe(
+      data =>{
+      this.directionsDisplay.setDirections(data);
+      }
+    )
+   }
 
 
 initMap(position):void {
   let selfRef = this;     
+  
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
         this.map = new google.maps.Map(this.elementRef.nativeElement.children[0], {
@@ -49,8 +64,13 @@ initMap(position):void {
 
 
         });
-        this.search = new google.maps.places.SearchBox(this.elementRef.nativeElement.children[1]);
-        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.elementRef.nativeElement.children[1]);
+       /* this.search = new google.maps.places.SearchBox(this.elementRef.nativeElement.children[1]);
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(this.elementRef.nativeElement.children[1]); */
+        
+        this.directionsDisplay = new google.maps.DirectionsRenderer();
+
+        this.directionsDisplay.setMap(this.map);
+
       
         this.marker =new Markers();
         this.Problems.forEach(problem => {
@@ -60,11 +80,18 @@ initMap(position):void {
 
         this.map.addListener('bounds_changed', function() {  // usmjerava searchbox da nudi lokacije bliže onima koje gledamo na mapi
           let bounds = selfRef.map.getBounds();
-          selfRef.search.setBounds(bounds);
-          console.log(bounds.b.b, bounds.f.b, bounds.b.f, bounds.f.f);
+        //  selfRef.search.setBounds(bounds);
+ 
+
+          selfRef.reportService.getReports(bounds.b.b, bounds.f.b, bounds.b.f, bounds.f.f)    // dohvati reportove 
+          .then(report => {                     // te obriši
+            selfRef.marker.empty();             // stare markere
+            report.forEach(function(rep) {      // i dodaj nove
+             selfRef.marker.create(selfRef.map,rep);
+            });
         });
 
-        this.search.addListener('places_changed',function(){     // povezuje searchbox s mapom
+     /*   this.search.addListener('places_changed',function(){     // povezuje searchbox s mapom
            let places = selfRef.search.getPlaces();
 
           if (places.length == 0) {
@@ -86,7 +113,7 @@ initMap(position):void {
             }
           });
         selfRef.map.fitBounds(bounds);
-        });
+        });  */
          
     //     this.reportService.delete("3f1b1071-44e3-4551-870a-3d6a2d7e0534");  - dokazano radi
   /*   this.reportService.getReports()
@@ -96,12 +123,7 @@ initMap(position):void {
            // console.log(rep); 
            });
 
-         // console.log(this.reports[0]);
-          
-        });
-
-       //  
-      setInterval(this.updateReports,15000, this.map); 
+      setInterval(this.updateReports,15000, this.map, this); 
       }
 */
     }
@@ -135,9 +157,19 @@ activateStandingMode(){
 }
 */
 
-updateReports(map: any):void{
+menuToggle(){
+  this.communicationService.menuHiddenState=!this.communicationService.menuHiddenState;
+}
+
+updateReports(map: any, selfRef: any):void{
    let a = map.getBounds()
-        console.log(a.b.b, a.f.b, a.b.f, a.f.f);
+   selfRef.reportService.getReports(a.b.b, a.f.b, a.b.f, a.f.f)    // dohvati reportove 
+   .then(report => {                            // te obriši
+     selfRef.marker.empty();                    // stare markere
+     report.forEach(function(rep) {             // i dodaj nove
+      selfRef.marker.create(selfRef.map,rep);
+     });
+    });
 }
 
     ngOnInit(): void {

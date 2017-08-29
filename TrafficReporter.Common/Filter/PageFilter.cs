@@ -17,22 +17,10 @@ namespace TrafficReporter.Common.Filter
 
 
 
-        public PageFilter (int pageNumber, int pageSize)
+        public PageFilter ()
         {
-            try
-            {
-                SetPageNumberAndSize(pageNumber, pageSize);
-            }
-            catch (ArgumentException e)
-            {
-                throw e;
-            }
+           
         }
 
-        private void SetPageNumberAndSize(int pageNumber = 1, int pageSize = 0)
-        {
-            PageNumber = (pageNumber > 0) ? pageNumber : 1;
-            PageSize = (pageSize > 0 && pageSize <= DefaultPageSize) ? pageSize : DefaultPageSize;
-        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using AutoMapper;
 using Ninject.Modules;
+using TrafficReporter.Common;
 
 namespace TrafficReporter.WebAPI.App_Start
 {
@@ -23,6 +24,7 @@ namespace TrafficReporter.WebAPI.App_Start
             var config = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new WebMappingProfile());
+                cfg.AddProfile(new FilterProfile());
             });
 
             return config;

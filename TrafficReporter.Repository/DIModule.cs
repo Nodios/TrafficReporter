@@ -8,6 +8,7 @@ namespace TrafficReporter.Repository
         public override void Load()
         {
             Bind<IReportRepository>().To<ReportRepository>();
+            Bind<ICauseRepository>().To<CauseRepository>();
         }
     }
 }

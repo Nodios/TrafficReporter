@@ -43,7 +43,7 @@ namespace TrafficReporter.WebAPI.Controllers
         [HttpPost]
         public async Task<Inserted> AddReportAsync(ReportViewModel report)
         {
-            return await this._reportService.AddReportAsync(_mapper.Map<IReport>(report));
+            return await _reportService.AddReportAsync(_mapper.Map<IReport>(report));
         }
 
 

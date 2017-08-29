@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 import { Report } from './report';
 
 import { ReportService } from './report.service';
-import {CommunicationService } from './communication.service';
+import { CommunicationService } from './communication.service';
+import { CausesService } from './causes.service';
 
+import { Cause } from './causes';
 
-const CAUSES: number[] = [1,2,4,8,16];
 
 @Component({
   selector: 'causes',
@@ -15,13 +16,19 @@ const CAUSES: number[] = [1,2,4,8,16];
 })
 
 export class CausesComponent{
-causes = CAUSES;
+causes: Cause[];
 currentCause;
 
 constructor(
       private problemService: ReportService,
-      private communicationService: CommunicationService
-    ) {}
+      private communicationService: CommunicationService,
+      private causesService: CausesService, 
+    ) {
+      this.causesService.getCauses()
+      .then(data =>{   
+        this.causes = data;
+      });
+  }
 
 onSelect(cause: number){
     this.currentCause = cause;
@@ -33,12 +40,16 @@ onSelect(cause: number){
  postProblem(position){
    let report = new Report;
    report.Cause=this.currentCause;
-   report.Lattitude=position.coords.latitude+Math.random()*5;
-   report.Longitude=position.coords.longitude+Math.random()*5;
+   report.Lattitude=position.coords.latitude;
+   report.Longitude=position.coords.longitude;
    report.DateCreated= new Date().toUTCString();
    //console.log(report);
     this.problemService.createReport(report)
-    .then(data =>{ console.log(data);});
+    .then(data =>{ 
+      if(data==0){
+        alert('We found matching report nearby and updated his rating.');
+      }
+    });
     this.communicationService.activate(true);
   }
 }

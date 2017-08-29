@@ -3,9 +3,12 @@ declare var google:any;
 
 import { ReportService } from './report.service';
 import { CommunicationService} from './communication.service';
+import { CausesService } from './causes.service';
 
 import { Report } from './report';
-import { Markers } from './marker'
+import { Markers } from './marker';
+
+import { Cause } from './causes';
 
  
 @Component({
@@ -20,6 +23,7 @@ export class MapComponent implements OnInit {
   lng: number;        //  <-+ trenutne kordinate
   marker: Markers;    //  
   tracker: any;
+  causes: Cause[];    //  lista mogućih nesreća
  public map:any;            //  za dohvaćanje google map instance
  public directionsDisplay: any;   // za prikazivanje rute
  public search: any;        //  za dohvaćanje google searchbox instance
@@ -27,7 +31,8 @@ export class MapComponent implements OnInit {
 
   constructor(private elementRef: ElementRef,
   private reportService: ReportService,
-  private communicationService: CommunicationService) {
+  private communicationService: CommunicationService,
+  private causesService: CausesService) {
     this.communicationService.activator$.subscribe(
       data =>{
         setTimeout(this.updateReports,200,this);
@@ -38,14 +43,20 @@ export class MapComponent implements OnInit {
       data =>{
       this.directionsDisplay.setDirections(data);
       }
-    )
+    );
 
     this.communicationService.filter$.subscribe(
       data =>{
         this.filter = data;
       }
-    )
-   }
+    );
+
+    this.causesService.getCauses()
+    .then(data =>{   
+      this.causes = data;
+    }
+  );
+}
 
 
 initMap(position):void {
@@ -69,7 +80,7 @@ initMap(position):void {
         this.directionsDisplay.setMap(this.map);
 
       
-        this.marker =new Markers();
+        this.marker =new Markers(this.causes);
 
         this.map.addListener('bounds_changed', function() {  // usmjerava searchbox da nudi lokacije bliže onima koje gledamo na mapi
           let bounds = selfRef.map.getBounds();

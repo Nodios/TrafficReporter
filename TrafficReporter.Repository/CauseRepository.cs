@@ -31,7 +31,7 @@ namespace TrafficReporter.Repository
             {
                 await connection.OpenAsync();
 
-                using (var command = new NpgsqlCommand("SELECT id, cause_str, icon_uri FROM cause_table", connection))
+                using (var command = new NpgsqlCommand("SELECT id, cause_str, icon_uri FROM cause_table ORDER BY id ASC", connection))
                 {
                    
                     using (var reader = await command.ExecuteReaderAsync())
